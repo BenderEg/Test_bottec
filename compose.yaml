@@ -1,0 +1,46 @@
+version: '1'
+services:
+    test_task_db:
+      container_name: test_task_db
+      image: postgres:latest
+      ports:
+          - 5433:5432
+      env_file:
+          - .env
+      volumes:
+          - ./db:/docker-entrypoint-initdb.d/
+          - test_task_db:/var/lib/postgresql/data
+      networks:
+          - test_task
+      healthcheck:
+          test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+          interval: 5s
+          timeout: 5s
+          retries: 5
+
+    test_task_redis:
+        container_name: test_task_redis
+        image: redis:latest
+        ports:
+            - 6379:6379
+        env_file:
+            - .env
+        volumes:
+            - test_task_redis:/data
+        networks:
+            - test_task
+        healthcheck:
+            test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+            interval: 1s
+            timeout: 3s
+            retries: 5
+
+volumes:
+    test_task_db:
+        name: test_task_db
+    test_task_redis:
+        name: test_task_redis
+
+networks:
+    test_task:
+        name: test_task
