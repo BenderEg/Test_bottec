@@ -1,0 +1,222 @@
+2023-11-30 15:40:30,515 - DEBUG - Using selector: EpollSelector
+2023-11-30 15:40:30,917 - INFO - Start polling
+2023-11-30 15:40:30,997 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 15:40:34,679 - INFO - select pg_catalog.version()
+2023-11-30 15:40:34,679 - INFO - [raw sql] ()
+2023-11-30 15:40:34,680 - INFO - select current_schema()
+2023-11-30 15:40:34,680 - INFO - [raw sql] ()
+2023-11-30 15:40:34,681 - INFO - show standard_conforming_strings
+2023-11-30 15:40:34,681 - INFO - [raw sql] ()
+2023-11-30 15:40:34,682 - INFO - BEGIN (implicit)
+2023-11-30 15:40:34,686 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:40:34,686 - INFO - [generated in 0.00033s] (973765811,)
+2023-11-30 15:40:34,691 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:40:34,691 - INFO - [generated in 0.00036s] (973765811,)
+2023-11-30 15:40:34,693 - INFO - COMMIT
+2023-11-30 15:40:35,013 - INFO - Update id=954857056 is handled. Duration 368 ms by bot id=5835203251
+2023-11-30 15:40:36,373 - INFO - Update id=954857057 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 15:41:05,542 - WARNING - Received SIGINT signal
+2023-11-30 15:41:05,542 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 15:41:05,542 - INFO - Polling stopped
+2023-11-30 15:41:07,630 - DEBUG - Using selector: EpollSelector
+2023-11-30 15:41:07,964 - INFO - Start polling
+2023-11-30 15:41:08,038 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 15:41:08,723 - INFO - select pg_catalog.version()
+2023-11-30 15:41:08,723 - INFO - [raw sql] ()
+2023-11-30 15:41:08,725 - INFO - select current_schema()
+2023-11-30 15:41:08,725 - INFO - [raw sql] ()
+2023-11-30 15:41:08,727 - INFO - show standard_conforming_strings
+2023-11-30 15:41:08,727 - INFO - [raw sql] ()
+2023-11-30 15:41:08,730 - INFO - BEGIN (implicit)
+2023-11-30 15:41:08,735 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:41:08,735 - INFO - [generated in 0.00074s] (973765811,)
+2023-11-30 15:41:08,741 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:41:08,741 - INFO - [generated in 0.00031s] (973765811,)
+2023-11-30 15:41:08,743 - INFO - COMMIT
+2023-11-30 15:41:09,187 - INFO - Update id=954857058 is handled. Duration 493 ms by bot id=5835203251
+2023-11-30 15:41:10,376 - ERROR - type object 'AsyncSession' has no attribute 'set'
+2023-11-30 15:41:10,500 - INFO - Update id=954857059 is handled. Duration 124 ms by bot id=5835203251
+2023-11-30 15:42:41,095 - WARNING - Received SIGINT signal
+2023-11-30 15:42:41,096 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 15:42:41,096 - INFO - Polling stopped
+2023-11-30 15:42:42,940 - DEBUG - Using selector: EpollSelector
+2023-11-30 15:42:43,286 - INFO - Start polling
+2023-11-30 15:42:43,363 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 15:42:46,937 - INFO - select pg_catalog.version()
+2023-11-30 15:42:46,938 - INFO - [raw sql] ()
+2023-11-30 15:42:46,939 - INFO - select current_schema()
+2023-11-30 15:42:46,939 - INFO - [raw sql] ()
+2023-11-30 15:42:46,939 - INFO - show standard_conforming_strings
+2023-11-30 15:42:46,939 - INFO - [raw sql] ()
+2023-11-30 15:42:46,940 - INFO - BEGIN (implicit)
+2023-11-30 15:42:46,943 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:42:46,943 - INFO - [generated in 0.00034s] (973765811,)
+2023-11-30 15:42:46,946 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:42:46,947 - INFO - [generated in 0.00022s] (973765811,)
+2023-11-30 15:42:46,948 - INFO - COMMIT
+2023-11-30 15:42:47,396 - INFO - Update id=954857060 is handled. Duration 484 ms by bot id=5835203251
+2023-11-30 15:42:48,244 - ERROR - BasicKeyCommands.set() missing 1 required positional argument: 'value'
+2023-11-30 15:42:48,386 - INFO - Update id=954857061 is handled. Duration 142 ms by bot id=5835203251
+2023-11-30 15:43:38,738 - WARNING - Received SIGINT signal
+2023-11-30 15:43:38,738 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 15:43:38,738 - INFO - Polling stopped
+2023-11-30 15:43:40,760 - DEBUG - Using selector: EpollSelector
+2023-11-30 15:43:41,104 - INFO - Start polling
+2023-11-30 15:43:41,179 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 15:43:41,381 - INFO - select pg_catalog.version()
+2023-11-30 15:43:41,381 - INFO - [raw sql] ()
+2023-11-30 15:43:41,383 - INFO - select current_schema()
+2023-11-30 15:43:41,383 - INFO - [raw sql] ()
+2023-11-30 15:43:41,383 - INFO - show standard_conforming_strings
+2023-11-30 15:43:41,383 - INFO - [raw sql] ()
+2023-11-30 15:43:41,385 - INFO - BEGIN (implicit)
+2023-11-30 15:43:41,390 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:43:41,390 - INFO - [generated in 0.00020s] (973765811,)
+2023-11-30 15:43:41,393 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 15:43:41,393 - INFO - [generated in 0.00037s] (973765811,)
+2023-11-30 15:43:41,396 - INFO - COMMIT
+2023-11-30 15:43:41,669 - INFO - Update id=954857062 is handled. Duration 331 ms by bot id=5835203251
+2023-11-30 15:43:42,737 - INFO - Update id=954857063 is handled. Duration 1 ms by bot id=5835203251
+2023-11-30 16:01:34,777 - WARNING - Received SIGINT signal
+2023-11-30 16:01:34,778 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:01:34,778 - INFO - Polling stopped
+2023-11-30 16:01:36,849 - DEBUG - Using selector: EpollSelector
+2023-11-30 16:01:40,371 - INFO - Start polling
+2023-11-30 16:01:40,445 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:01:40,578 - INFO - select pg_catalog.version()
+2023-11-30 16:01:40,578 - INFO - [raw sql] ()
+2023-11-30 16:01:40,579 - INFO - select current_schema()
+2023-11-30 16:01:40,579 - INFO - [raw sql] ()
+2023-11-30 16:01:40,580 - INFO - show standard_conforming_strings
+2023-11-30 16:01:40,580 - INFO - [raw sql] ()
+2023-11-30 16:01:40,581 - INFO - BEGIN (implicit)
+2023-11-30 16:01:40,584 - INFO - SELECT content.category.id, content.category.name 
+FROM content.category
+2023-11-30 16:01:40,585 - INFO - [generated in 0.00040s] ()
+2023-11-30 16:01:40,587 - INFO - ROLLBACK
+2023-11-30 16:01:40,588 - INFO - Update id=954857064 is handled. Duration 34 ms by bot id=5835203251
+2023-11-30 16:03:10,476 - WARNING - Received SIGINT signal
+2023-11-30 16:03:10,477 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:03:10,477 - INFO - Polling stopped
+2023-11-30 16:03:12,474 - DEBUG - Using selector: EpollSelector
+2023-11-30 16:03:14,446 - INFO - Start polling
+2023-11-30 16:03:14,529 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:03:15,251 - INFO - select pg_catalog.version()
+2023-11-30 16:03:15,251 - INFO - [raw sql] ()
+2023-11-30 16:03:15,253 - INFO - select current_schema()
+2023-11-30 16:03:15,253 - INFO - [raw sql] ()
+2023-11-30 16:03:15,254 - INFO - show standard_conforming_strings
+2023-11-30 16:03:15,254 - INFO - [raw sql] ()
+2023-11-30 16:03:15,255 - INFO - BEGIN (implicit)
+2023-11-30 16:03:15,258 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 16:03:15,258 - INFO - [generated in 0.00032s] (973765811,)
+2023-11-30 16:03:15,261 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 16:03:15,261 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 16:03:15,262 - INFO - COMMIT
+2023-11-30 16:03:20,115 - INFO - Update id=954857065 is handled. Duration 4889 ms by bot id=5835203251
+2023-11-30 16:03:20,811 - INFO - BEGIN (implicit)
+2023-11-30 16:03:20,812 - INFO - SELECT content.category.id, content.category.name 
+FROM content.category
+2023-11-30 16:03:20,812 - INFO - [generated in 0.00013s] ()
+2023-11-30 16:03:20,813 - INFO - ROLLBACK
+2023-11-30 16:03:20,814 - INFO - Update id=954857066 is handled. Duration 4 ms by bot id=5835203251
+2023-11-30 16:05:53,853 - WARNING - Received SIGINT signal
+2023-11-30 16:05:53,854 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:05:53,854 - INFO - Polling stopped
+2023-11-30 16:05:55,985 - DEBUG - Using selector: EpollSelector
+2023-11-30 16:05:56,977 - INFO - Start polling
+2023-11-30 16:05:57,053 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:06:02,195 - INFO - select pg_catalog.version()
+2023-11-30 16:06:02,195 - INFO - [raw sql] ()
+2023-11-30 16:06:02,196 - INFO - select current_schema()
+2023-11-30 16:06:02,196 - INFO - [raw sql] ()
+2023-11-30 16:06:02,197 - INFO - show standard_conforming_strings
+2023-11-30 16:06:02,197 - INFO - [raw sql] ()
+2023-11-30 16:06:02,198 - INFO - BEGIN (implicit)
+2023-11-30 16:06:02,201 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 16:06:02,201 - INFO - [generated in 0.00061s] (973765811,)
+2023-11-30 16:06:02,206 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 16:06:02,206 - INFO - [generated in 0.00030s] (973765811,)
+2023-11-30 16:06:02,208 - INFO - COMMIT
+2023-11-30 16:06:04,441 - INFO - Update id=954857068 is handled. Duration 2270 ms by bot id=5835203251
+2023-11-30 16:06:07,404 - INFO - BEGIN (implicit)
+2023-11-30 16:06:07,405 - INFO - SELECT content.category.id, content.category.name 
+FROM content.category
+2023-11-30 16:06:07,405 - INFO - [generated in 0.00016s] ()
+2023-11-30 16:06:07,407 - INFO - ROLLBACK
+2023-11-30 16:06:07,407 - INFO - Update id=954857069 is handled. Duration 4 ms by bot id=5835203251
+2023-11-30 16:28:45,610 - WARNING - Received SIGINT signal
+2023-11-30 16:28:45,611 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:28:45,611 - INFO - Polling stopped
+2023-11-30 16:35:35,905 - DEBUG - Using selector: EpollSelector
+2023-11-30 16:35:38,823 - INFO - Start polling
+2023-11-30 16:35:39,231 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:35:44,870 - INFO - select pg_catalog.version()
+2023-11-30 16:35:44,870 - INFO - [raw sql] ()
+2023-11-30 16:35:44,871 - INFO - select current_schema()
+2023-11-30 16:35:44,871 - INFO - [raw sql] ()
+2023-11-30 16:35:44,872 - INFO - show standard_conforming_strings
+2023-11-30 16:35:44,872 - INFO - [raw sql] ()
+2023-11-30 16:35:44,872 - INFO - BEGIN (implicit)
+2023-11-30 16:35:44,875 - INFO - SELECT content.category.id, content.category.name 
+FROM content.category
+2023-11-30 16:35:44,875 - INFO - [generated in 0.00012s] ()
+2023-11-30 16:35:44,876 - ERROR - Paginator.paginate() takes 2 positional arguments but 3 were given
+2023-11-30 16:35:47,661 - INFO - ROLLBACK
+2023-11-30 16:35:47,662 - INFO - Update id=954857070 is handled. Duration 2827 ms by bot id=5835203251
+2023-11-30 16:36:30,878 - WARNING - Received SIGINT signal
+2023-11-30 16:36:30,878 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:36:30,879 - INFO - Polling stopped
+2023-11-30 16:36:33,806 - DEBUG - Using selector: EpollSelector
+2023-11-30 16:36:37,327 - INFO - Start polling
+2023-11-30 16:36:37,405 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:36:38,272 - INFO - select pg_catalog.version()
+2023-11-30 16:36:38,272 - INFO - [raw sql] ()
+2023-11-30 16:36:38,274 - INFO - select current_schema()
+2023-11-30 16:36:38,275 - INFO - [raw sql] ()
+2023-11-30 16:36:38,276 - INFO - show standard_conforming_strings
+2023-11-30 16:36:38,276 - INFO - [raw sql] ()
+2023-11-30 16:36:38,277 - INFO - BEGIN (implicit)
+2023-11-30 16:36:38,280 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 16:36:38,280 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 16:36:38,285 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 16:36:38,285 - INFO - [generated in 0.00040s] (973765811,)
+2023-11-30 16:36:38,287 - INFO - COMMIT
+2023-11-30 16:36:42,027 - INFO - Update id=954857072 is handled. Duration 3786 ms by bot id=5835203251
+2023-11-30 16:36:43,177 - INFO - BEGIN (implicit)
+2023-11-30 16:36:43,178 - INFO - SELECT content.category.id, content.category.name 
+FROM content.category
+2023-11-30 16:36:43,178 - INFO - [generated in 0.00015s] ()
+2023-11-30 16:36:43,180 - INFO - ROLLBACK
+2023-11-30 16:36:43,181 - INFO - Update id=954857073 is handled. Duration 5 ms by bot id=5835203251
+2023-11-30 16:36:56,320 - WARNING - Received SIGINT signal
+2023-11-30 16:36:56,321 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 16:36:56,321 - INFO - Polling stopped
