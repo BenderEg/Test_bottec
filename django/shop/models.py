@@ -1,7 +1,9 @@
 from uuid import uuid4
 
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 
 class TimeStampedMixin(models.Model):
 
@@ -86,8 +88,16 @@ class Messages(UUIDMixin, TimeStampedMixin):
         DRAFT = 0, _('draft')
         PUBLISHED = 1, _('published')
 
+    class Target(models.TextChoices):
+
+        GROUP = 'group', _('group')
+        CHANNEL = 'channel', _('channel')
+
     header = models.CharField(_('header'), max_length=255)
     description = models.TextField(_('description'))
+    target = models.CharField(_('target'), max_length=10,
+                              choices=Target.choices,
+                              default=Target.GROUP)
     status = models.BooleanField(_('status'), choices=Status.choices,
                                  blank=False, default=Status.DRAFT)
 
@@ -123,4 +133,44 @@ class Client(TimeStampedMixin):
         verbose_name_plural = _('client')
 
     def __str__(self) -> str:
-        return self.name
+        return f'{self.name}_{self.id}'
+
+
+class Order(UUIDMixin):
+
+    class Status(models.IntegerChoices):
+        OPEN = 0, _('open')
+        CLOSED = 1, _('closed')
+
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    client_id = models.ForeignKey(Client, on_delete=models.PROTECT, editable=False)
+    items = models.ManyToManyField(Item, through='OrderItems', editable=False)
+    status = models.BooleanField(_('status'), choices=Status.choices,
+                                 blank=False, default=Status.OPEN)
+
+    class Meta:
+
+        db_table = "content\".\"order"
+        verbose_name = _('order')
+        verbose_name_plural = _('order')
+
+    def __str__(self) -> str:
+        return str(self.id)
+
+
+class OrderItems(UUIDMixin, TimeStampedMixin):
+
+    order_id = models.ForeignKey(Order, on_delete=models.PROTECT)
+    item_id = models.ForeignKey(Item, on_delete=models.PROTECT)
+    quantity = models.IntegerField(_('quantity'),
+                                   validators=[MinValueValidator(1)],
+                                   editable=False)
+
+    class Meta:
+
+        db_table = "content\".\"order_item"
+        verbose_name = _('order_item')
+        verbose_name_plural = _('order_item')
+
+    def __str__(self) -> str:
+        return str(self.id)

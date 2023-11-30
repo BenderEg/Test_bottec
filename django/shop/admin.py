@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Item, Category, SubCategory, Messages, Client
+from .models import Item, Category, SubCategory, Messages, Client, \
+    OrderItems, Order
 
 
 @admin.register(Item)
@@ -43,4 +44,26 @@ class ClientAdmin(admin.ModelAdmin):
     list_display = ('name', 'group_subscription', 'channel_subscription')
     list_display_links = ('name',)
     ordering = ['group_subscription', 'channel_subscription']
+    list_per_page = 20
+
+
+class OrderItemsInline(admin.TabularInline):
+    model = OrderItems
+    fields = ['item_id', 'quantity']
+    readonly_fields = ['item_id', 'quantity']
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'client_id', 'status', 'created')
+    ordering = ['created']
+    list_per_page = 20
+
+    inlines = (OrderItemsInline,)
+
+
+@admin.register(OrderItems)
+class OrderItemsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'item_id', 'created')
+    ordering = ['created']
     list_per_page = 20
