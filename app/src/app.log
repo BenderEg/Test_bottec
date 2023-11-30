@@ -220,3 +220,2179 @@ FROM content.category
 2023-11-30 16:36:56,320 - WARNING - Received SIGINT signal
 2023-11-30 16:36:56,321 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
 2023-11-30 16:36:56,321 - INFO - Polling stopped
+2023-11-30 18:54:54,463 - DEBUG - Using selector: EpollSelector
+2023-11-30 18:54:54,839 - INFO - Start polling
+2023-11-30 18:54:54,917 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 18:55:08,469 - INFO - Update id=954857074 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 18:55:08,469 - ERROR - Cause exception while process update id=954857074 by bot id=5835203251
+ConnectionError: Error 111 connecting to localhost:6379. 111.
+Traceback (most recent call last):
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/redis/asyncio/connection.py", line 243, in connect
+    await self.retry.call_with_retry(
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/redis/asyncio/connection.py", line 650, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 1085, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 1069, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 973, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/usr/lib/python3.11/asyncio/selector_events.py", line 634, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/selector_events.py", line 674, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 308, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 40, in __call__
+    data.update({"state": context, "raw_state": await context.get_state()})
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/aiogram/fsm/context.py", line 15, in get_state
+    return await self.storage.get_state(key=self.key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/aiogram/fsm/storage/redis.py", line 163, in get_state
+    value = await self.redis.get(redis_key)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/redis/asyncio/client.py", line 601, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/redis/asyncio/connection.py", line 1040, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/redis/asyncio/connection.py", line 1062, in ensure_connection
+    await connection.connect()
+  File "/home/egor/Documents/Python/Test_tasks/Test_bottec/.venv/lib/python3.11/site-packages/redis/asyncio/connection.py", line 251, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. 111.
+2023-11-30 18:55:44,499 - INFO - select pg_catalog.version()
+2023-11-30 18:55:44,499 - INFO - [raw sql] ()
+2023-11-30 18:55:44,501 - INFO - select current_schema()
+2023-11-30 18:55:44,501 - INFO - [raw sql] ()
+2023-11-30 18:55:44,502 - INFO - show standard_conforming_strings
+2023-11-30 18:55:44,502 - INFO - [raw sql] ()
+2023-11-30 18:55:44,503 - INFO - BEGIN (implicit)
+2023-11-30 18:55:44,505 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 18:55:44,506 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 18:55:44,511 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 18:55:44,511 - INFO - [generated in 0.00022s] (973765811,)
+2023-11-30 18:55:44,512 - INFO - COMMIT
+2023-11-30 18:55:44,813 - INFO - Update id=954857075 is handled. Duration 363 ms by bot id=5835203251
+2023-11-30 18:55:45,981 - ERROR - ProductService.get_pages_from_cache() missing 1 required positional argument: 'client'
+2023-11-30 18:55:46,110 - INFO - Update id=954857076 is handled. Duration 130 ms by bot id=5835203251
+2023-11-30 18:56:26,759 - WARNING - Received SIGINT signal
+2023-11-30 18:56:26,760 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 18:56:26,760 - INFO - Polling stopped
+2023-11-30 18:56:28,671 - DEBUG - Using selector: EpollSelector
+2023-11-30 18:56:34,515 - INFO - Start polling
+2023-11-30 18:56:35,922 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 18:56:43,120 - INFO - select pg_catalog.version()
+2023-11-30 18:56:43,120 - INFO - [raw sql] ()
+2023-11-30 18:56:43,121 - INFO - select current_schema()
+2023-11-30 18:56:43,121 - INFO - [raw sql] ()
+2023-11-30 18:56:43,122 - INFO - show standard_conforming_strings
+2023-11-30 18:56:43,122 - INFO - [raw sql] ()
+2023-11-30 18:56:43,123 - INFO - BEGIN (implicit)
+2023-11-30 18:56:43,126 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 18:56:43,126 - INFO - [generated in 0.00026s] (973765811,)
+2023-11-30 18:56:43,129 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 18:56:43,129 - INFO - [generated in 0.00018s] (973765811,)
+2023-11-30 18:56:43,129 - INFO - COMMIT
+2023-11-30 18:56:48,090 - INFO - Update id=954857079 is handled. Duration 4996 ms by bot id=5835203251
+2023-11-30 18:56:49,708 - INFO - BEGIN (implicit)
+2023-11-30 18:56:49,710 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 18:56:49,710 - INFO - [generated in 0.00021s] ()
+2023-11-30 18:56:49,724 - ERROR - Invalid input of type: 'dict'. Convert to a bytes, string, int or float first.
+2023-11-30 18:56:49,839 - INFO - ROLLBACK
+2023-11-30 18:56:49,840 - INFO - Update id=954857080 is handled. Duration 134 ms by bot id=5835203251
+2023-11-30 18:58:18,951 - WARNING - Received SIGINT signal
+2023-11-30 18:58:18,951 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 18:58:18,952 - INFO - Polling stopped
+2023-11-30 18:58:21,341 - DEBUG - Using selector: EpollSelector
+2023-11-30 18:58:22,000 - INFO - Start polling
+2023-11-30 18:58:23,026 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 18:58:24,146 - INFO - select pg_catalog.version()
+2023-11-30 18:58:24,147 - INFO - [raw sql] ()
+2023-11-30 18:58:24,148 - INFO - select current_schema()
+2023-11-30 18:58:24,148 - INFO - [raw sql] ()
+2023-11-30 18:58:24,148 - INFO - show standard_conforming_strings
+2023-11-30 18:58:24,148 - INFO - [raw sql] ()
+2023-11-30 18:58:24,149 - INFO - BEGIN (implicit)
+2023-11-30 18:58:24,152 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 18:58:24,152 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 18:58:24,154 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 18:58:24,154 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 18:58:24,155 - INFO - COMMIT
+2023-11-30 18:58:26,181 - INFO - Update id=954857081 is handled. Duration 2056 ms by bot id=5835203251
+2023-11-30 18:58:27,644 - INFO - BEGIN (implicit)
+2023-11-30 18:58:27,645 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 18:58:27,645 - INFO - [generated in 0.00016s] ()
+2023-11-30 18:58:27,729 - ERROR - Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-11-30 18:58:27,842 - INFO - ROLLBACK
+2023-11-30 18:58:27,844 - INFO - Update id=954857082 is handled. Duration 200 ms by bot id=5835203251
+2023-11-30 19:04:08,920 - WARNING - Received SIGINT signal
+2023-11-30 19:04:08,921 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:04:08,921 - INFO - Polling stopped
+2023-11-30 19:04:11,149 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:04:11,628 - INFO - Start polling
+2023-11-30 19:04:11,985 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:04:13,948 - INFO - select pg_catalog.version()
+2023-11-30 19:04:13,948 - INFO - [raw sql] ()
+2023-11-30 19:04:13,949 - INFO - select current_schema()
+2023-11-30 19:04:13,949 - INFO - [raw sql] ()
+2023-11-30 19:04:13,949 - INFO - show standard_conforming_strings
+2023-11-30 19:04:13,949 - INFO - [raw sql] ()
+2023-11-30 19:04:13,950 - INFO - BEGIN (implicit)
+2023-11-30 19:04:13,952 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:04:13,952 - INFO - [generated in 0.00013s] (973765811,)
+2023-11-30 19:04:13,954 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:04:13,954 - INFO - [generated in 0.00013s] (973765811,)
+2023-11-30 19:04:13,955 - INFO - COMMIT
+2023-11-30 19:04:22,263 - INFO - Update id=954857083 is handled. Duration 8338 ms by bot id=5835203251
+2023-11-30 19:04:22,833 - ERROR - 'NoneType' object is not iterable
+2023-11-30 19:04:23,015 - INFO - Update id=954857084 is handled. Duration 184 ms by bot id=5835203251
+2023-11-30 19:04:58,971 - WARNING - Received SIGINT signal
+2023-11-30 19:04:58,972 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:04:58,973 - INFO - Polling stopped
+2023-11-30 19:05:00,875 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:05:03,850 - INFO - Start polling
+2023-11-30 19:05:04,502 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:05:05,746 - INFO - select pg_catalog.version()
+2023-11-30 19:05:05,746 - INFO - [raw sql] ()
+2023-11-30 19:05:05,747 - INFO - select current_schema()
+2023-11-30 19:05:05,747 - INFO - [raw sql] ()
+2023-11-30 19:05:05,748 - INFO - show standard_conforming_strings
+2023-11-30 19:05:05,748 - INFO - [raw sql] ()
+2023-11-30 19:05:05,749 - INFO - BEGIN (implicit)
+2023-11-30 19:05:05,751 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:05:05,751 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 19:05:05,754 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:05:05,754 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 19:05:05,755 - INFO - COMMIT
+2023-11-30 19:05:06,358 - INFO - Update id=954857086 is handled. Duration 634 ms by bot id=5835203251
+2023-11-30 19:05:07,594 - ERROR - Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-11-30 19:05:07,794 - INFO - Update id=954857087 is handled. Duration 290 ms by bot id=5835203251
+2023-11-30 19:06:15,018 - WARNING - Received SIGINT signal
+2023-11-30 19:06:15,019 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:06:15,019 - INFO - Polling stopped
+2023-11-30 19:06:17,058 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:06:18,412 - INFO - Start polling
+2023-11-30 19:06:18,489 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:06:23,483 - INFO - select pg_catalog.version()
+2023-11-30 19:06:23,483 - INFO - [raw sql] ()
+2023-11-30 19:06:23,484 - INFO - select current_schema()
+2023-11-30 19:06:23,484 - INFO - [raw sql] ()
+2023-11-30 19:06:23,484 - INFO - show standard_conforming_strings
+2023-11-30 19:06:23,484 - INFO - [raw sql] ()
+2023-11-30 19:06:23,485 - INFO - BEGIN (implicit)
+2023-11-30 19:06:23,488 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:06:23,488 - INFO - [generated in 0.00012s] (973765811,)
+2023-11-30 19:06:23,490 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:06:23,490 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 19:06:23,491 - INFO - COMMIT
+2023-11-30 19:06:28,595 - INFO - Update id=954857089 is handled. Duration 5133 ms by bot id=5835203251
+2023-11-30 19:06:28,678 - ERROR - Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-11-30 19:06:29,156 - INFO - Update id=954857090 is handled. Duration 712 ms by bot id=5835203251
+2023-11-30 19:08:03,906 - WARNING - Received SIGINT signal
+2023-11-30 19:08:03,907 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:08:03,907 - INFO - Polling stopped
+2023-11-30 19:08:06,008 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:08:06,384 - INFO - Start polling
+2023-11-30 19:08:06,463 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:08:07,352 - INFO - select pg_catalog.version()
+2023-11-30 19:08:07,353 - INFO - [raw sql] ()
+2023-11-30 19:08:07,354 - INFO - select current_schema()
+2023-11-30 19:08:07,354 - INFO - [raw sql] ()
+2023-11-30 19:08:07,354 - INFO - show standard_conforming_strings
+2023-11-30 19:08:07,354 - INFO - [raw sql] ()
+2023-11-30 19:08:07,355 - INFO - BEGIN (implicit)
+2023-11-30 19:08:07,358 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:08:07,358 - INFO - [generated in 0.00013s] (973765811,)
+2023-11-30 19:08:07,360 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:08:07,360 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 19:08:07,361 - INFO - COMMIT
+2023-11-30 19:08:12,171 - INFO - Update id=954857091 is handled. Duration 4841 ms by bot id=5835203251
+2023-11-30 19:08:13,371 - ERROR - Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-11-30 19:08:13,670 - INFO - Update id=954857092 is handled. Duration 381 ms by bot id=5835203251
+2023-11-30 19:08:42,575 - WARNING - Received SIGINT signal
+2023-11-30 19:08:42,576 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:08:42,576 - INFO - Polling stopped
+2023-11-30 19:08:44,531 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:08:44,944 - INFO - Start polling
+2023-11-30 19:08:45,022 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:08:47,298 - INFO - select pg_catalog.version()
+2023-11-30 19:08:47,298 - INFO - [raw sql] ()
+2023-11-30 19:08:47,299 - INFO - select current_schema()
+2023-11-30 19:08:47,299 - INFO - [raw sql] ()
+2023-11-30 19:08:47,299 - INFO - show standard_conforming_strings
+2023-11-30 19:08:47,299 - INFO - [raw sql] ()
+2023-11-30 19:08:47,300 - INFO - BEGIN (implicit)
+2023-11-30 19:08:47,302 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:08:47,303 - INFO - [generated in 0.00013s] (973765811,)
+2023-11-30 19:08:47,305 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:08:47,305 - INFO - [generated in 0.00018s] (973765811,)
+2023-11-30 19:08:47,306 - INFO - COMMIT
+2023-11-30 19:08:47,624 - INFO - Update id=954857093 is handled. Duration 348 ms by bot id=5835203251
+2023-11-30 19:08:49,087 - INFO - Update id=954857094 is handled. Duration 181 ms by bot id=5835203251
+2023-11-30 19:09:32,104 - WARNING - Received SIGINT signal
+2023-11-30 19:09:32,105 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:09:32,105 - INFO - Polling stopped
+2023-11-30 19:09:34,188 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:09:36,879 - INFO - Start polling
+2023-11-30 19:09:36,958 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:09:40,433 - INFO - select pg_catalog.version()
+2023-11-30 19:09:40,434 - INFO - [raw sql] ()
+2023-11-30 19:09:40,434 - INFO - select current_schema()
+2023-11-30 19:09:40,435 - INFO - [raw sql] ()
+2023-11-30 19:09:40,435 - INFO - show standard_conforming_strings
+2023-11-30 19:09:40,435 - INFO - [raw sql] ()
+2023-11-30 19:09:40,436 - INFO - BEGIN (implicit)
+2023-11-30 19:09:40,438 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:09:40,438 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 19:09:40,441 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:09:40,441 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 19:09:40,442 - INFO - COMMIT
+2023-11-30 19:09:45,164 - INFO - Update id=954857095 is handled. Duration 4752 ms by bot id=5835203251
+2023-11-30 19:09:46,437 - ERROR - Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-11-30 19:09:46,659 - INFO - Update id=954857096 is handled. Duration 306 ms by bot id=5835203251
+2023-11-30 19:10:55,226 - WARNING - Received SIGINT signal
+2023-11-30 19:10:55,227 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:10:55,227 - INFO - Polling stopped
+2023-11-30 19:10:57,790 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:11:03,587 - INFO - Start polling
+2023-11-30 19:11:03,940 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:11:16,574 - INFO - select pg_catalog.version()
+2023-11-30 19:11:16,574 - INFO - [raw sql] ()
+2023-11-30 19:11:16,575 - INFO - select current_schema()
+2023-11-30 19:11:16,575 - INFO - [raw sql] ()
+2023-11-30 19:11:16,576 - INFO - show standard_conforming_strings
+2023-11-30 19:11:16,576 - INFO - [raw sql] ()
+2023-11-30 19:11:16,577 - INFO - BEGIN (implicit)
+2023-11-30 19:11:16,579 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:11:16,580 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 19:11:16,582 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:11:16,582 - INFO - [generated in 0.00015s] (973765811,)
+2023-11-30 19:11:16,583 - INFO - COMMIT
+2023-11-30 19:11:20,676 - INFO - Update id=954857098 is handled. Duration 4127 ms by bot id=5835203251
+2023-11-30 19:11:28,695 - INFO - Update id=954857099 is handled. Duration 188 ms by bot id=5835203251
+2023-11-30 19:12:24,763 - WARNING - Received SIGINT signal
+2023-11-30 19:12:24,764 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:12:24,764 - INFO - Polling stopped
+2023-11-30 19:12:26,727 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:12:36,497 - INFO - Start polling
+2023-11-30 19:12:36,579 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:12:39,730 - INFO - select pg_catalog.version()
+2023-11-30 19:12:39,730 - INFO - [raw sql] ()
+2023-11-30 19:12:39,731 - INFO - select current_schema()
+2023-11-30 19:12:39,731 - INFO - [raw sql] ()
+2023-11-30 19:12:39,732 - INFO - show standard_conforming_strings
+2023-11-30 19:12:39,732 - INFO - [raw sql] ()
+2023-11-30 19:12:39,733 - INFO - BEGIN (implicit)
+2023-11-30 19:12:39,735 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:12:39,735 - INFO - [generated in 0.00012s] (973765811,)
+2023-11-30 19:12:39,737 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:12:39,737 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 19:12:39,738 - INFO - COMMIT
+2023-11-30 19:12:41,144 - INFO - Update id=954857100 is handled. Duration 1435 ms by bot id=5835203251
+2023-11-30 19:12:43,369 - INFO - Update id=954857101 is handled. Duration 120 ms by bot id=5835203251
+2023-11-30 19:13:39,016 - WARNING - Received SIGINT signal
+2023-11-30 19:13:39,017 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:13:39,018 - INFO - Polling stopped
+2023-11-30 19:13:40,909 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:13:41,316 - INFO - Start polling
+2023-11-30 19:13:41,394 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:13:45,692 - INFO - select pg_catalog.version()
+2023-11-30 19:13:45,692 - INFO - [raw sql] ()
+2023-11-30 19:13:45,693 - INFO - select current_schema()
+2023-11-30 19:13:45,693 - INFO - [raw sql] ()
+2023-11-30 19:13:45,694 - INFO - show standard_conforming_strings
+2023-11-30 19:13:45,694 - INFO - [raw sql] ()
+2023-11-30 19:13:45,695 - INFO - BEGIN (implicit)
+2023-11-30 19:13:45,697 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:13:45,697 - INFO - [generated in 0.00014s] (973765811,)
+2023-11-30 19:13:45,700 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:13:45,700 - INFO - [generated in 0.00022s] (973765811,)
+2023-11-30 19:13:45,701 - INFO - COMMIT
+2023-11-30 19:13:47,233 - INFO - Update id=954857102 is handled. Duration 1584 ms by bot id=5835203251
+2023-11-30 19:13:48,493 - ERROR - Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-11-30 19:13:48,657 - INFO - Update id=954857103 is handled. Duration 268 ms by bot id=5835203251
+2023-11-30 19:15:08,219 - WARNING - Received SIGINT signal
+2023-11-30 19:15:08,220 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:15:08,220 - INFO - Polling stopped
+2023-11-30 19:15:10,069 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:15:11,461 - INFO - Start polling
+2023-11-30 19:15:11,874 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:15:15,595 - INFO - select pg_catalog.version()
+2023-11-30 19:15:15,595 - INFO - [raw sql] ()
+2023-11-30 19:15:15,596 - INFO - select current_schema()
+2023-11-30 19:15:15,596 - INFO - [raw sql] ()
+2023-11-30 19:15:15,596 - INFO - show standard_conforming_strings
+2023-11-30 19:15:15,596 - INFO - [raw sql] ()
+2023-11-30 19:15:15,597 - INFO - BEGIN (implicit)
+2023-11-30 19:15:15,600 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:15:15,600 - INFO - [generated in 0.00015s] (973765811,)
+2023-11-30 19:15:15,603 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:15:15,604 - INFO - [generated in 0.00031s] (973765811,)
+2023-11-30 19:15:15,605 - INFO - COMMIT
+2023-11-30 19:15:19,093 - INFO - Update id=954857104 is handled. Duration 3523 ms by bot id=5835203251
+2023-11-30 19:15:20,490 - INFO - Update id=954857105 is handled. Duration 186 ms by bot id=5835203251
+2023-11-30 19:15:23,371 - INFO - Update id=954857106 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:15:26,078 - INFO - Update id=954857107 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:15:27,910 - INFO - Update id=954857108 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:15:31,416 - INFO - Update id=954857109 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:15:31,706 - INFO - Update id=954857110 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:16:26,007 - WARNING - Received SIGINT signal
+2023-11-30 19:16:26,008 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:16:26,008 - INFO - Polling stopped
+2023-11-30 19:16:28,035 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:16:31,790 - INFO - Start polling
+2023-11-30 19:16:31,883 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:16:34,837 - INFO - select pg_catalog.version()
+2023-11-30 19:16:34,837 - INFO - [raw sql] ()
+2023-11-30 19:16:34,838 - INFO - select current_schema()
+2023-11-30 19:16:34,838 - INFO - [raw sql] ()
+2023-11-30 19:16:34,839 - INFO - show standard_conforming_strings
+2023-11-30 19:16:34,839 - INFO - [raw sql] ()
+2023-11-30 19:16:34,840 - INFO - BEGIN (implicit)
+2023-11-30 19:16:34,843 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:16:34,843 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 19:16:34,846 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:16:34,846 - INFO - [generated in 0.00020s] (973765811,)
+2023-11-30 19:16:34,847 - INFO - COMMIT
+2023-11-30 19:16:36,256 - INFO - Update id=954857112 is handled. Duration 1443 ms by bot id=5835203251
+2023-11-30 19:16:38,732 - INFO - Update id=954857113 is handled. Duration 123 ms by bot id=5835203251
+2023-11-30 19:17:08,296 - INFO - BEGIN (implicit)
+2023-11-30 19:17:08,297 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:17:08,297 - INFO - [cached since 33.45s ago] (973765811,)
+2023-11-30 19:17:08,298 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:17:08,299 - INFO - [cached since 33.45s ago] (973765811,)
+2023-11-30 19:17:08,299 - INFO - COMMIT
+2023-11-30 19:17:10,753 - INFO - Update id=954857114 is handled. Duration 2457 ms by bot id=5835203251
+2023-11-30 19:17:12,316 - ERROR - the JSON object must be str, bytes or bytearray, not NoneType
+2023-11-30 19:17:12,479 - INFO - Update id=954857115 is handled. Duration 164 ms by bot id=5835203251
+2023-11-30 19:18:10,434 - WARNING - Received SIGINT signal
+2023-11-30 19:18:10,434 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:18:10,435 - INFO - Polling stopped
+2023-11-30 19:18:12,449 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:18:13,362 - INFO - Start polling
+2023-11-30 19:18:13,438 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:18:14,384 - INFO - select pg_catalog.version()
+2023-11-30 19:18:14,384 - INFO - [raw sql] ()
+2023-11-30 19:18:14,385 - INFO - select current_schema()
+2023-11-30 19:18:14,385 - INFO - [raw sql] ()
+2023-11-30 19:18:14,386 - INFO - show standard_conforming_strings
+2023-11-30 19:18:14,386 - INFO - [raw sql] ()
+2023-11-30 19:18:14,387 - INFO - BEGIN (implicit)
+2023-11-30 19:18:14,389 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:18:14,390 - INFO - [generated in 0.00025s] (973765811,)
+2023-11-30 19:18:14,392 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:18:14,393 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 19:18:14,394 - INFO - COMMIT
+2023-11-30 19:18:14,770 - INFO - Update id=954857116 is handled. Duration 410 ms by bot id=5835203251
+2023-11-30 19:18:15,905 - INFO - BEGIN (implicit)
+2023-11-30 19:18:15,906 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 19:18:15,907 - INFO - [generated in 0.00048s] ()
+2023-11-30 19:18:15,908 - ERROR - 'NoneType' object is not iterable
+2023-11-30 19:18:16,133 - INFO - ROLLBACK
+2023-11-30 19:18:16,134 - INFO - Update id=954857117 is handled. Duration 230 ms by bot id=5835203251
+2023-11-30 19:19:11,021 - WARNING - Received SIGINT signal
+2023-11-30 19:19:11,022 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:19:11,022 - INFO - Polling stopped
+2023-11-30 19:19:12,973 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:19:13,764 - INFO - Start polling
+2023-11-30 19:19:13,842 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:19:16,131 - INFO - select pg_catalog.version()
+2023-11-30 19:19:16,131 - INFO - [raw sql] ()
+2023-11-30 19:19:16,132 - INFO - select current_schema()
+2023-11-30 19:19:16,132 - INFO - [raw sql] ()
+2023-11-30 19:19:16,133 - INFO - show standard_conforming_strings
+2023-11-30 19:19:16,133 - INFO - [raw sql] ()
+2023-11-30 19:19:16,134 - INFO - BEGIN (implicit)
+2023-11-30 19:19:16,136 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:19:16,137 - INFO - [generated in 0.00018s] (973765811,)
+2023-11-30 19:19:16,139 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:19:16,139 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 19:19:16,140 - INFO - COMMIT
+2023-11-30 19:19:22,694 - INFO - Update id=954857118 is handled. Duration 6591 ms by bot id=5835203251
+2023-11-30 19:19:24,205 - INFO - Update id=954857119 is handled. Duration 133 ms by bot id=5835203251
+2023-11-30 19:27:18,128 - WARNING - Received SIGINT signal
+2023-11-30 19:27:18,129 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:27:18,129 - INFO - Polling stopped
+2023-11-30 19:27:20,160 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:27:21,530 - INFO - Start polling
+2023-11-30 19:27:22,186 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:27:32,000 - INFO - select pg_catalog.version()
+2023-11-30 19:27:32,000 - INFO - [raw sql] ()
+2023-11-30 19:27:32,001 - INFO - select current_schema()
+2023-11-30 19:27:32,001 - INFO - [raw sql] ()
+2023-11-30 19:27:32,002 - INFO - show standard_conforming_strings
+2023-11-30 19:27:32,002 - INFO - [raw sql] ()
+2023-11-30 19:27:32,003 - INFO - BEGIN (implicit)
+2023-11-30 19:27:32,006 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:27:32,006 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 19:27:32,009 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:27:32,009 - INFO - [generated in 0.00020s] (973765811,)
+2023-11-30 19:27:32,010 - INFO - COMMIT
+2023-11-30 19:27:32,679 - INFO - Update id=954857120 is handled. Duration 708 ms by bot id=5835203251
+2023-11-30 19:27:34,025 - ERROR - int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+2023-11-30 19:27:34,197 - INFO - Update id=954857121 is handled. Duration 175 ms by bot id=5835203251
+2023-11-30 19:29:20,242 - WARNING - Received SIGINT signal
+2023-11-30 19:29:20,243 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:29:20,243 - INFO - Polling stopped
+2023-11-30 19:29:22,116 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:29:25,826 - INFO - Start polling
+2023-11-30 19:29:26,816 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:29:27,308 - INFO - select pg_catalog.version()
+2023-11-30 19:29:27,308 - INFO - [raw sql] ()
+2023-11-30 19:29:27,309 - INFO - select current_schema()
+2023-11-30 19:29:27,309 - INFO - [raw sql] ()
+2023-11-30 19:29:27,310 - INFO - show standard_conforming_strings
+2023-11-30 19:29:27,311 - INFO - [raw sql] ()
+2023-11-30 19:29:27,312 - INFO - BEGIN (implicit)
+2023-11-30 19:29:27,315 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:29:27,315 - INFO - [generated in 0.00023s] (973765811,)
+2023-11-30 19:29:27,319 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:29:27,319 - INFO - [generated in 0.00065s] (973765811,)
+2023-11-30 19:29:27,323 - INFO - COMMIT
+2023-11-30 19:29:28,627 - INFO - Update id=954857122 is handled. Duration 1354 ms by bot id=5835203251
+2023-11-30 19:29:29,920 - INFO - Update id=954857123 is handled. Duration 123 ms by bot id=5835203251
+2023-11-30 19:29:34,600 - INFO - Update id=954857124 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:29:35,679 - INFO - Update id=954857125 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:29:36,207 - INFO - Update id=954857126 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:37:32,945 - WARNING - Received SIGINT signal
+2023-11-30 19:37:32,946 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:37:32,946 - INFO - Polling stopped
+2023-11-30 19:37:52,939 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:37:54,429 - INFO - Start polling
+2023-11-30 19:37:54,506 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:37:57,277 - INFO - select pg_catalog.version()
+2023-11-30 19:37:57,277 - INFO - [raw sql] ()
+2023-11-30 19:37:57,278 - INFO - select current_schema()
+2023-11-30 19:37:57,278 - INFO - [raw sql] ()
+2023-11-30 19:37:57,279 - INFO - show standard_conforming_strings
+2023-11-30 19:37:57,279 - INFO - [raw sql] ()
+2023-11-30 19:37:57,280 - INFO - BEGIN (implicit)
+2023-11-30 19:37:57,283 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:37:57,283 - INFO - [generated in 0.00032s] (973765811,)
+2023-11-30 19:37:57,287 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:37:57,287 - INFO - [generated in 0.00032s] (973765811,)
+2023-11-30 19:37:57,289 - INFO - COMMIT
+2023-11-30 19:37:57,554 - INFO - Update id=954857127 is handled. Duration 301 ms by bot id=5835203251
+2023-11-30 19:37:58,971 - INFO - Update id=954857128 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:38:25,646 - INFO - Update id=954857129 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:38:28,924 - INFO - BEGIN (implicit)
+2023-11-30 19:38:28,925 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:38:28,925 - INFO - [cached since 31.64s ago] (973765811,)
+2023-11-30 19:38:28,927 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:38:28,927 - INFO - [cached since 31.64s ago] (973765811,)
+2023-11-30 19:38:28,928 - INFO - COMMIT
+2023-11-30 19:38:29,202 - INFO - Update id=954857130 is handled. Duration 278 ms by bot id=5835203251
+2023-11-30 19:38:30,339 - INFO - Update id=954857131 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:39:13,427 - INFO - Update id=954857132 is handled. Duration 275 ms by bot id=5835203251
+2023-11-30 19:54:10,483 - INFO - Update id=954857133 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:56:34,185 - WARNING - Received SIGINT signal
+2023-11-30 19:56:34,186 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:56:34,186 - INFO - Polling stopped
+2023-11-30 19:56:36,580 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:56:36,975 - INFO - Start polling
+2023-11-30 19:56:37,050 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:56:40,245 - INFO - select pg_catalog.version()
+2023-11-30 19:56:40,245 - INFO - [raw sql] ()
+2023-11-30 19:56:40,246 - INFO - select current_schema()
+2023-11-30 19:56:40,246 - INFO - [raw sql] ()
+2023-11-30 19:56:40,247 - INFO - show standard_conforming_strings
+2023-11-30 19:56:40,247 - INFO - [raw sql] ()
+2023-11-30 19:56:40,249 - INFO - BEGIN (implicit)
+2023-11-30 19:56:40,253 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:56:40,254 - INFO - [generated in 0.00034s] (973765811,)
+2023-11-30 19:56:40,259 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:56:40,259 - INFO - [generated in 0.00053s] (973765811,)
+2023-11-30 19:56:40,261 - INFO - COMMIT
+2023-11-30 19:56:40,542 - INFO - Update id=954857134 is handled. Duration 322 ms by bot id=5835203251
+2023-11-30 19:56:41,535 - INFO - Update id=954857135 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:57:10,948 - ERROR - '>' not supported between instances of 'str' and 'int'
+2023-11-30 19:57:11,226 - INFO - Update id=954857136 is handled. Duration 280 ms by bot id=5835203251
+2023-11-30 19:58:07,356 - WARNING - Received SIGINT signal
+2023-11-30 19:58:07,357 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:58:07,357 - INFO - Polling stopped
+2023-11-30 19:58:09,512 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:58:09,937 - INFO - Start polling
+2023-11-30 19:58:10,013 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:58:11,467 - INFO - select pg_catalog.version()
+2023-11-30 19:58:11,467 - INFO - [raw sql] ()
+2023-11-30 19:58:11,468 - INFO - select current_schema()
+2023-11-30 19:58:11,468 - INFO - [raw sql] ()
+2023-11-30 19:58:11,469 - INFO - show standard_conforming_strings
+2023-11-30 19:58:11,469 - INFO - [raw sql] ()
+2023-11-30 19:58:11,471 - INFO - BEGIN (implicit)
+2023-11-30 19:58:11,476 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:58:11,476 - INFO - [generated in 0.00037s] (973765811,)
+2023-11-30 19:58:11,480 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:58:11,480 - INFO - [generated in 0.00043s] (973765811,)
+2023-11-30 19:58:11,483 - INFO - COMMIT
+2023-11-30 19:58:11,748 - INFO - Update id=954857137 is handled. Duration 307 ms by bot id=5835203251
+2023-11-30 19:58:13,388 - INFO - Update id=954857138 is handled. Duration 128 ms by bot id=5835203251
+2023-11-30 19:58:15,430 - INFO - Update id=954857139 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:58:41,676 - ERROR - Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2023-11-30 19:58:41,801 - INFO - Update id=954857140 is handled. Duration 386 ms by bot id=5835203251
+2023-11-30 19:59:27,043 - WARNING - Received SIGINT signal
+2023-11-30 19:59:27,043 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:59:27,043 - INFO - Polling stopped
+2023-11-30 19:59:29,260 - DEBUG - Using selector: EpollSelector
+2023-11-30 19:59:29,624 - INFO - Start polling
+2023-11-30 19:59:29,727 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 19:59:32,130 - INFO - select pg_catalog.version()
+2023-11-30 19:59:32,130 - INFO - [raw sql] ()
+2023-11-30 19:59:32,131 - INFO - select current_schema()
+2023-11-30 19:59:32,131 - INFO - [raw sql] ()
+2023-11-30 19:59:32,132 - INFO - show standard_conforming_strings
+2023-11-30 19:59:32,132 - INFO - [raw sql] ()
+2023-11-30 19:59:32,134 - INFO - BEGIN (implicit)
+2023-11-30 19:59:32,137 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:59:32,138 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 19:59:32,140 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 19:59:32,140 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 19:59:32,141 - INFO - COMMIT
+2023-11-30 19:59:32,412 - INFO - Update id=954857141 is handled. Duration 310 ms by bot id=5835203251
+2023-11-30 19:59:33,559 - INFO - Update id=954857142 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 19:59:54,318 - INFO - Update id=954857143 is handled. Duration 284 ms by bot id=5835203251
+2023-11-30 19:59:56,800 - ERROR - Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2023-11-30 19:59:57,087 - INFO - Update id=954857144 is handled. Duration 591 ms by bot id=5835203251
+2023-11-30 20:04:08,412 - WARNING - Received SIGINT signal
+2023-11-30 20:04:08,412 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:04:08,413 - INFO - Polling stopped
+2023-11-30 20:04:11,831 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:04:12,257 - INFO - Start polling
+2023-11-30 20:04:12,392 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:04:20,074 - INFO - select pg_catalog.version()
+2023-11-30 20:04:20,074 - INFO - [raw sql] ()
+2023-11-30 20:04:20,075 - INFO - select current_schema()
+2023-11-30 20:04:20,075 - INFO - [raw sql] ()
+2023-11-30 20:04:20,076 - INFO - show standard_conforming_strings
+2023-11-30 20:04:20,076 - INFO - [raw sql] ()
+2023-11-30 20:04:20,077 - INFO - BEGIN (implicit)
+2023-11-30 20:04:20,080 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:04:20,080 - INFO - [generated in 0.00028s] (973765811,)
+2023-11-30 20:04:20,083 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:04:20,083 - INFO - [generated in 0.00022s] (973765811,)
+2023-11-30 20:04:20,085 - INFO - COMMIT
+2023-11-30 20:04:20,591 - INFO - Update id=954857145 is handled. Duration 547 ms by bot id=5835203251
+2023-11-30 20:04:21,740 - ERROR - 'tuple' object has no attribute 'as_markup'
+2023-11-30 20:04:21,930 - INFO - Update id=954857146 is handled. Duration 191 ms by bot id=5835203251
+2023-11-30 20:05:05,411 - WARNING - Received SIGINT signal
+2023-11-30 20:05:05,411 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:05:05,412 - INFO - Polling stopped
+2023-11-30 20:05:07,689 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:05:08,087 - INFO - Start polling
+2023-11-30 20:05:08,166 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:05:08,651 - INFO - select pg_catalog.version()
+2023-11-30 20:05:08,651 - INFO - [raw sql] ()
+2023-11-30 20:05:08,653 - INFO - select current_schema()
+2023-11-30 20:05:08,653 - INFO - [raw sql] ()
+2023-11-30 20:05:08,654 - INFO - show standard_conforming_strings
+2023-11-30 20:05:08,654 - INFO - [raw sql] ()
+2023-11-30 20:05:08,655 - INFO - BEGIN (implicit)
+2023-11-30 20:05:08,657 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:05:08,657 - INFO - [generated in 0.00023s] (973765811,)
+2023-11-30 20:05:08,662 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:05:08,662 - INFO - [generated in 0.00025s] (973765811,)
+2023-11-30 20:05:08,663 - INFO - COMMIT
+2023-11-30 20:05:08,971 - INFO - Update id=954857147 is handled. Duration 343 ms by bot id=5835203251
+2023-11-30 20:05:10,435 - INFO - Update id=954857148 is handled. Duration 188 ms by bot id=5835203251
+2023-11-30 20:05:11,809 - ERROR - Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2023-11-30 20:05:12,000 - INFO - Update id=954857149 is handled. Duration 355 ms by bot id=5835203251
+2023-11-30 20:16:32,712 - WARNING - Received SIGINT signal
+2023-11-30 20:16:32,713 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:16:32,713 - INFO - Polling stopped
+2023-11-30 20:16:34,731 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:16:35,078 - INFO - Start polling
+2023-11-30 20:16:35,160 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:16:39,162 - INFO - select pg_catalog.version()
+2023-11-30 20:16:39,162 - INFO - [raw sql] ()
+2023-11-30 20:16:39,164 - INFO - select current_schema()
+2023-11-30 20:16:39,164 - INFO - [raw sql] ()
+2023-11-30 20:16:39,167 - INFO - show standard_conforming_strings
+2023-11-30 20:16:39,167 - INFO - [raw sql] ()
+2023-11-30 20:16:39,168 - INFO - BEGIN (implicit)
+2023-11-30 20:16:39,171 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:16:39,172 - INFO - [generated in 0.00020s] (973765811,)
+2023-11-30 20:16:39,175 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:16:39,175 - INFO - [generated in 0.00027s] (973765811,)
+2023-11-30 20:16:39,177 - INFO - COMMIT
+2023-11-30 20:16:39,474 - INFO - Update id=954857150 is handled. Duration 340 ms by bot id=5835203251
+2023-11-30 20:16:49,567 - INFO - Update id=954857151 is handled. Duration 129 ms by bot id=5835203251
+2023-11-30 20:16:50,898 - INFO - Update id=954857152 is handled. Duration 129 ms by bot id=5835203251
+2023-11-30 20:16:56,299 - ERROR - Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2023-11-30 20:16:56,463 - INFO - Update id=954857153 is handled. Duration 391 ms by bot id=5835203251
+2023-11-30 20:18:10,145 - WARNING - Received SIGINT signal
+2023-11-30 20:18:10,146 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:18:10,146 - INFO - Polling stopped
+2023-11-30 20:18:12,019 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:18:12,439 - INFO - Start polling
+2023-11-30 20:18:12,514 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:18:17,245 - INFO - select pg_catalog.version()
+2023-11-30 20:18:17,245 - INFO - [raw sql] ()
+2023-11-30 20:18:17,246 - INFO - select current_schema()
+2023-11-30 20:18:17,246 - INFO - [raw sql] ()
+2023-11-30 20:18:17,247 - INFO - show standard_conforming_strings
+2023-11-30 20:18:17,247 - INFO - [raw sql] ()
+2023-11-30 20:18:17,248 - INFO - BEGIN (implicit)
+2023-11-30 20:18:17,253 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:18:17,253 - INFO - [generated in 0.00064s] (973765811,)
+2023-11-30 20:18:17,256 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:18:17,257 - INFO - [generated in 0.00024s] (973765811,)
+2023-11-30 20:18:17,258 - INFO - COMMIT
+2023-11-30 20:18:17,568 - INFO - Update id=954857154 is handled. Duration 349 ms by bot id=5835203251
+2023-11-30 20:18:18,405 - INFO - BEGIN (implicit)
+2023-11-30 20:18:18,406 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 20:18:18,406 - INFO - [generated in 0.00018s] ()
+2023-11-30 20:18:18,408 - ERROR - 'NoneType' object is not iterable
+2023-11-30 20:18:18,551 - INFO - ROLLBACK
+2023-11-30 20:18:18,551 - INFO - Update id=954857155 is handled. Duration 147 ms by bot id=5835203251
+2023-11-30 20:20:20,034 - INFO - BEGIN (implicit)
+2023-11-30 20:20:20,034 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:20:20,034 - INFO - [cached since 122.8s ago] (973765811,)
+2023-11-30 20:20:20,036 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:20:20,036 - INFO - [cached since 122.8s ago] (973765811,)
+2023-11-30 20:20:20,036 - INFO - COMMIT
+2023-11-30 20:20:20,411 - INFO - Update id=954857156 is handled. Duration 378 ms by bot id=5835203251
+2023-11-30 20:20:21,663 - INFO - Update id=954857157 is handled. Duration 225 ms by bot id=5835203251
+2023-11-30 20:20:23,153 - INFO - Update id=954857158 is handled. Duration 219 ms by bot id=5835203251
+2023-11-30 20:22:03,727 - WARNING - Received SIGINT signal
+2023-11-30 20:22:03,728 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:22:03,728 - INFO - Polling stopped
+2023-11-30 20:22:06,019 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:22:06,473 - INFO - Start polling
+2023-11-30 20:22:06,548 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:22:15,161 - INFO - select pg_catalog.version()
+2023-11-30 20:22:15,161 - INFO - [raw sql] ()
+2023-11-30 20:22:15,163 - INFO - select current_schema()
+2023-11-30 20:22:15,163 - INFO - [raw sql] ()
+2023-11-30 20:22:15,163 - INFO - show standard_conforming_strings
+2023-11-30 20:22:15,163 - INFO - [raw sql] ()
+2023-11-30 20:22:15,164 - INFO - BEGIN (implicit)
+2023-11-30 20:22:15,167 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:22:15,167 - INFO - [generated in 0.00043s] (973765811,)
+2023-11-30 20:22:15,173 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:22:15,173 - INFO - [generated in 0.00031s] (973765811,)
+2023-11-30 20:22:15,174 - INFO - COMMIT
+2023-11-30 20:22:15,477 - INFO - Update id=954857159 is handled. Duration 343 ms by bot id=5835203251
+2023-11-30 20:22:16,754 - INFO - Update id=954857160 is handled. Duration 124 ms by bot id=5835203251
+2023-11-30 20:22:18,073 - INFO - Update id=954857161 is handled. Duration 128 ms by bot id=5835203251
+2023-11-30 20:23:17,157 - INFO - BEGIN (implicit)
+2023-11-30 20:23:17,157 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:23:17,157 - INFO - [cached since 61.99s ago] (973765811,)
+2023-11-30 20:23:17,159 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:23:17,159 - INFO - [cached since 61.99s ago] (973765811,)
+2023-11-30 20:23:17,160 - INFO - COMMIT
+2023-11-30 20:23:17,450 - INFO - Update id=954857162 is handled. Duration 294 ms by bot id=5835203251
+2023-11-30 20:23:18,429 - INFO - BEGIN (implicit)
+2023-11-30 20:23:18,430 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 20:23:18,430 - INFO - [generated in 0.00020s] ()
+2023-11-30 20:23:18,433 - ERROR - 'NoneType' object is not iterable
+2023-11-30 20:23:18,554 - INFO - ROLLBACK
+2023-11-30 20:23:18,555 - INFO - Update id=954857163 is handled. Duration 127 ms by bot id=5835203251
+2023-11-30 20:35:35,460 - WARNING - Received SIGINT signal
+2023-11-30 20:35:35,461 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:35:35,461 - INFO - Polling stopped
+2023-11-30 20:35:38,447 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:35:38,851 - INFO - Start polling
+2023-11-30 20:35:38,931 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:36:46,403 - INFO - select pg_catalog.version()
+2023-11-30 20:36:46,404 - INFO - [raw sql] ()
+2023-11-30 20:36:46,406 - INFO - select current_schema()
+2023-11-30 20:36:46,406 - INFO - [raw sql] ()
+2023-11-30 20:36:46,407 - INFO - show standard_conforming_strings
+2023-11-30 20:36:46,407 - INFO - [raw sql] ()
+2023-11-30 20:36:46,409 - INFO - BEGIN (implicit)
+2023-11-30 20:36:46,413 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:36:46,414 - INFO - [generated in 0.00037s] (973765811,)
+2023-11-30 20:36:46,421 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:36:46,421 - INFO - [generated in 0.00042s] (973765811,)
+2023-11-30 20:36:46,422 - INFO - COMMIT
+2023-11-30 20:36:46,712 - INFO - Update id=954857164 is handled. Duration 344 ms by bot id=5835203251
+2023-11-30 20:36:48,011 - INFO - BEGIN (implicit)
+2023-11-30 20:36:48,012 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 20:36:48,012 - INFO - [generated in 0.00014s] ()
+2023-11-30 20:36:48,014 - ERROR - 'NoneType' object is not iterable
+2023-11-30 20:36:48,139 - INFO - ROLLBACK
+2023-11-30 20:36:48,141 - INFO - Update id=954857165 is handled. Duration 131 ms by bot id=5835203251
+2023-11-30 20:38:38,525 - WARNING - Received SIGINT signal
+2023-11-30 20:38:38,526 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:38:38,526 - INFO - Polling stopped
+2023-11-30 20:38:40,627 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:38:40,991 - INFO - Start polling
+2023-11-30 20:38:41,070 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:38:50,736 - INFO - select pg_catalog.version()
+2023-11-30 20:38:50,737 - INFO - [raw sql] ()
+2023-11-30 20:38:50,739 - INFO - select current_schema()
+2023-11-30 20:38:50,739 - INFO - [raw sql] ()
+2023-11-30 20:38:50,740 - INFO - show standard_conforming_strings
+2023-11-30 20:38:50,741 - INFO - [raw sql] ()
+2023-11-30 20:38:50,742 - INFO - BEGIN (implicit)
+2023-11-30 20:38:50,747 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:38:50,747 - INFO - [generated in 0.00031s] (973765811,)
+2023-11-30 20:38:50,754 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:38:50,754 - INFO - [generated in 0.00036s] (973765811,)
+2023-11-30 20:38:50,756 - INFO - COMMIT
+2023-11-30 20:38:51,222 - INFO - Update id=954857166 is handled. Duration 511 ms by bot id=5835203251
+2023-11-30 20:38:52,235 - INFO - BEGIN (implicit)
+2023-11-30 20:38:52,235 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 20:38:52,235 - INFO - [generated in 0.00016s] ()
+2023-11-30 20:38:52,238 - ERROR - 'NoneType' object is not iterable
+2023-11-30 20:38:52,375 - INFO - ROLLBACK
+2023-11-30 20:38:52,376 - INFO - Update id=954857167 is handled. Duration 142 ms by bot id=5835203251
+2023-11-30 20:40:22,455 - WARNING - Received SIGINT signal
+2023-11-30 20:40:22,456 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:40:22,456 - INFO - Polling stopped
+2023-11-30 20:40:24,384 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:40:24,785 - INFO - Start polling
+2023-11-30 20:40:24,860 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:40:36,617 - INFO - select pg_catalog.version()
+2023-11-30 20:40:36,617 - INFO - [raw sql] ()
+2023-11-30 20:40:36,619 - INFO - select current_schema()
+2023-11-30 20:40:36,619 - INFO - [raw sql] ()
+2023-11-30 20:40:36,620 - INFO - show standard_conforming_strings
+2023-11-30 20:40:36,620 - INFO - [raw sql] ()
+2023-11-30 20:40:36,621 - INFO - BEGIN (implicit)
+2023-11-30 20:40:36,624 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:40:36,624 - INFO - [generated in 0.00042s] (973765811,)
+2023-11-30 20:40:36,627 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:40:36,627 - INFO - [generated in 0.00016s] (973765811,)
+2023-11-30 20:40:36,627 - INFO - COMMIT
+2023-11-30 20:40:36,993 - INFO - Update id=954857168 is handled. Duration 401 ms by bot id=5835203251
+2023-11-30 20:40:38,222 - INFO - BEGIN (implicit)
+2023-11-30 20:40:38,223 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 20:40:38,223 - INFO - [generated in 0.00016s] ()
+2023-11-30 20:40:38,542 - INFO - ROLLBACK
+2023-11-30 20:40:38,543 - INFO - Update id=954857169 is handled. Duration 322 ms by bot id=5835203251
+2023-11-30 20:40:40,081 - INFO - Update id=954857170 is handled. Duration 138 ms by bot id=5835203251
+2023-11-30 20:40:42,643 - INFO - Update id=954857171 is handled. Duration 179 ms by bot id=5835203251
+2023-11-30 20:40:44,364 - INFO - Update id=954857172 is handled. Duration 257 ms by bot id=5835203251
+2023-11-30 20:40:45,849 - INFO - Update id=954857173 is handled. Duration 231 ms by bot id=5835203251
+2023-11-30 20:40:47,486 - INFO - Update id=954857174 is handled. Duration 123 ms by bot id=5835203251
+2023-11-30 20:40:48,924 - INFO - Update id=954857175 is handled. Duration 156 ms by bot id=5835203251
+2023-11-30 20:40:50,531 - INFO - Update id=954857176 is handled. Duration 139 ms by bot id=5835203251
+2023-11-30 20:40:51,596 - INFO - Update id=954857177 is handled. Duration 113 ms by bot id=5835203251
+2023-11-30 20:40:52,555 - INFO - Update id=954857178 is handled. Duration 128 ms by bot id=5835203251
+2023-11-30 20:40:53,260 - INFO - Update id=954857179 is handled. Duration 152 ms by bot id=5835203251
+2023-11-30 20:41:22,122 - WARNING - Received SIGINT signal
+2023-11-30 20:41:22,122 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:41:22,122 - INFO - Polling stopped
+2023-11-30 20:41:24,114 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:41:24,629 - INFO - Start polling
+2023-11-30 20:41:24,709 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:41:30,686 - INFO - select pg_catalog.version()
+2023-11-30 20:41:30,686 - INFO - [raw sql] ()
+2023-11-30 20:41:30,687 - INFO - select current_schema()
+2023-11-30 20:41:30,687 - INFO - [raw sql] ()
+2023-11-30 20:41:30,688 - INFO - show standard_conforming_strings
+2023-11-30 20:41:30,689 - INFO - [raw sql] ()
+2023-11-30 20:41:30,689 - INFO - BEGIN (implicit)
+2023-11-30 20:41:30,692 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:41:30,692 - INFO - [generated in 0.00023s] (973765811,)
+2023-11-30 20:41:30,696 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:41:30,696 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 20:41:30,697 - INFO - COMMIT
+2023-11-30 20:41:31,275 - INFO - Update id=954857180 is handled. Duration 615 ms by bot id=5835203251
+2023-11-30 20:41:32,030 - INFO - Update id=954857181 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 20:41:51,141 - INFO - Update id=954857182 is handled. Duration 309 ms by bot id=5835203251
+2023-11-30 20:41:52,658 - INFO - Update id=954857183 is handled. Duration 115 ms by bot id=5835203251
+2023-11-30 20:41:53,706 - INFO - Update id=954857184 is handled. Duration 112 ms by bot id=5835203251
+2023-11-30 20:41:54,654 - INFO - Update id=954857185 is handled. Duration 114 ms by bot id=5835203251
+2023-11-30 20:41:55,783 - INFO - Update id=954857186 is handled. Duration 148 ms by bot id=5835203251
+2023-11-30 20:42:08,708 - INFO - Update id=954857187 is handled. Duration 145 ms by bot id=5835203251
+2023-11-30 20:42:12,082 - INFO - Update id=954857188 is handled. Duration 134 ms by bot id=5835203251
+2023-11-30 20:43:59,849 - WARNING - Received SIGINT signal
+2023-11-30 20:43:59,849 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:43:59,850 - INFO - Polling stopped
+2023-11-30 20:44:01,841 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:44:02,492 - INFO - Start polling
+2023-11-30 20:44:02,578 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:44:05,114 - INFO - select pg_catalog.version()
+2023-11-30 20:44:05,114 - INFO - [raw sql] ()
+2023-11-30 20:44:05,115 - INFO - select current_schema()
+2023-11-30 20:44:05,115 - INFO - [raw sql] ()
+2023-11-30 20:44:05,116 - INFO - show standard_conforming_strings
+2023-11-30 20:44:05,116 - INFO - [raw sql] ()
+2023-11-30 20:44:05,117 - INFO - BEGIN (implicit)
+2023-11-30 20:44:05,119 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:44:05,119 - INFO - [generated in 0.00021s] (973765811,)
+2023-11-30 20:44:05,122 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:44:05,122 - INFO - [generated in 0.00050s] (973765811,)
+2023-11-30 20:44:05,123 - INFO - COMMIT
+2023-11-30 20:44:05,390 - INFO - Update id=954857189 is handled. Duration 299 ms by bot id=5835203251
+2023-11-30 20:44:06,508 - INFO - Update id=954857190 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 20:44:22,774 - INFO - Update id=954857191 is handled. Duration 292 ms by bot id=5835203251
+2023-11-30 20:44:24,529 - INFO - Update id=954857192 is handled. Duration 233 ms by bot id=5835203251
+2023-11-30 20:44:25,825 - INFO - Update id=954857193 is handled. Duration 151 ms by bot id=5835203251
+2023-11-30 20:44:27,396 - INFO - Update id=954857194 is handled. Duration 118 ms by bot id=5835203251
+2023-11-30 20:44:28,386 - INFO - Update id=954857195 is handled. Duration 103 ms by bot id=5835203251
+2023-11-30 20:44:29,176 - INFO - Update id=954857196 is handled. Duration 139 ms by bot id=5835203251
+2023-11-30 20:44:30,861 - INFO - Update id=954857197 is handled. Duration 146 ms by bot id=5835203251
+2023-11-30 20:44:31,431 - INFO - Update id=954857198 is handled. Duration 144 ms by bot id=5835203251
+2023-11-30 20:44:56,106 - WARNING - Received SIGINT signal
+2023-11-30 20:44:56,107 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:44:56,107 - INFO - Polling stopped
+2023-11-30 20:44:57,951 - DEBUG - Using selector: EpollSelector
+2023-11-30 20:44:58,336 - INFO - Start polling
+2023-11-30 20:44:58,414 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 20:45:01,712 - INFO - select pg_catalog.version()
+2023-11-30 20:45:01,712 - INFO - [raw sql] ()
+2023-11-30 20:45:01,713 - INFO - select current_schema()
+2023-11-30 20:45:01,713 - INFO - [raw sql] ()
+2023-11-30 20:45:01,714 - INFO - show standard_conforming_strings
+2023-11-30 20:45:01,714 - INFO - [raw sql] ()
+2023-11-30 20:45:01,715 - INFO - BEGIN (implicit)
+2023-11-30 20:45:01,718 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:45:01,718 - INFO - [generated in 0.00025s] (973765811,)
+2023-11-30 20:45:01,723 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 20:45:01,724 - INFO - [generated in 0.00029s] (973765811,)
+2023-11-30 20:45:01,725 - INFO - COMMIT
+2023-11-30 20:45:01,996 - INFO - Update id=954857199 is handled. Duration 311 ms by bot id=5835203251
+2023-11-30 20:45:03,157 - INFO - Update id=954857200 is handled. Duration 122 ms by bot id=5835203251
+2023-11-30 20:45:09,822 - INFO - Update id=954857201 is handled. Duration 153 ms by bot id=5835203251
+2023-11-30 20:45:10,509 - INFO - Update id=954857202 is handled. Duration 113 ms by bot id=5835203251
+2023-11-30 20:45:11,047 - INFO - Update id=954857203 is handled. Duration 113 ms by bot id=5835203251
+2023-11-30 20:45:11,915 - INFO - Update id=954857204 is handled. Duration 119 ms by bot id=5835203251
+2023-11-30 20:45:12,389 - INFO - Update id=954857205 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 20:45:16,618 - INFO - Update id=954857206 is handled. Duration 170 ms by bot id=5835203251
+2023-11-30 20:45:17,303 - INFO - Update id=954857207 is handled. Duration 150 ms by bot id=5835203251
+2023-11-30 20:45:18,087 - INFO - Update id=954857208 is handled. Duration 126 ms by bot id=5835203251
+2023-11-30 20:45:19,240 - INFO - Update id=954857209 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 20:45:21,877 - INFO - Update id=954857210 is handled. Duration 277 ms by bot id=5835203251
+2023-11-30 20:45:23,426 - INFO - Update id=954857211 is handled. Duration 157 ms by bot id=5835203251
+2023-11-30 20:45:24,335 - INFO - Update id=954857212 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 20:45:25,047 - INFO - Update id=954857213 is handled. Duration 202 ms by bot id=5835203251
+2023-11-30 20:45:26,029 - INFO - Update id=954857214 is handled. Duration 159 ms by bot id=5835203251
+2023-11-30 20:45:27,050 - INFO - Update id=954857215 is handled. Duration 157 ms by bot id=5835203251
+2023-11-30 20:45:27,699 - INFO - Update id=954857216 is handled. Duration 199 ms by bot id=5835203251
+2023-11-30 20:45:28,311 - INFO - Update id=954857217 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 20:45:29,013 - INFO - Update id=954857218 is handled. Duration 146 ms by bot id=5835203251
+2023-11-30 20:45:30,202 - INFO - Update id=954857219 is handled. Duration 171 ms by bot id=5835203251
+2023-11-30 21:18:00,717 - WARNING - Received SIGINT signal
+2023-11-30 21:18:00,717 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:18:00,718 - INFO - Polling stopped
+2023-11-30 21:18:26,214 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:18:30,944 - INFO - Start polling
+2023-11-30 21:18:31,602 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:19:34,143 - INFO - Update id=954857220 is handled. Duration 597 ms by bot id=5835203251
+2023-11-30 21:19:37,790 - INFO - select pg_catalog.version()
+2023-11-30 21:19:37,790 - INFO - [raw sql] ()
+2023-11-30 21:19:37,791 - INFO - select current_schema()
+2023-11-30 21:19:37,791 - INFO - [raw sql] ()
+2023-11-30 21:19:37,792 - INFO - show standard_conforming_strings
+2023-11-30 21:19:37,792 - INFO - [raw sql] ()
+2023-11-30 21:19:37,793 - INFO - BEGIN (implicit)
+2023-11-30 21:19:37,798 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:19:37,798 - INFO - [generated in 0.00021s] (973765811,)
+2023-11-30 21:19:37,801 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:19:37,802 - INFO - [generated in 0.00041s] (973765811,)
+2023-11-30 21:19:37,803 - INFO - COMMIT
+2023-11-30 21:19:38,210 - INFO - Update id=954857221 is handled. Duration 444 ms by bot id=5835203251
+2023-11-30 21:19:43,926 - INFO - BEGIN (implicit)
+2023-11-30 21:19:43,926 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:19:43,926 - INFO - [cached since 6.129s ago] (973765811,)
+2023-11-30 21:19:43,927 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:19:43,928 - INFO - [cached since 6.126s ago] (973765811,)
+2023-11-30 21:19:43,928 - INFO - COMMIT
+2023-11-30 21:19:44,062 - INFO - Update id=954857222 is handled. Duration 137 ms by bot id=5835203251
+2023-11-30 21:20:04,732 - INFO - BEGIN (implicit)
+2023-11-30 21:20:04,732 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:20:04,732 - INFO - [cached since 26.93s ago] (973765811,)
+2023-11-30 21:20:04,733 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:20:04,733 - INFO - [cached since 26.93s ago] (973765811,)
+2023-11-30 21:20:04,734 - INFO - COMMIT
+2023-11-30 21:20:06,951 - INFO - Update id=954857223 is handled. Duration 2219 ms by bot id=5835203251
+2023-11-30 21:20:08,873 - INFO - BEGIN (implicit)
+2023-11-30 21:20:08,874 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:20:08,874 - INFO - [cached since 31.08s ago] (973765811,)
+2023-11-30 21:20:08,876 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:20:08,876 - INFO - [cached since 31.08s ago] (973765811,)
+2023-11-30 21:20:08,877 - INFO - COMMIT
+2023-11-30 21:20:09,153 - INFO - Update id=954857224 is handled. Duration 281 ms by bot id=5835203251
+2023-11-30 21:20:27,040 - INFO - BEGIN (implicit)
+2023-11-30 21:20:27,040 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:20:27,040 - INFO - [cached since 49.24s ago] (973765811,)
+2023-11-30 21:20:27,041 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:20:27,041 - INFO - [cached since 49.24s ago] (973765811,)
+2023-11-30 21:20:27,042 - INFO - COMMIT
+2023-11-30 21:20:27,979 - INFO - Update id=954857225 is handled. Duration 939 ms by bot id=5835203251
+2023-11-30 21:21:09,836 - INFO - BEGIN (implicit)
+2023-11-30 21:21:09,837 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:21:09,837 - INFO - [cached since 92.04s ago] (973765811,)
+2023-11-30 21:21:09,841 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:21:09,841 - INFO - [cached since 92.04s ago] (973765811,)
+2023-11-30 21:21:09,842 - INFO - COMMIT
+2023-11-30 21:21:10,125 - INFO - Update id=954857226 is handled. Duration 291 ms by bot id=5835203251
+2023-11-30 21:21:25,862 - INFO - BEGIN (implicit)
+2023-11-30 21:21:25,863 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:21:25,863 - INFO - [cached since 108.1s ago] (973765811,)
+2023-11-30 21:21:25,864 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:21:25,864 - INFO - [cached since 108.1s ago] (973765811,)
+2023-11-30 21:21:25,864 - INFO - COMMIT
+2023-11-30 21:21:26,208 - INFO - Update id=954857227 is handled. Duration 346 ms by bot id=5835203251
+2023-11-30 21:21:29,683 - INFO - Update id=954857228 is handled. Duration 96 ms by bot id=5835203251
+2023-11-30 21:21:31,128 - INFO - Update id=954857229 is handled. Duration 107 ms by bot id=5835203251
+2023-11-30 21:21:32,666 - INFO - Update id=954857230 is handled. Duration 109 ms by bot id=5835203251
+2023-11-30 21:21:35,607 - INFO - Update id=954857231 is handled. Duration 103 ms by bot id=5835203251
+2023-11-30 21:21:36,448 - INFO - Update id=954857232 is handled. Duration 408 ms by bot id=5835203251
+2023-11-30 21:21:37,341 - INFO - Update id=954857233 is handled. Duration 123 ms by bot id=5835203251
+2023-11-30 21:21:38,390 - INFO - Update id=954857234 is handled. Duration 98 ms by bot id=5835203251
+2023-11-30 21:21:39,457 - INFO - BEGIN (implicit)
+2023-11-30 21:21:39,458 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:21:39,458 - INFO - [generated in 0.00016s] ('bbab4093-a33e-41a0-991a-0d6e79e26cba',)
+2023-11-30 21:21:39,469 - ERROR - (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column subcategory.category does not exist
+HINT:  Perhaps you meant to reference the column "subcategory.category_id".
+[SQL: SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name]
+[parameters: ('bbab4093-a33e-41a0-991a-0d6e79e26cba',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-11-30 21:21:39,570 - INFO - ROLLBACK
+2023-11-30 21:21:39,570 - INFO - Update id=954857235 is handled. Duration 114 ms by bot id=5835203251
+2023-11-30 21:25:15,480 - INFO - Update id=954857236 is handled. Duration 283 ms by bot id=5835203251
+2023-11-30 21:26:51,357 - WARNING - Received SIGINT signal
+2023-11-30 21:26:51,358 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:26:51,358 - INFO - Polling stopped
+2023-11-30 21:26:53,271 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:26:56,412 - INFO - Start polling
+2023-11-30 21:26:57,678 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:26:59,995 - INFO - Update id=954857237 is handled. Duration 2170 ms by bot id=5835203251
+2023-11-30 21:27:01,771 - INFO - Update id=954857238 is handled. Duration 246 ms by bot id=5835203251
+2023-11-30 21:27:05,836 - INFO - Update id=954857239 is handled. Duration 445 ms by bot id=5835203251
+2023-11-30 21:27:08,027 - INFO - Update id=954857240 is handled. Duration 125 ms by bot id=5835203251
+2023-11-30 21:27:09,634 - INFO - Update id=954857241 is handled. Duration 183 ms by bot id=5835203251
+2023-11-30 21:27:10,773 - INFO - select pg_catalog.version()
+2023-11-30 21:27:10,773 - INFO - [raw sql] ()
+2023-11-30 21:27:10,774 - INFO - select current_schema()
+2023-11-30 21:27:10,775 - INFO - [raw sql] ()
+2023-11-30 21:27:10,775 - INFO - show standard_conforming_strings
+2023-11-30 21:27:10,775 - INFO - [raw sql] ()
+2023-11-30 21:27:10,776 - INFO - BEGIN (implicit)
+2023-11-30 21:27:10,778 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:27:10,778 - INFO - [generated in 0.00018s] ('54c865e5-6642-45f2-b883-0e762787a8a3',)
+2023-11-30 21:27:10,780 - ERROR - (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column subcategory.category does not exist
+HINT:  Perhaps you meant to reference the column "subcategory.category_id".
+[SQL: SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name]
+[parameters: ('54c865e5-6642-45f2-b883-0e762787a8a3',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-11-30 21:27:10,942 - INFO - ROLLBACK
+2023-11-30 21:27:10,942 - INFO - Update id=954857242 is handled. Duration 201 ms by bot id=5835203251
+2023-11-30 21:27:57,525 - INFO - BEGIN (implicit)
+2023-11-30 21:27:57,526 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:27:57,526 - INFO - [cached since 46.75s ago] ('54c865e5-6642-45f2-b883-0e762787a8a3',)
+2023-11-30 21:27:57,527 - ERROR - (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column subcategory.category does not exist
+HINT:  Perhaps you meant to reference the column "subcategory.category_id".
+[SQL: SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name]
+[parameters: ('54c865e5-6642-45f2-b883-0e762787a8a3',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-11-30 21:27:57,859 - INFO - ROLLBACK
+2023-11-30 21:27:57,860 - INFO - Update id=954857243 is handled. Duration 337 ms by bot id=5835203251
+2023-11-30 21:28:32,598 - WARNING - Received SIGINT signal
+2023-11-30 21:28:32,599 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:28:32,599 - INFO - Polling stopped
+2023-11-30 21:28:34,530 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:28:34,990 - INFO - Start polling
+2023-11-30 21:28:35,341 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:28:39,931 - INFO - Update id=954857244 is handled. Duration 917 ms by bot id=5835203251
+2023-11-30 21:28:42,376 - INFO - Update id=954857245 is handled. Duration 111 ms by bot id=5835203251
+2023-11-30 21:28:43,367 - INFO - select pg_catalog.version()
+2023-11-30 21:28:43,367 - INFO - [raw sql] ()
+2023-11-30 21:28:43,368 - INFO - select current_schema()
+2023-11-30 21:28:43,368 - INFO - [raw sql] ()
+2023-11-30 21:28:43,368 - INFO - show standard_conforming_strings
+2023-11-30 21:28:43,368 - INFO - [raw sql] ()
+2023-11-30 21:28:43,369 - INFO - BEGIN (implicit)
+2023-11-30 21:28:43,372 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:28:43,372 - INFO - [generated in 0.00018s] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 21:28:43,373 - ERROR - (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column subcategory.category does not exist
+HINT:  Perhaps you meant to reference the column "subcategory.category_id".
+[SQL: SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name]
+[parameters: (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-11-30 21:28:43,840 - INFO - ROLLBACK
+2023-11-30 21:28:43,840 - INFO - Update id=954857246 is handled. Duration 496 ms by bot id=5835203251
+2023-11-30 21:29:18,824 - WARNING - Received SIGINT signal
+2023-11-30 21:29:18,824 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:29:18,825 - INFO - Polling stopped
+2023-11-30 21:29:20,792 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:29:24,393 - INFO - Start polling
+2023-11-30 21:29:24,470 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:29:31,190 - INFO - select pg_catalog.version()
+2023-11-30 21:29:31,191 - INFO - [raw sql] ()
+2023-11-30 21:29:31,192 - INFO - select current_schema()
+2023-11-30 21:29:31,192 - INFO - [raw sql] ()
+2023-11-30 21:29:31,193 - INFO - show standard_conforming_strings
+2023-11-30 21:29:31,193 - INFO - [raw sql] ()
+2023-11-30 21:29:31,194 - INFO - BEGIN (implicit)
+2023-11-30 21:29:31,198 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:29:31,198 - INFO - [generated in 0.00025s] (973765811,)
+2023-11-30 21:29:31,202 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:29:31,202 - INFO - [generated in 0.00024s] (973765811,)
+2023-11-30 21:29:31,203 - INFO - COMMIT
+2023-11-30 21:29:33,947 - INFO - Update id=954857248 is handled. Duration 2780 ms by bot id=5835203251
+2023-11-30 21:29:36,707 - INFO - Update id=954857249 is handled. Duration 478 ms by bot id=5835203251
+2023-11-30 21:29:39,610 - INFO - BEGIN (implicit)
+2023-11-30 21:29:39,611 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:29:39,611 - INFO - [generated in 0.00017s] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 21:29:39,612 - ERROR - (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column subcategory.category does not exist
+HINT:  Perhaps you meant to reference the column "subcategory.category_id".
+[SQL: SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category = $1::UUID ORDER BY content.subcategory.name]
+[parameters: (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-11-30 21:29:39,876 - INFO - ROLLBACK
+2023-11-30 21:29:39,877 - INFO - Update id=954857250 is handled. Duration 269 ms by bot id=5835203251
+2023-11-30 21:33:18,066 - WARNING - Received SIGINT signal
+2023-11-30 21:33:18,066 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:33:18,067 - INFO - Polling stopped
+2023-11-30 21:33:20,135 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:33:24,374 - INFO - Start polling
+2023-11-30 21:33:24,871 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:33:29,500 - INFO - select pg_catalog.version()
+2023-11-30 21:33:29,500 - INFO - [raw sql] ()
+2023-11-30 21:33:29,502 - INFO - select current_schema()
+2023-11-30 21:33:29,502 - INFO - [raw sql] ()
+2023-11-30 21:33:29,502 - INFO - show standard_conforming_strings
+2023-11-30 21:33:29,502 - INFO - [raw sql] ()
+2023-11-30 21:33:29,503 - INFO - BEGIN (implicit)
+2023-11-30 21:33:29,506 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:33:29,506 - INFO - [generated in 0.00033s] (973765811,)
+2023-11-30 21:33:29,511 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:33:29,511 - INFO - [generated in 0.00030s] (973765811,)
+2023-11-30 21:33:29,512 - INFO - COMMIT
+2023-11-30 21:33:29,840 - INFO - Update id=954857252 is handled. Duration 364 ms by bot id=5835203251
+2023-11-30 21:33:31,607 - INFO - Update id=954857253 is handled. Duration 120 ms by bot id=5835203251
+2023-11-30 21:33:37,788 - INFO - BEGIN (implicit)
+2023-11-30 21:33:37,789 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:33:37,789 - INFO - [generated in 0.00015s] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 21:33:37,801 - ERROR - 'NoneType' object is not iterable
+2023-11-30 21:33:37,957 - INFO - ROLLBACK
+2023-11-30 21:33:37,958 - INFO - Update id=954857254 is handled. Duration 171 ms by bot id=5835203251
+2023-11-30 21:35:00,071 - WARNING - Received SIGINT signal
+2023-11-30 21:35:00,072 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:35:00,072 - INFO - Polling stopped
+2023-11-30 21:35:01,976 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:35:02,780 - INFO - Start polling
+2023-11-30 21:35:03,178 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:35:04,401 - INFO - select pg_catalog.version()
+2023-11-30 21:35:04,401 - INFO - [raw sql] ()
+2023-11-30 21:35:04,403 - INFO - select current_schema()
+2023-11-30 21:35:04,403 - INFO - [raw sql] ()
+2023-11-30 21:35:04,403 - INFO - show standard_conforming_strings
+2023-11-30 21:35:04,404 - INFO - [raw sql] ()
+2023-11-30 21:35:04,404 - INFO - BEGIN (implicit)
+2023-11-30 21:35:04,407 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:35:04,407 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 21:35:04,410 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:35:04,410 - INFO - [generated in 0.00020s] (973765811,)
+2023-11-30 21:35:04,411 - INFO - COMMIT
+2023-11-30 21:35:07,975 - INFO - Update id=954857255 is handled. Duration 3597 ms by bot id=5835203251
+2023-11-30 21:35:09,418 - INFO - Update id=954857256 is handled. Duration 222 ms by bot id=5835203251
+2023-11-30 21:35:10,735 - ERROR - 'NoneType' object is not iterable
+2023-11-30 21:35:10,838 - INFO - Update id=954857257 is handled. Duration 104 ms by bot id=5835203251
+2023-11-30 21:35:57,044 - WARNING - Received SIGINT signal
+2023-11-30 21:35:57,045 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:35:57,045 - INFO - Polling stopped
+2023-11-30 21:35:59,131 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:36:09,049 - INFO - Start polling
+2023-11-30 21:36:09,717 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:40:11,781 - INFO - select pg_catalog.version()
+2023-11-30 21:40:11,782 - INFO - [raw sql] ()
+2023-11-30 21:40:11,783 - INFO - select current_schema()
+2023-11-30 21:40:11,783 - INFO - [raw sql] ()
+2023-11-30 21:40:11,783 - INFO - show standard_conforming_strings
+2023-11-30 21:40:11,783 - INFO - [raw sql] ()
+2023-11-30 21:40:11,784 - INFO - BEGIN (implicit)
+2023-11-30 21:40:11,787 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:40:11,787 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 21:40:11,791 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:40:11,791 - INFO - [generated in 0.00022s] (973765811,)
+2023-11-30 21:40:11,792 - INFO - COMMIT
+2023-11-30 21:40:15,841 - INFO - Update id=954857260 is handled. Duration 4084 ms by bot id=5835203251
+2023-11-30 21:40:18,380 - INFO - Update id=954857261 is handled. Duration 158 ms by bot id=5835203251
+2023-11-30 21:40:19,543 - ERROR - 'NoneType' object is not iterable
+2023-11-30 21:40:19,776 - INFO - Update id=954857262 is handled. Duration 234 ms by bot id=5835203251
+2023-11-30 21:41:37,960 - WARNING - Received SIGINT signal
+2023-11-30 21:41:37,961 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:41:37,961 - INFO - Polling stopped
+2023-11-30 21:41:39,930 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:41:40,672 - INFO - Start polling
+2023-11-30 21:41:40,760 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:41:43,062 - INFO - select pg_catalog.version()
+2023-11-30 21:41:43,063 - INFO - [raw sql] ()
+2023-11-30 21:41:43,063 - INFO - select current_schema()
+2023-11-30 21:41:43,063 - INFO - [raw sql] ()
+2023-11-30 21:41:43,064 - INFO - show standard_conforming_strings
+2023-11-30 21:41:43,064 - INFO - [raw sql] ()
+2023-11-30 21:41:43,065 - INFO - BEGIN (implicit)
+2023-11-30 21:41:43,067 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:41:43,068 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 21:41:43,071 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:41:43,071 - INFO - [generated in 0.00022s] (973765811,)
+2023-11-30 21:41:43,073 - INFO - COMMIT
+2023-11-30 21:41:43,717 - INFO - Update id=954857263 is handled. Duration 679 ms by bot id=5835203251
+2023-11-30 21:41:44,862 - INFO - BEGIN (implicit)
+2023-11-30 21:41:44,863 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 21:41:44,863 - INFO - [generated in 0.00018s] ()
+2023-11-30 21:41:45,116 - INFO - ROLLBACK
+2023-11-30 21:41:45,117 - INFO - Update id=954857264 is handled. Duration 256 ms by bot id=5835203251
+2023-11-30 21:41:46,802 - ERROR - 'NoneType' object is not iterable
+2023-11-30 21:41:47,064 - INFO - Update id=954857265 is handled. Duration 263 ms by bot id=5835203251
+2023-11-30 21:42:36,539 - INFO - BEGIN (implicit)
+2023-11-30 21:42:36,540 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:42:36,540 - INFO - [cached since 53.47s ago] (973765811,)
+2023-11-30 21:42:36,541 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:42:36,541 - INFO - [cached since 53.47s ago] (973765811,)
+2023-11-30 21:42:36,542 - INFO - COMMIT
+2023-11-30 21:42:37,564 - INFO - Update id=954857266 is handled. Duration 1026 ms by bot id=5835203251
+2023-11-30 21:42:38,835 - INFO - Update id=954857267 is handled. Duration 165 ms by bot id=5835203251
+2023-11-30 21:42:39,587 - INFO - BEGIN (implicit)
+2023-11-30 21:42:39,588 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:42:39,588 - INFO - [generated in 0.00013s] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 21:42:39,756 - INFO - ROLLBACK
+2023-11-30 21:42:39,757 - INFO - Update id=954857268 is handled. Duration 170 ms by bot id=5835203251
+2023-11-30 21:42:42,660 - INFO - Update id=954857269 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 21:42:49,887 - INFO - Update id=954857270 is not handled. Duration 5 ms by bot id=5835203251
+2023-11-30 21:42:49,889 - INFO - Update id=954857271 is not handled. Duration 6 ms by bot id=5835203251
+2023-11-30 21:53:10,961 - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2023-11-30 21:53:10,961 - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5835203251)
+2023-11-30 21:53:22,897 - INFO - Connection established (tryings = 1, bot id = 5835203251)
+2023-11-30 21:54:03,448 - WARNING - Received SIGINT signal
+2023-11-30 21:54:03,449 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:54:03,449 - INFO - Polling stopped
+2023-11-30 21:54:05,468 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:54:08,049 - INFO - Start polling
+2023-11-30 21:54:08,127 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:54:09,867 - INFO - select pg_catalog.version()
+2023-11-30 21:54:09,867 - INFO - [raw sql] ()
+2023-11-30 21:54:09,868 - INFO - select current_schema()
+2023-11-30 21:54:09,868 - INFO - [raw sql] ()
+2023-11-30 21:54:09,869 - INFO - show standard_conforming_strings
+2023-11-30 21:54:09,869 - INFO - [raw sql] ()
+2023-11-30 21:54:09,869 - INFO - BEGIN (implicit)
+2023-11-30 21:54:09,872 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:54:09,872 - INFO - [generated in 0.00018s] (973765811,)
+2023-11-30 21:54:09,876 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:54:09,877 - INFO - [generated in 0.00074s] (973765811,)
+2023-11-30 21:54:09,879 - INFO - COMMIT
+2023-11-30 21:54:11,770 - INFO - Update id=954857272 is handled. Duration 1940 ms by bot id=5835203251
+2023-11-30 21:54:12,654 - INFO - Update id=954857273 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 21:54:38,795 - INFO - Update id=954857274 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 21:54:56,426 - INFO - Update id=954857275 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 21:57:33,758 - INFO - Update id=954857276 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 21:58:21,051 - WARNING - Received SIGINT signal
+2023-11-30 21:58:21,051 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:58:21,052 - INFO - Polling stopped
+2023-11-30 21:58:21,053 - INFO - Update id=954857277 is not handled. Duration 9401 ms by bot id=5835203251
+2023-11-30 21:58:23,451 - DEBUG - Using selector: EpollSelector
+2023-11-30 21:58:25,967 - INFO - Start polling
+2023-11-30 21:58:26,624 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 21:58:28,017 - INFO - select pg_catalog.version()
+2023-11-30 21:58:28,017 - INFO - [raw sql] ()
+2023-11-30 21:58:28,019 - INFO - select current_schema()
+2023-11-30 21:58:28,019 - INFO - [raw sql] ()
+2023-11-30 21:58:28,020 - INFO - show standard_conforming_strings
+2023-11-30 21:58:28,020 - INFO - [raw sql] ()
+2023-11-30 21:58:28,021 - INFO - BEGIN (implicit)
+2023-11-30 21:58:28,026 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:58:28,026 - INFO - [generated in 0.00031s] (973765811,)
+2023-11-30 21:58:28,030 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:58:28,030 - INFO - [generated in 0.00023s] (973765811,)
+2023-11-30 21:58:28,032 - INFO - COMMIT
+2023-11-30 21:58:34,483 - INFO - Update id=954857279 is handled. Duration 6494 ms by bot id=5835203251
+2023-11-30 21:58:41,358 - INFO - Update id=954857280 is handled. Duration 1014 ms by bot id=5835203251
+2023-11-30 21:58:42,913 - INFO - Update id=954857281 is handled. Duration 126 ms by bot id=5835203251
+2023-11-30 21:58:44,100 - ERROR - int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+2023-11-30 21:58:44,523 - INFO - Update id=954857282 is handled. Duration 425 ms by bot id=5835203251
+2023-11-30 21:59:47,147 - INFO - BEGIN (implicit)
+2023-11-30 21:59:47,147 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:59:47,147 - INFO - [cached since 79.12s ago] (973765811,)
+2023-11-30 21:59:47,148 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 21:59:47,149 - INFO - [cached since 79.12s ago] (973765811,)
+2023-11-30 21:59:47,149 - INFO - COMMIT
+2023-11-30 21:59:49,085 - INFO - Update id=954857283 is handled. Duration 1939 ms by bot id=5835203251
+2023-11-30 21:59:50,512 - INFO - BEGIN (implicit)
+2023-11-30 21:59:50,512 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 21:59:50,512 - INFO - [generated in 0.00017s] ()
+2023-11-30 21:59:50,688 - INFO - ROLLBACK
+2023-11-30 21:59:50,689 - INFO - Update id=954857284 is handled. Duration 178 ms by bot id=5835203251
+2023-11-30 21:59:53,135 - INFO - Update id=954857285 is handled. Duration 1440 ms by bot id=5835203251
+2023-11-30 21:59:55,296 - INFO - BEGIN (implicit)
+2023-11-30 21:59:55,298 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 21:59:55,299 - INFO - [generated in 0.00017s] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 21:59:55,572 - INFO - ROLLBACK
+2023-11-30 21:59:55,573 - INFO - Update id=954857286 is handled. Duration 279 ms by bot id=5835203251
+2023-11-30 21:59:57,449 - ERROR - int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+2023-11-30 21:59:57,635 - INFO - Update id=954857287 is handled. Duration 187 ms by bot id=5835203251
+2023-11-30 22:12:40,919 - WARNING - Received SIGINT signal
+2023-11-30 22:12:40,919 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:12:40,920 - INFO - Polling stopped
+2023-11-30 22:12:43,069 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:13:02,013 - INFO - Start polling
+2023-11-30 22:13:02,098 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:13:30,535 - INFO - select pg_catalog.version()
+2023-11-30 22:13:30,535 - INFO - [raw sql] ()
+2023-11-30 22:13:30,536 - INFO - select current_schema()
+2023-11-30 22:13:30,536 - INFO - [raw sql] ()
+2023-11-30 22:13:30,537 - INFO - show standard_conforming_strings
+2023-11-30 22:13:30,537 - INFO - [raw sql] ()
+2023-11-30 22:13:30,537 - INFO - BEGIN (implicit)
+2023-11-30 22:13:30,542 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:13:30,542 - INFO - [generated in 0.00068s] (973765811,)
+2023-11-30 22:13:30,546 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:13:30,546 - INFO - [generated in 0.00022s] (973765811,)
+2023-11-30 22:13:30,547 - INFO - COMMIT
+2023-11-30 22:13:35,081 - INFO - Update id=954857290 is handled. Duration 4574 ms by bot id=5835203251
+2023-11-30 22:13:36,234 - INFO - BEGIN (implicit)
+2023-11-30 22:13:36,234 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 22:13:36,234 - INFO - [generated in 0.00012s] ()
+2023-11-30 22:13:36,356 - INFO - ROLLBACK
+2023-11-30 22:13:36,356 - INFO - Update id=954857291 is handled. Duration 124 ms by bot id=5835203251
+2023-11-30 22:13:37,898 - INFO - Update id=954857292 is handled. Duration 269 ms by bot id=5835203251
+2023-11-30 22:13:39,473 - INFO - Update id=954857293 is handled. Duration 138 ms by bot id=5835203251
+2023-11-30 22:13:40,446 - INFO - BEGIN (implicit)
+2023-11-30 22:13:40,448 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 22:13:40,448 - INFO - [generated in 0.00023s] (UUID('54c865e5-6642-45f2-b883-0e762787a8a3'),)
+2023-11-30 22:13:40,563 - INFO - ROLLBACK
+2023-11-30 22:13:40,564 - INFO - Update id=954857294 is handled. Duration 118 ms by bot id=5835203251
+2023-11-30 22:13:41,661 - INFO - Update id=954857295 is handled. Duration 125 ms by bot id=5835203251
+2023-11-30 22:13:43,123 - INFO - Update id=954857296 is handled. Duration 150 ms by bot id=5835203251
+2023-11-30 22:13:44,509 - INFO - Update id=954857297 is handled. Duration 157 ms by bot id=5835203251
+2023-11-30 22:13:46,435 - INFO - Update id=954857298 is handled. Duration 143 ms by bot id=5835203251
+2023-11-30 22:13:48,960 - INFO - Update id=954857299 is handled. Duration 433 ms by bot id=5835203251
+2023-11-30 22:13:50,035 - INFO - Update id=954857300 is handled. Duration 103 ms by bot id=5835203251
+2023-11-30 22:13:51,871 - INFO - Update id=954857301 is handled. Duration 774 ms by bot id=5835203251
+2023-11-30 22:14:48,119 - WARNING - Received SIGINT signal
+2023-11-30 22:14:48,120 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:14:48,120 - INFO - Polling stopped
+2023-11-30 22:14:50,321 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:14:56,238 - INFO - Start polling
+2023-11-30 22:14:56,321 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:14:56,973 - INFO - select pg_catalog.version()
+2023-11-30 22:14:56,973 - INFO - [raw sql] ()
+2023-11-30 22:14:56,974 - INFO - select current_schema()
+2023-11-30 22:14:56,975 - INFO - [raw sql] ()
+2023-11-30 22:14:56,976 - INFO - show standard_conforming_strings
+2023-11-30 22:14:56,976 - INFO - [raw sql] ()
+2023-11-30 22:14:56,977 - INFO - BEGIN (implicit)
+2023-11-30 22:14:56,981 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:14:56,981 - INFO - [generated in 0.00041s] (973765811,)
+2023-11-30 22:14:56,985 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:14:56,985 - INFO - [generated in 0.00027s] (973765811,)
+2023-11-30 22:14:56,987 - INFO - COMMIT
+2023-11-30 22:15:00,448 - INFO - Update id=954857302 is handled. Duration 3515 ms by bot id=5835203251
+2023-11-30 22:15:28,121 - INFO - BEGIN (implicit)
+2023-11-30 22:15:28,122 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 22:15:28,122 - INFO - [generated in 0.00013s] ()
+2023-11-30 22:15:28,500 - INFO - ROLLBACK
+2023-11-30 22:15:28,500 - INFO - Update id=954857303 is handled. Duration 380 ms by bot id=5835203251
+2023-11-30 22:15:30,439 - INFO - Update id=954857304 is handled. Duration 222 ms by bot id=5835203251
+2023-11-30 22:15:32,165 - INFO - Update id=954857305 is handled. Duration 834 ms by bot id=5835203251
+2023-11-30 22:15:37,313 - INFO - Update id=954857306 is handled. Duration 108 ms by bot id=5835203251
+2023-11-30 22:15:38,203 - INFO - Update id=954857307 is handled. Duration 112 ms by bot id=5835203251
+2023-11-30 22:15:39,757 - INFO - Update id=954857308 is handled. Duration 801 ms by bot id=5835203251
+2023-11-30 22:15:40,155 - INFO - Update id=954857309 is handled. Duration 123 ms by bot id=5835203251
+2023-11-30 22:15:40,895 - INFO - Update id=954857310 is handled. Duration 107 ms by bot id=5835203251
+2023-11-30 22:15:41,802 - INFO - Update id=954857311 is handled. Duration 137 ms by bot id=5835203251
+2023-11-30 22:15:42,727 - INFO - Update id=954857312 is handled. Duration 158 ms by bot id=5835203251
+2023-11-30 22:15:46,686 - INFO - Update id=954857313 is handled. Duration 104 ms by bot id=5835203251
+2023-11-30 22:15:48,257 - INFO - Update id=954857314 is handled. Duration 469 ms by bot id=5835203251
+2023-11-30 22:15:50,101 - INFO - BEGIN (implicit)
+2023-11-30 22:15:50,102 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 22:15:50,103 - INFO - [generated in 0.00015s] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 22:15:50,282 - INFO - ROLLBACK
+2023-11-30 22:15:50,283 - INFO - Update id=954857315 is handled. Duration 182 ms by bot id=5835203251
+2023-11-30 22:15:52,507 - INFO - Update id=954857316 is handled. Duration 204 ms by bot id=5835203251
+2023-11-30 22:15:56,320 - INFO - Update id=954857317 is handled. Duration 2566 ms by bot id=5835203251
+2023-11-30 22:15:56,872 - INFO - Update id=954857318 is handled. Duration 103 ms by bot id=5835203251
+2023-11-30 22:15:58,263 - INFO - Update id=954857319 is handled. Duration 110 ms by bot id=5835203251
+2023-11-30 22:15:59,212 - INFO - Update id=954857320 is handled. Duration 159 ms by bot id=5835203251
+2023-11-30 22:16:01,351 - INFO - Update id=954857321 is handled. Duration 211 ms by bot id=5835203251
+2023-11-30 22:16:02,959 - INFO - Update id=954857322 is handled. Duration 248 ms by bot id=5835203251
+2023-11-30 22:16:06,893 - INFO - Update id=954857323 is handled. Duration 2558 ms by bot id=5835203251
+2023-11-30 22:16:08,224 - INFO - Update id=954857324 is handled. Duration 614 ms by bot id=5835203251
+2023-11-30 22:16:10,681 - INFO - Update id=954857325 is handled. Duration 191 ms by bot id=5835203251
+2023-11-30 22:16:15,569 - INFO - Update id=954857326 is handled. Duration 230 ms by bot id=5835203251
+2023-11-30 22:16:16,929 - INFO - Update id=954857327 is handled. Duration 106 ms by bot id=5835203251
+2023-11-30 22:16:18,465 - INFO - Update id=954857328 is handled. Duration 103 ms by bot id=5835203251
+2023-11-30 22:16:22,543 - INFO - Update id=954857329 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 22:16:23,535 - INFO - Update id=954857330 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 22:16:47,044 - INFO - BEGIN (implicit)
+2023-11-30 22:16:47,044 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:16:47,044 - INFO - [cached since 110.1s ago] (973765811,)
+2023-11-30 22:16:47,045 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:16:47,045 - INFO - [cached since 110.1s ago] (973765811,)
+2023-11-30 22:16:47,046 - INFO - COMMIT
+2023-11-30 22:16:47,719 - INFO - Update id=954857331 is handled. Duration 676 ms by bot id=5835203251
+2023-11-30 22:16:48,832 - INFO - Update id=954857332 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 22:17:06,432 - INFO - BEGIN (implicit)
+2023-11-30 22:17:06,432 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 22:17:06,432 - INFO - [cached since 98.31s ago] ()
+2023-11-30 22:17:06,666 - INFO - ROLLBACK
+2023-11-30 22:17:06,666 - INFO - Update id=954857333 is handled. Duration 237 ms by bot id=5835203251
+2023-11-30 22:17:08,947 - INFO - Update id=954857334 is handled. Duration 708 ms by bot id=5835203251
+2023-11-30 22:17:10,085 - INFO - Update id=954857335 is handled. Duration 454 ms by bot id=5835203251
+2023-11-30 22:17:17,189 - INFO - Update id=954857336 is handled. Duration 271 ms by bot id=5835203251
+2023-11-30 22:17:17,328 - INFO - Update id=954857337 is handled. Duration 337 ms by bot id=5835203251
+2023-11-30 22:17:18,577 - INFO - Update id=954857338 is handled. Duration 105 ms by bot id=5835203251
+2023-11-30 22:17:21,657 - INFO - Update id=954857339 is handled. Duration 110 ms by bot id=5835203251
+2023-11-30 22:17:26,213 - INFO - BEGIN (implicit)
+2023-11-30 22:17:26,214 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 22:17:26,214 - INFO - [cached since 96.11s ago] (UUID('54c865e5-6642-45f2-b883-0e762787a8a3'),)
+2023-11-30 22:17:26,333 - INFO - ROLLBACK
+2023-11-30 22:17:26,334 - INFO - Update id=954857340 is handled. Duration 121 ms by bot id=5835203251
+2023-11-30 22:17:29,500 - ERROR - Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2023-11-30 22:17:29,601 - INFO - Update id=954857341 is handled. Duration 201 ms by bot id=5835203251
+2023-11-30 22:18:38,788 - WARNING - Received SIGINT signal
+2023-11-30 22:18:38,788 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:18:38,789 - INFO - Polling stopped
+2023-11-30 22:18:40,948 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:18:41,772 - INFO - Start polling
+2023-11-30 22:18:42,435 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:18:43,092 - INFO - select pg_catalog.version()
+2023-11-30 22:18:43,092 - INFO - [raw sql] ()
+2023-11-30 22:18:43,094 - INFO - select current_schema()
+2023-11-30 22:18:43,094 - INFO - [raw sql] ()
+2023-11-30 22:18:43,095 - INFO - show standard_conforming_strings
+2023-11-30 22:18:43,095 - INFO - [raw sql] ()
+2023-11-30 22:18:43,095 - INFO - BEGIN (implicit)
+2023-11-30 22:18:43,099 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:18:43,100 - INFO - [generated in 0.00030s] (973765811,)
+2023-11-30 22:18:43,103 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:18:43,103 - INFO - [generated in 0.00025s] (973765811,)
+2023-11-30 22:18:43,104 - INFO - COMMIT
+2023-11-30 22:18:49,392 - INFO - Update id=954857342 is handled. Duration 6336 ms by bot id=5835203251
+2023-11-30 22:18:50,728 - INFO - BEGIN (implicit)
+2023-11-30 22:18:50,729 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 22:18:50,729 - INFO - [generated in 0.00012s] ()
+2023-11-30 22:18:51,289 - INFO - ROLLBACK
+2023-11-30 22:18:51,289 - INFO - Update id=954857343 is handled. Duration 562 ms by bot id=5835203251
+2023-11-30 22:18:55,970 - INFO - BEGIN (implicit)
+2023-11-30 22:18:55,971 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 22:18:55,971 - INFO - [generated in 0.00026s] (UUID('54c865e5-6642-45f2-b883-0e762787a8a3'),)
+2023-11-30 22:18:56,086 - INFO - ROLLBACK
+2023-11-30 22:18:56,086 - INFO - Update id=954857344 is handled. Duration 117 ms by bot id=5835203251
+2023-11-30 22:32:12,487 - WARNING - Received SIGINT signal
+2023-11-30 22:32:12,487 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:32:12,487 - INFO - Polling stopped
+2023-11-30 22:32:14,578 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:32:19,844 - INFO - Start polling
+2023-11-30 22:32:19,917 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:32:25,546 - INFO - select pg_catalog.version()
+2023-11-30 22:32:25,546 - INFO - [raw sql] ()
+2023-11-30 22:32:25,547 - INFO - select current_schema()
+2023-11-30 22:32:25,547 - INFO - [raw sql] ()
+2023-11-30 22:32:25,547 - INFO - show standard_conforming_strings
+2023-11-30 22:32:25,548 - INFO - [raw sql] ()
+2023-11-30 22:32:25,548 - INFO - BEGIN (implicit)
+2023-11-30 22:32:25,554 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:32:25,554 - INFO - [generated in 0.00024s] (973765811,)
+2023-11-30 22:32:25,557 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:32:25,557 - INFO - [generated in 0.00017s] (973765811,)
+2023-11-30 22:32:25,558 - INFO - COMMIT
+2023-11-30 22:32:29,084 - INFO - Update id=954857345 is handled. Duration 3567 ms by bot id=5835203251
+2023-11-30 22:32:30,108 - INFO - BEGIN (implicit)
+2023-11-30 22:32:30,108 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 22:32:30,108 - INFO - [generated in 0.00013s] ()
+2023-11-30 22:32:30,220 - INFO - ROLLBACK
+2023-11-30 22:32:30,221 - INFO - Update id=954857346 is handled. Duration 115 ms by bot id=5835203251
+2023-11-30 22:32:31,795 - INFO - Update id=954857347 is handled. Duration 104 ms by bot id=5835203251
+2023-11-30 22:32:32,819 - INFO - Update id=954857348 is handled. Duration 126 ms by bot id=5835203251
+2023-11-30 22:32:34,334 - INFO - Update id=954857349 is handled. Duration 116 ms by bot id=5835203251
+2023-11-30 22:32:35,096 - INFO - BEGIN (implicit)
+2023-11-30 22:32:35,097 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 22:32:35,097 - INFO - [generated in 0.00015s] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 22:32:35,216 - INFO - ROLLBACK
+2023-11-30 22:32:35,216 - INFO - Update id=954857350 is handled. Duration 121 ms by bot id=5835203251
+2023-11-30 22:32:47,196 - INFO - Update id=954857351 is handled. Duration 134 ms by bot id=5835203251
+2023-11-30 22:32:51,623 - INFO - Update id=954857352 is handled. Duration 232 ms by bot id=5835203251
+2023-11-30 22:32:52,676 - INFO - Update id=954857353 is handled. Duration 118 ms by bot id=5835203251
+2023-11-30 22:32:55,252 - INFO - Update id=954857354 is handled. Duration 410 ms by bot id=5835203251
+2023-11-30 22:32:59,681 - INFO - BEGIN (implicit)
+2023-11-30 22:32:59,682 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 22:32:59,682 - INFO - [cached since 24.58s ago] (UUID('54c865e5-6642-45f2-b883-0e762787a8a3'),)
+2023-11-30 22:32:59,849 - INFO - ROLLBACK
+2023-11-30 22:32:59,849 - INFO - Update id=954857355 is handled. Duration 169 ms by bot id=5835203251
+2023-11-30 22:33:03,193 - INFO - Update id=954857356 is handled. Duration 773 ms by bot id=5835203251
+2023-11-30 22:33:04,734 - INFO - Update id=954857357 is handled. Duration 482 ms by bot id=5835203251
+2023-11-30 22:33:18,021 - INFO - Update id=954857358 is handled. Duration 148 ms by bot id=5835203251
+2023-11-30 22:34:13,425 - WARNING - Received SIGINT signal
+2023-11-30 22:34:13,426 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:34:13,427 - INFO - Polling stopped
+2023-11-30 22:34:15,490 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:34:16,839 - INFO - Start polling
+2023-11-30 22:34:16,913 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:34:20,239 - INFO - Update id=954857359 is handled. Duration 291 ms by bot id=5835203251
+2023-11-30 22:34:21,939 - INFO - Update id=954857360 is handled. Duration 241 ms by bot id=5835203251
+2023-11-30 22:34:25,391 - INFO - Update id=954857361 is handled. Duration 443 ms by bot id=5835203251
+2023-11-30 22:34:27,923 - INFO - Update id=954857362 is handled. Duration 1076 ms by bot id=5835203251
+2023-11-30 22:34:30,320 - INFO - Update id=954857363 is handled. Duration 197 ms by bot id=5835203251
+2023-11-30 22:34:31,412 - INFO - Update id=954857364 is handled. Duration 255 ms by bot id=5835203251
+2023-11-30 22:35:23,623 - WARNING - Received SIGINT signal
+2023-11-30 22:35:23,623 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:35:23,624 - INFO - Polling stopped
+2023-11-30 22:35:25,647 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:35:30,580 - INFO - Start polling
+2023-11-30 22:35:30,944 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:35:34,788 - INFO - select pg_catalog.version()
+2023-11-30 22:35:34,788 - INFO - [raw sql] ()
+2023-11-30 22:35:34,789 - INFO - select current_schema()
+2023-11-30 22:35:34,789 - INFO - [raw sql] ()
+2023-11-30 22:35:34,789 - INFO - show standard_conforming_strings
+2023-11-30 22:35:34,789 - INFO - [raw sql] ()
+2023-11-30 22:35:34,790 - INFO - BEGIN (implicit)
+2023-11-30 22:35:34,793 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:35:34,793 - INFO - [generated in 0.00021s] (973765811,)
+2023-11-30 22:35:34,797 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 22:35:34,797 - INFO - [generated in 0.00019s] (973765811,)
+2023-11-30 22:35:34,798 - INFO - COMMIT
+2023-11-30 22:35:37,640 - INFO - Update id=954857367 is handled. Duration 2879 ms by bot id=5835203251
+2023-11-30 22:35:37,807 - INFO - Update id=954857368 is handled. Duration 300 ms by bot id=5835203251
+2023-11-30 22:35:41,808 - INFO - Update id=954857369 is handled. Duration 253 ms by bot id=5835203251
+2023-11-30 22:35:46,099 - INFO - Update id=954857370 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 22:35:46,418 - INFO - Update id=954857371 is handled. Duration 250 ms by bot id=5835203251
+2023-11-30 22:35:47,654 - INFO - Update id=954857372 is handled. Duration 474 ms by bot id=5835203251
+2023-11-30 22:35:59,524 - INFO - Update id=954857373 is handled. Duration 206 ms by bot id=5835203251
+2023-11-30 22:36:01,608 - INFO - Update id=954857374 is handled. Duration 138 ms by bot id=5835203251
+2023-11-30 22:36:07,650 - INFO - Update id=954857375 is handled. Duration 242 ms by bot id=5835203251
+2023-11-30 22:36:10,553 - INFO - Update id=954857376 is handled. Duration 117 ms by bot id=5835203251
+2023-11-30 22:36:11,811 - INFO - Update id=954857377 is handled. Duration 265 ms by bot id=5835203251
+2023-11-30 22:36:14,628 - INFO - Update id=954857378 is handled. Duration 117 ms by bot id=5835203251
+2023-11-30 22:36:19,018 - INFO - Update id=954857379 is handled. Duration 148 ms by bot id=5835203251
+2023-11-30 22:36:21,992 - INFO - Update id=954857380 is handled. Duration 117 ms by bot id=5835203251
+2023-11-30 22:36:24,149 - INFO - Update id=954857381 is handled. Duration 254 ms by bot id=5835203251
+2023-11-30 22:36:29,259 - INFO - Update id=954857382 is handled. Duration 128 ms by bot id=5835203251
+2023-11-30 22:36:33,008 - INFO - Update id=954857383 is handled. Duration 611 ms by bot id=5835203251
+2023-11-30 22:36:46,686 - INFO - Update id=954857384 is handled. Duration 106 ms by bot id=5835203251
+2023-11-30 22:36:52,447 - INFO - Update id=954857385 is handled. Duration 2194 ms by bot id=5835203251
+2023-11-30 22:36:52,821 - INFO - Update id=954857386 is handled. Duration 482 ms by bot id=5835203251
+2023-11-30 22:36:54,144 - INFO - Update id=954857387 is handled. Duration 145 ms by bot id=5835203251
+2023-11-30 22:36:56,912 - INFO - Update id=954857388 is handled. Duration 328 ms by bot id=5835203251
+2023-11-30 22:36:58,964 - INFO - Update id=954857389 is handled. Duration 97 ms by bot id=5835203251
+2023-11-30 22:37:00,445 - INFO - Update id=954857390 is handled. Duration 880 ms by bot id=5835203251
+2023-11-30 22:37:02,154 - INFO - Update id=954857391 is handled. Duration 115 ms by bot id=5835203251
+2023-11-30 22:37:06,137 - INFO - Update id=954857392 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 22:37:07,769 - INFO - Update id=954857393 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 22:37:13,312 - INFO - Update id=954857394 is handled. Duration 779 ms by bot id=5835203251
+2023-11-30 22:37:13,950 - INFO - Update id=954857395 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 22:37:15,907 - INFO - Update id=954857396 is handled. Duration 113 ms by bot id=5835203251
+2023-11-30 22:49:08,884 - WARNING - Received SIGINT signal
+2023-11-30 22:49:08,885 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:49:08,885 - INFO - Polling stopped
+2023-11-30 22:49:11,035 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:49:12,394 - INFO - Start polling
+2023-11-30 22:49:12,472 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:49:13,921 - INFO - Update id=954857397 is handled. Duration 256 ms by bot id=5835203251
+2023-11-30 22:49:15,764 - INFO - Update id=954857398 is handled. Duration 828 ms by bot id=5835203251
+2023-11-30 22:49:18,513 - INFO - Update id=954857399 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 22:49:24,151 - WARNING - Received SIGINT signal
+2023-11-30 22:49:24,152 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:49:24,152 - INFO - Polling stopped
+2023-11-30 22:49:52,335 - DEBUG - Using selector: EpollSelector
+2023-11-30 22:49:53,830 - INFO - Start polling
+2023-11-30 22:49:53,904 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 22:49:57,871 - INFO - Update id=954857400 is handled. Duration 809 ms by bot id=5835203251
+2023-11-30 22:49:58,875 - INFO - Update id=954857401 is handled. Duration 152 ms by bot id=5835203251
+2023-11-30 22:50:00,098 - INFO - Update id=954857402 is handled. Duration 283 ms by bot id=5835203251
+2023-11-30 22:50:01,076 - INFO - Update id=954857403 is handled. Duration 134 ms by bot id=5835203251
+2023-11-30 22:50:02,228 - INFO - Update id=954857404 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 22:50:06,748 - INFO - Update id=954857405 is handled. Duration 248 ms by bot id=5835203251
+2023-11-30 22:50:07,882 - INFO - Update id=954857406 is handled. Duration 104 ms by bot id=5835203251
+2023-11-30 22:50:08,864 - INFO - Update id=954857407 is handled. Duration 99 ms by bot id=5835203251
+2023-11-30 22:50:10,603 - INFO - Update id=954857408 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 22:50:11,557 - INFO - Update id=954857409 is handled. Duration 134 ms by bot id=5835203251
+2023-11-30 22:50:12,672 - INFO - Update id=954857410 is not handled. Duration 1 ms by bot id=5835203251
+2023-11-30 22:50:15,206 - INFO - Update id=954857411 is handled. Duration 136 ms by bot id=5835203251
+2023-11-30 22:50:16,546 - INFO - Update id=954857412 is handled. Duration 249 ms by bot id=5835203251
+2023-11-30 22:50:17,708 - INFO - Update id=954857413 is handled. Duration 108 ms by bot id=5835203251
+2023-11-30 22:50:27,585 - INFO - Update id=954857414 is handled. Duration 112 ms by bot id=5835203251
+2023-11-30 22:50:28,440 - INFO - Update id=954857415 is handled. Duration 106 ms by bot id=5835203251
+2023-11-30 22:50:29,472 - INFO - Update id=954857416 is handled. Duration 121 ms by bot id=5835203251
+2023-11-30 22:50:32,566 - INFO - Update id=954857417 is handled. Duration 135 ms by bot id=5835203251
+2023-11-30 22:50:34,762 - INFO - Update id=954857418 is handled. Duration 443 ms by bot id=5835203251
+2023-11-30 22:50:35,712 - INFO - Update id=954857419 is handled. Duration 307 ms by bot id=5835203251
+2023-11-30 22:50:37,111 - INFO - Update id=954857420 is handled. Duration 149 ms by bot id=5835203251
+2023-11-30 22:50:38,636 - INFO - Update id=954857421 is handled. Duration 100 ms by bot id=5835203251
+2023-11-30 22:50:39,482 - INFO - Update id=954857422 is handled. Duration 147 ms by bot id=5835203251
+2023-11-30 22:50:40,646 - INFO - Update id=954857423 is handled. Duration 107 ms by bot id=5835203251
+2023-11-30 22:50:42,981 - INFO - Update id=954857424 is handled. Duration 107 ms by bot id=5835203251
+2023-11-30 22:50:44,740 - INFO - Update id=954857425 is handled. Duration 127 ms by bot id=5835203251
+2023-11-30 22:50:47,068 - INFO - Update id=954857426 is handled. Duration 119 ms by bot id=5835203251
+2023-11-30 22:50:51,750 - INFO - Update id=954857427 is handled. Duration 109 ms by bot id=5835203251
+2023-11-30 22:50:52,999 - INFO - Update id=954857428 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 22:50:54,731 - INFO - Update id=954857429 is handled. Duration 116 ms by bot id=5835203251
+2023-11-30 23:02:48,909 - WARNING - Received SIGINT signal
+2023-11-30 23:02:48,909 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:02:48,909 - INFO - Polling stopped
+2023-11-30 23:02:51,800 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:02:52,146 - INFO - Start polling
+2023-11-30 23:02:52,225 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:02:57,023 - INFO - Update id=954857430 is handled. Duration 293 ms by bot id=5835203251
+2023-11-30 23:02:59,535 - INFO - Update id=954857431 is handled. Duration 1108 ms by bot id=5835203251
+2023-11-30 23:05:49,913 - WARNING - Received SIGINT signal
+2023-11-30 23:05:49,913 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:05:49,914 - INFO - Polling stopped
+2023-11-30 23:05:52,045 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:05:53,097 - INFO - Start polling
+2023-11-30 23:05:53,172 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:05:57,999 - INFO - Update id=954857432 is handled. Duration 2690 ms by bot id=5835203251
+2023-11-30 23:06:05,745 - ERROR - '>' not supported between instances of 'str' and 'int'
+2023-11-30 23:06:06,151 - INFO - Update id=954857433 is handled. Duration 408 ms by bot id=5835203251
+2023-11-30 23:07:23,898 - WARNING - Received SIGINT signal
+2023-11-30 23:07:23,898 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:07:23,898 - INFO - Polling stopped
+2023-11-30 23:07:26,093 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:07:32,507 - INFO - Start polling
+2023-11-30 23:07:32,589 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:07:33,921 - INFO - select pg_catalog.version()
+2023-11-30 23:07:33,921 - INFO - [raw sql] ()
+2023-11-30 23:07:33,922 - INFO - select current_schema()
+2023-11-30 23:07:33,922 - INFO - [raw sql] ()
+2023-11-30 23:07:33,923 - INFO - show standard_conforming_strings
+2023-11-30 23:07:33,923 - INFO - [raw sql] ()
+2023-11-30 23:07:33,924 - INFO - BEGIN (implicit)
+2023-11-30 23:07:33,927 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:07:33,927 - INFO - [generated in 0.00038s] (973765811,)
+2023-11-30 23:07:33,932 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:07:33,932 - INFO - [generated in 0.00040s] (973765811,)
+2023-11-30 23:07:33,934 - INFO - COMMIT
+2023-11-30 23:07:34,219 - INFO - Update id=954857434 is handled. Duration 327 ms by bot id=5835203251
+2023-11-30 23:07:41,938 - INFO - Update id=954857435 is handled. Duration 1526 ms by bot id=5835203251
+2023-11-30 23:07:44,758 - INFO - Update id=954857436 is handled. Duration 771 ms by bot id=5835203251
+2023-11-30 23:07:48,827 - INFO - Update id=954857437 is handled. Duration 889 ms by bot id=5835203251
+2023-11-30 23:08:20,829 - WARNING - Received SIGINT signal
+2023-11-30 23:08:20,830 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:08:20,830 - INFO - Polling stopped
+2023-11-30 23:08:22,847 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:08:23,182 - INFO - Start polling
+2023-11-30 23:08:23,254 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:08:27,409 - INFO - select pg_catalog.version()
+2023-11-30 23:08:27,409 - INFO - [raw sql] ()
+2023-11-30 23:08:27,411 - INFO - select current_schema()
+2023-11-30 23:08:27,411 - INFO - [raw sql] ()
+2023-11-30 23:08:27,412 - INFO - show standard_conforming_strings
+2023-11-30 23:08:27,412 - INFO - [raw sql] ()
+2023-11-30 23:08:27,413 - INFO - BEGIN (implicit)
+2023-11-30 23:08:27,418 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:08:27,418 - INFO - [generated in 0.00036s] (973765811,)
+2023-11-30 23:08:27,422 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:08:27,422 - INFO - [generated in 0.00025s] (973765811,)
+2023-11-30 23:08:27,424 - INFO - COMMIT
+2023-11-30 23:08:29,817 - INFO - Update id=954857438 is handled. Duration 2438 ms by bot id=5835203251
+2023-11-30 23:08:32,757 - INFO - Update id=954857439 is handled. Duration 670 ms by bot id=5835203251
+2023-11-30 23:08:37,526 - INFO - Update id=954857440 is handled. Duration 796 ms by bot id=5835203251
+2023-11-30 23:09:13,090 - INFO - Update id=954857441 is handled. Duration 2032 ms by bot id=5835203251
+2023-11-30 23:09:20,339 - INFO - Update id=954857442 is handled. Duration 752 ms by bot id=5835203251
+2023-11-30 23:09:54,919 - INFO - Update id=954857443 is handled. Duration 578 ms by bot id=5835203251
+2023-11-30 23:09:58,361 - INFO - Update id=954857444 is handled. Duration 876 ms by bot id=5835203251
+2023-11-30 23:10:00,096 - INFO - Update id=954857445 is handled. Duration 173 ms by bot id=5835203251
+2023-11-30 23:11:02,173 - WARNING - Received SIGINT signal
+2023-11-30 23:11:02,174 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:11:02,174 - INFO - Polling stopped
+2023-11-30 23:11:04,396 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:11:05,413 - INFO - Start polling
+2023-11-30 23:11:07,437 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:11:40,565 - INFO - Update id=954857447 is handled. Duration 5285 ms by bot id=5835203251
+2023-11-30 23:11:48,270 - INFO - Update id=954857448 is handled. Duration 347 ms by bot id=5835203251
+2023-11-30 23:11:49,888 - INFO - Update id=954857449 is handled. Duration 120 ms by bot id=5835203251
+2023-11-30 23:11:50,899 - INFO - Update id=954857450 is handled. Duration 127 ms by bot id=5835203251
+2023-11-30 23:11:52,593 - INFO - Update id=954857451 is handled. Duration 110 ms by bot id=5835203251
+2023-11-30 23:11:55,235 - INFO - Update id=954857452 is handled. Duration 488 ms by bot id=5835203251
+2023-11-30 23:11:58,672 - INFO - Update id=954857454 is handled. Duration 329 ms by bot id=5835203251
+2023-11-30 23:11:59,275 - INFO - Update id=954857453 is handled. Duration 2400 ms by bot id=5835203251
+2023-11-30 23:12:00,660 - INFO - Update id=954857455 is handled. Duration 208 ms by bot id=5835203251
+2023-11-30 23:12:03,188 - INFO - Update id=954857456 is handled. Duration 439 ms by bot id=5835203251
+2023-11-30 23:12:04,302 - INFO - Update id=954857457 is handled. Duration 118 ms by bot id=5835203251
+2023-11-30 23:12:07,023 - INFO - Update id=954857458 is handled. Duration 118 ms by bot id=5835203251
+2023-11-30 23:12:12,938 - INFO - Update id=954857459 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 23:12:34,942 - INFO - Update id=954857460 is handled. Duration 267 ms by bot id=5835203251
+2023-11-30 23:13:44,586 - WARNING - Received SIGINT signal
+2023-11-30 23:13:44,586 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:13:44,586 - INFO - Polling stopped
+2023-11-30 23:13:46,974 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:13:47,804 - INFO - Start polling
+2023-11-30 23:13:47,884 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:13:48,430 - INFO - Update id=954857461 is handled. Duration 383 ms by bot id=5835203251
+2023-11-30 23:13:51,755 - INFO - Update id=954857462 is handled. Duration 107 ms by bot id=5835203251
+2023-11-30 23:13:54,824 - INFO - Update id=954857463 is handled. Duration 1802 ms by bot id=5835203251
+2023-11-30 23:13:58,896 - INFO - Update id=954857464 is handled. Duration 175 ms by bot id=5835203251
+2023-11-30 23:14:00,711 - INFO - Update id=954857465 is handled. Duration 131 ms by bot id=5835203251
+2023-11-30 23:14:15,315 - INFO - Update id=954857466 is handled. Duration 409 ms by bot id=5835203251
+2023-11-30 23:14:16,955 - INFO - Update id=954857467 is handled. Duration 498 ms by bot id=5835203251
+2023-11-30 23:14:34,466 - INFO - Update id=954857468 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 23:14:50,955 - INFO - Update id=954857469 is not handled. Duration 0 ms by bot id=5835203251
+2023-11-30 23:14:55,065 - INFO - Update id=954857470 is handled. Duration 842 ms by bot id=5835203251
+2023-11-30 23:14:57,809 - INFO - select pg_catalog.version()
+2023-11-30 23:14:57,810 - INFO - [raw sql] ()
+2023-11-30 23:14:57,811 - INFO - select current_schema()
+2023-11-30 23:14:57,811 - INFO - [raw sql] ()
+2023-11-30 23:14:57,812 - INFO - show standard_conforming_strings
+2023-11-30 23:14:57,812 - INFO - [raw sql] ()
+2023-11-30 23:14:57,813 - INFO - BEGIN (implicit)
+2023-11-30 23:14:57,815 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 23:14:57,815 - INFO - [generated in 0.00025s] ()
+2023-11-30 23:14:57,916 - INFO - ROLLBACK
+2023-11-30 23:14:57,916 - INFO - Update id=954857471 is handled. Duration 130 ms by bot id=5835203251
+2023-11-30 23:14:59,074 - INFO - Update id=954857472 is handled. Duration 120 ms by bot id=5835203251
+2023-11-30 23:15:00,430 - INFO - Update id=954857473 is handled. Duration 98 ms by bot id=5835203251
+2023-11-30 23:15:07,532 - INFO - BEGIN (implicit)
+2023-11-30 23:15:07,535 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:15:07,536 - INFO - [generated in 0.00021s] (UUID('54c865e5-6642-45f2-b883-0e762787a8a3'),)
+2023-11-30 23:15:07,654 - INFO - ROLLBACK
+2023-11-30 23:15:07,654 - INFO - Update id=954857474 is handled. Duration 123 ms by bot id=5835203251
+2023-11-30 23:15:12,833 - INFO - Update id=954857475 is handled. Duration 511 ms by bot id=5835203251
+2023-11-30 23:15:14,673 - INFO - Update id=954857476 is handled. Duration 100 ms by bot id=5835203251
+2023-11-30 23:15:15,477 - INFO - BEGIN (implicit)
+2023-11-30 23:15:15,477 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:15:15,477 - INFO - [cached since 7.942s ago] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 23:15:15,576 - INFO - ROLLBACK
+2023-11-30 23:15:15,577 - INFO - Update id=954857477 is handled. Duration 101 ms by bot id=5835203251
+2023-11-30 23:15:21,465 - INFO - Update id=954857478 is handled. Duration 733 ms by bot id=5835203251
+2023-11-30 23:15:45,205 - INFO - Update id=954857479 is handled. Duration 1518 ms by bot id=5835203251
+2023-11-30 23:18:17,469 - WARNING - Received SIGINT signal
+2023-11-30 23:18:17,469 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:18:17,469 - INFO - Polling stopped
+2023-11-30 23:18:19,969 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:18:20,319 - INFO - Start polling
+2023-11-30 23:18:20,400 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:18:27,106 - INFO - Update id=954857480 is handled. Duration 324 ms by bot id=5835203251
+2023-11-30 23:18:39,330 - INFO - select pg_catalog.version()
+2023-11-30 23:18:39,330 - INFO - [raw sql] ()
+2023-11-30 23:18:39,334 - INFO - select current_schema()
+2023-11-30 23:18:39,334 - INFO - [raw sql] ()
+2023-11-30 23:18:39,335 - INFO - show standard_conforming_strings
+2023-11-30 23:18:39,335 - INFO - [raw sql] ()
+2023-11-30 23:18:39,336 - INFO - BEGIN (implicit)
+2023-11-30 23:18:39,341 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:18:39,342 - INFO - [generated in 0.00043s] (973765811,)
+2023-11-30 23:18:39,345 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:18:39,345 - INFO - [generated in 0.00018s] (973765811,)
+2023-11-30 23:18:39,347 - INFO - COMMIT
+2023-11-30 23:18:39,500 - INFO - Update id=954857481 is handled. Duration 197 ms by bot id=5835203251
+2023-11-30 23:19:31,116 - INFO - BEGIN (implicit)
+2023-11-30 23:19:31,116 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:19:31,116 - INFO - [cached since 51.78s ago] (973765811,)
+2023-11-30 23:19:31,119 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:19:31,119 - INFO - [cached since 51.77s ago] (973765811,)
+2023-11-30 23:19:31,119 - INFO - COMMIT
+2023-11-30 23:19:31,411 - INFO - Update id=954857482 is handled. Duration 297 ms by bot id=5835203251
+2023-11-30 23:19:42,285 - INFO - Update id=954857483 is handled. Duration 107 ms by bot id=5835203251
+2023-11-30 23:19:48,258 - INFO - Update id=954857484 is handled. Duration 145 ms by bot id=5835203251
+2023-11-30 23:20:10,878 - INFO - Update id=954857485 is handled. Duration 440 ms by bot id=5835203251
+2023-11-30 23:20:12,352 - INFO - Update id=954857486 is handled. Duration 105 ms by bot id=5835203251
+2023-11-30 23:20:13,209 - INFO - Update id=954857487 is handled. Duration 140 ms by bot id=5835203251
+2023-11-30 23:20:13,846 - INFO - Update id=954857488 is handled. Duration 106 ms by bot id=5835203251
+2023-11-30 23:20:14,584 - INFO - Update id=954857489 is handled. Duration 139 ms by bot id=5835203251
+2023-11-30 23:20:18,165 - INFO - Update id=954857490 is handled. Duration 151 ms by bot id=5835203251
+2023-11-30 23:20:18,380 - INFO - Update id=954857491 is handled. Duration 286 ms by bot id=5835203251
+2023-11-30 23:20:19,527 - INFO - Update id=954857492 is handled. Duration 103 ms by bot id=5835203251
+2023-11-30 23:20:25,547 - INFO - Update id=954857493 is handled. Duration 113 ms by bot id=5835203251
+2023-11-30 23:21:11,418 - INFO - BEGIN (implicit)
+2023-11-30 23:21:11,419 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:21:11,419 - INFO - [cached since 152.1s ago] (973765811,)
+2023-11-30 23:21:11,420 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:21:11,420 - INFO - [cached since 152.1s ago] (973765811,)
+2023-11-30 23:21:11,420 - INFO - COMMIT
+2023-11-30 23:21:11,816 - INFO - Update id=954857494 is handled. Duration 398 ms by bot id=5835203251
+2023-11-30 23:21:19,888 - INFO - BEGIN (implicit)
+2023-11-30 23:21:19,889 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 23:21:19,890 - INFO - [generated in 0.00031s] ()
+2023-11-30 23:21:20,023 - INFO - ROLLBACK
+2023-11-30 23:21:20,023 - INFO - Update id=954857495 is handled. Duration 136 ms by bot id=5835203251
+2023-11-30 23:21:23,929 - INFO - Update id=954857496 is handled. Duration 2700 ms by bot id=5835203251
+2023-11-30 23:21:25,081 - INFO - Update id=954857497 is handled. Duration 547 ms by bot id=5835203251
+2023-11-30 23:21:25,565 - INFO - Update id=954857498 is handled. Duration 130 ms by bot id=5835203251
+2023-11-30 23:21:26,727 - INFO - Update id=954857499 is handled. Duration 147 ms by bot id=5835203251
+2023-11-30 23:21:27,730 - INFO - Update id=954857500 is handled. Duration 300 ms by bot id=5835203251
+2023-11-30 23:21:28,835 - INFO - Update id=954857501 is handled. Duration 149 ms by bot id=5835203251
+2023-11-30 23:21:32,532 - INFO - Update id=954857502 is handled. Duration 1215 ms by bot id=5835203251
+2023-11-30 23:21:34,207 - INFO - Update id=954857503 is handled. Duration 140 ms by bot id=5835203251
+2023-11-30 23:21:35,490 - INFO - Update id=954857504 is handled. Duration 117 ms by bot id=5835203251
+2023-11-30 23:21:36,145 - INFO - BEGIN (implicit)
+2023-11-30 23:21:36,147 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:21:36,147 - INFO - [generated in 0.00015s] (UUID('54c865e5-6642-45f2-b883-0e762787a8a3'),)
+2023-11-30 23:21:36,282 - INFO - ROLLBACK
+2023-11-30 23:21:36,282 - INFO - Update id=954857505 is handled. Duration 137 ms by bot id=5835203251
+2023-11-30 23:22:03,179 - INFO - Update id=954857506 is handled. Duration 1298 ms by bot id=5835203251
+2023-11-30 23:22:04,920 - INFO - Update id=954857507 is handled. Duration 205 ms by bot id=5835203251
+2023-11-30 23:22:05,520 - INFO - BEGIN (implicit)
+2023-11-30 23:22:05,520 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:22:05,520 - INFO - [cached since 29.37s ago] (UUID('bbab4093-a33e-41a0-991a-0d6e79e26cba'),)
+2023-11-30 23:22:05,677 - INFO - ROLLBACK
+2023-11-30 23:22:05,677 - INFO - Update id=954857508 is handled. Duration 159 ms by bot id=5835203251
+2023-11-30 23:22:07,223 - INFO - Update id=954857509 is handled. Duration 399 ms by bot id=5835203251
+2023-11-30 23:22:08,633 - INFO - Update id=954857510 is handled. Duration 228 ms by bot id=5835203251
+2023-11-30 23:22:10,901 - INFO - Update id=954857511 is handled. Duration 167 ms by bot id=5835203251
+2023-11-30 23:22:23,350 - INFO - Update id=954857512 is handled. Duration 446 ms by bot id=5835203251
+2023-11-30 23:22:37,348 - INFO - Update id=954857513 is handled. Duration 1359 ms by bot id=5835203251
+2023-11-30 23:22:42,142 - INFO - Update id=954857514 is handled. Duration 143 ms by bot id=5835203251
+2023-11-30 23:23:36,028 - INFO - Update id=954857515 is handled. Duration 5412 ms by bot id=5835203251
+2023-11-30 23:23:38,182 - INFO - Update id=954857516 is handled. Duration 186 ms by bot id=5835203251
+2023-11-30 23:23:42,073 - INFO - Update id=954857517 is handled. Duration 168 ms by bot id=5835203251
+2023-11-30 23:23:46,509 - INFO - Update id=954857518 is handled. Duration 115 ms by bot id=5835203251
+2023-11-30 23:23:47,951 - INFO - Update id=954857519 is handled. Duration 97 ms by bot id=5835203251
+2023-11-30 23:24:38,854 - INFO - Update id=954857520 is handled. Duration 255 ms by bot id=5835203251
+2023-11-30 23:24:40,704 - INFO - Update id=954857521 is handled. Duration 100 ms by bot id=5835203251
+2023-11-30 23:26:03,030 - INFO - Update id=954857522 is handled. Duration 290 ms by bot id=5835203251
+2023-11-30 23:26:04,483 - INFO - Update id=954857523 is handled. Duration 129 ms by bot id=5835203251
+2023-11-30 23:26:18,040 - INFO - Update id=954857524 is not handled. Duration 1 ms by bot id=5835203251
+2023-11-30 23:26:22,462 - INFO - Update id=954857525 is not handled. Duration 1 ms by bot id=5835203251
+2023-11-30 23:27:02,149 - INFO - BEGIN (implicit)
+2023-11-30 23:27:02,149 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:27:02,150 - INFO - [cached since 502.8s ago] (973765811,)
+2023-11-30 23:27:02,152 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:27:02,152 - INFO - [cached since 502.8s ago] (973765811,)
+2023-11-30 23:27:02,153 - INFO - COMMIT
+2023-11-30 23:27:02,476 - INFO - Update id=954857526 is handled. Duration 328 ms by bot id=5835203251
+2023-11-30 23:27:08,578 - INFO - BEGIN (implicit)
+2023-11-30 23:27:08,578 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:27:08,578 - INFO - [cached since 509.2s ago] (973765811,)
+2023-11-30 23:27:08,580 - INFO - UPDATE content.client SET group_subscription=$1::BOOLEAN, channel_subscription=$2::BOOLEAN, modified=$3::TIMESTAMP WITH TIME ZONE WHERE content.client.id = $4::INTEGER
+2023-11-30 23:27:08,581 - INFO - [generated in 0.00031s] (True, True, datetime.datetime(2023, 11, 30, 19, 27, 8, 580807), 973765811)
+2023-11-30 23:27:08,582 - INFO - COMMIT
+2023-11-30 23:27:08,697 - INFO - Update id=954857527 is handled. Duration 119 ms by bot id=5835203251
+2023-11-30 23:27:13,306 - INFO - BEGIN (implicit)
+2023-11-30 23:27:13,306 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 23:27:13,306 - INFO - [cached since 353.4s ago] ()
+2023-11-30 23:27:13,411 - INFO - ROLLBACK
+2023-11-30 23:27:13,411 - INFO - Update id=954857528 is handled. Duration 107 ms by bot id=5835203251
+2023-11-30 23:27:35,818 - INFO - BEGIN (implicit)
+2023-11-30 23:27:35,818 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 23:27:35,819 - INFO - [cached since 375.9s ago] ()
+2023-11-30 23:27:36,103 - INFO - ROLLBACK
+2023-11-30 23:27:36,104 - INFO - Update id=954857529 is handled. Duration 288 ms by bot id=5835203251
+2023-11-30 23:27:37,914 - INFO - Update id=954857530 is handled. Duration 488 ms by bot id=5835203251
+2023-11-30 23:27:39,882 - INFO - Update id=954857531 is handled. Duration 121 ms by bot id=5835203251
+2023-11-30 23:27:41,415 - INFO - Update id=954857532 is handled. Duration 204 ms by bot id=5835203251
+2023-11-30 23:27:44,149 - INFO - Update id=954857533 is handled. Duration 131 ms by bot id=5835203251
+2023-11-30 23:27:57,167 - INFO - Update id=954857534 is handled. Duration 109 ms by bot id=5835203251
+2023-11-30 23:28:42,244 - INFO - Update id=954857535 is handled. Duration 517 ms by bot id=5835203251
+2023-11-30 23:28:43,544 - INFO - BEGIN (implicit)
+2023-11-30 23:28:43,544 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:28:43,544 - INFO - [cached since 427.4s ago] (UUID('a3be6af9-cb39-4913-bf0e-008af0d8ec6c'),)
+2023-11-30 23:28:43,546 - ERROR - 'NoneType' object is not iterable
+2023-11-30 23:28:43,754 - INFO - ROLLBACK
+2023-11-30 23:28:43,754 - INFO - Update id=954857536 is handled. Duration 211 ms by bot id=5835203251
+2023-11-30 23:30:34,014 - INFO - Update id=954857537 is handled. Duration 389 ms by bot id=5835203251
+2023-11-30 23:30:35,262 - INFO - Update id=954857538 is handled. Duration 123 ms by bot id=5835203251
+2023-11-30 23:35:28,331 - WARNING - Received SIGINT signal
+2023-11-30 23:35:28,332 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:35:28,332 - INFO - Polling stopped
+2023-11-30 23:35:30,528 - DEBUG - Using selector: EpollSelector
+2023-11-30 23:35:33,640 - INFO - Start polling
+2023-11-30 23:35:33,719 - INFO - Run polling for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:35:34,722 - INFO - select pg_catalog.version()
+2023-11-30 23:35:34,722 - INFO - [raw sql] ()
+2023-11-30 23:35:34,723 - INFO - select current_schema()
+2023-11-30 23:35:34,723 - INFO - [raw sql] ()
+2023-11-30 23:35:34,724 - INFO - show standard_conforming_strings
+2023-11-30 23:35:34,724 - INFO - [raw sql] ()
+2023-11-30 23:35:34,724 - INFO - BEGIN (implicit)
+2023-11-30 23:35:34,729 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:35:34,729 - INFO - [generated in 0.00025s] (973765811,)
+2023-11-30 23:35:34,731 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:35:34,731 - INFO - [generated in 0.00015s] (973765811,)
+2023-11-30 23:35:34,732 - INFO - COMMIT
+2023-11-30 23:35:42,786 - INFO - Update id=954857539 is handled. Duration 8091 ms by bot id=5835203251
+2023-11-30 23:35:43,218 - INFO - Update id=954857540 is handled. Duration 111 ms by bot id=5835203251
+2023-11-30 23:35:44,865 - INFO - BEGIN (implicit)
+2023-11-30 23:35:44,866 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:35:44,866 - INFO - [generated in 0.00018s] ('54c865e5-6642-45f2-b883-0e762787a8a3',)
+2023-11-30 23:35:45,211 - INFO - ROLLBACK
+2023-11-30 23:35:45,211 - INFO - Update id=954857541 is handled. Duration 347 ms by bot id=5835203251
+2023-11-30 23:35:48,310 - INFO - Update id=954857542 is handled. Duration 654 ms by bot id=5835203251
+2023-11-30 23:35:58,626 - INFO - BEGIN (implicit)
+2023-11-30 23:35:58,626 - INFO - SELECT content.client.id AS content_client_id, content.client.name AS content_client_name, content.client.group_subscription AS content_client_group_subscription, content.client.channel_subscription AS content_client_channel_subscription, content.client.created AS content_client_created, content.client.modified AS content_client_modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:35:58,627 - INFO - [cached since 23.9s ago] (973765811,)
+2023-11-30 23:35:58,628 - INFO - SELECT content.client.id, content.client.name, content.client.group_subscription, content.client.channel_subscription, content.client.created, content.client.modified 
+FROM content.client 
+WHERE content.client.id = $1::INTEGER
+2023-11-30 23:35:58,628 - INFO - [cached since 23.9s ago] (973765811,)
+2023-11-30 23:35:58,629 - INFO - COMMIT
+2023-11-30 23:35:58,824 - INFO - Update id=954857543 is handled. Duration 200 ms by bot id=5835203251
+2023-11-30 23:36:00,730 - INFO - BEGIN (implicit)
+2023-11-30 23:36:00,731 - INFO - SELECT content.category.name, content.category.id 
+FROM content.category ORDER BY content.category.name
+2023-11-30 23:36:00,731 - INFO - [generated in 0.00016s] ()
+2023-11-30 23:36:00,832 - INFO - ROLLBACK
+2023-11-30 23:36:00,833 - INFO - Update id=954857544 is handled. Duration 104 ms by bot id=5835203251
+2023-11-30 23:36:13,591 - INFO - Update id=954857545 is handled. Duration 105 ms by bot id=5835203251
+2023-11-30 23:36:14,385 - INFO - BEGIN (implicit)
+2023-11-30 23:36:14,385 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:36:14,385 - INFO - [cached since 29.52s ago] ('54c865e5-6642-45f2-b883-0e762787a8a3',)
+2023-11-30 23:36:14,825 - INFO - ROLLBACK
+2023-11-30 23:36:14,826 - INFO - Update id=954857546 is handled. Duration 442 ms by bot id=5835203251
+2023-11-30 23:36:16,758 - INFO - Update id=954857547 is handled. Duration 105 ms by bot id=5835203251
+2023-11-30 23:36:17,927 - INFO - Update id=954857548 is handled. Duration 105 ms by bot id=5835203251
+2023-11-30 23:36:18,478 - INFO - BEGIN (implicit)
+2023-11-30 23:36:18,478 - INFO - SELECT content.subcategory.name, content.subcategory.id 
+FROM content.subcategory 
+WHERE content.subcategory.category_id = $1::UUID ORDER BY content.subcategory.name
+2023-11-30 23:36:18,478 - INFO - [cached since 33.61s ago] ('bbab4093-a33e-41a0-991a-0d6e79e26cba',)
+2023-11-30 23:36:18,597 - INFO - ROLLBACK
+2023-11-30 23:36:18,597 - INFO - Update id=954857549 is handled. Duration 120 ms by bot id=5835203251
+2023-11-30 23:36:19,826 - INFO - Update id=954857550 is handled. Duration 102 ms by bot id=5835203251
+2023-11-30 23:36:22,539 - INFO - Update id=954857551 is handled. Duration 597 ms by bot id=5835203251
+2023-11-30 23:36:25,594 - INFO - Update id=954857552 is handled. Duration 693 ms by bot id=5835203251
+2023-11-30 23:36:34,985 - WARNING - Received SIGINT signal
+2023-11-30 23:36:34,986 - INFO - Polling stopped for bot @TeleBotUrl_bot id=5835203251 - 'TeleBotUrl'
+2023-11-30 23:36:34,986 - INFO - Polling stopped

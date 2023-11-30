@@ -6,7 +6,7 @@ class Paginator():
         i = 0
         while i < len(lst):
             page = lst[i:i+numbers]
-            d[page_number] = page
+            d[str(page_number)] = page
             page_number += 1
             i += numbers
         d['total_pages'] = page_number-1

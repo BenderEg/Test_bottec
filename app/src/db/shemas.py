@@ -60,3 +60,21 @@ class Category(Base):
 
     def __str__(self) -> str:
         return f'<Category {self.name}>'
+
+
+class SubCategory(Base):
+    __tablename__ = 'subcategory'
+
+    id: Mapped[uuid_pk]
+    name: Mapped[str] = mapped_column(nullable=False)
+    description: Mapped[str]
+    category_id: Mapped[uuid.UUID] = mapped_column(ForeignKey(
+        'category.id', ondelete='CASCADE'))
+    created: Mapped[timestamp]
+    modified: Mapped[timestamp_upd]
+
+    def __init__(self, name: str):
+        self.name = name
+
+    def __str__(self) -> str:
+        return f'Subcategory {self.name}>'

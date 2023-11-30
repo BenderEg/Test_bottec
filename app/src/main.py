@@ -7,7 +7,8 @@ from core.bot import get_bot_instance
 from core.menu import set_main_menu
 from core.config import settings
 from db import redis_storage
-from handlers import start, subscribe, catalog
+from handlers import start, subscribe, catalog, subcategory, \
+    bucket
 
 async def main() -> None:
 
@@ -22,6 +23,9 @@ async def main() -> None:
     dp.include_router(start.router)
     dp.include_router(subscribe.router)
     dp.include_router(catalog.router)
+    dp.include_router(subcategory.router)
+    dp.include_router(bucket.router)
+
     dp.message.middleware(DIMiddleware())
     dp.callback_query.middleware(DIMiddleware())
 

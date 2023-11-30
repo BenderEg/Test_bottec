@@ -23,5 +23,6 @@ class Settings(BaseSettings):
     owners_id: str = ''
     #schema_db: str
     categories: int = 10
+    cache_exp: int = 3600
 
 settings = Settings()
