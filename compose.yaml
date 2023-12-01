@@ -3,6 +3,8 @@ services:
     test_task_db:
       container_name: test_task_db
       image: postgres:latest
+      ports:
+          - 5433:5432
       env_file:
           - .env
       volumes:
@@ -32,40 +34,48 @@ services:
             retries: 5
 
     test_task_django:
-        build: django/
+        build: ./django
         container_name: test_task_django
         image: test_task_django
+        ports:
+            - 80:80
         env_file:
             - .env
         volumes:
-            - /media:app/media
+            - ./media:/django/media
         networks:
             - test_task
         depends_on:
-            test_task_db: service_healthy
-            test_task_redis: service_healthy
+            test_task_db:
+                condition: service_healthy
+            test_task_redis:
+                condition: service_healthy
 
     test_task_app:
-        build: app/
+        build: ./app
         container_name: test_task_app
         image: test_task_app
         env_file:
             - .env
         volumes:
-            - /logs:app/logs
-            - /media:app/media
-            - /orders:app/orders
+            - ./log/:/app/log
+            - ./media/:/app/media
+            - ./orders/:/app/orders
         networks:
             - test_task
         depends_on:
-            test_task_db: service_healthy
-            test_task_redis: service_healthy
+            test_task_db:
+                condition: service_healthy
+            test_task_redis:
+                condition: service_healthy
+            test_task_django:
+                condition: service_started
 
-volumes:
-    test_task_db:
-        name: test_task_db
-    test_task_redis:
-        name: test_task_redis
+#volumes:
+#    test_task_db:
+#        name: test_task_db
+#    test_task_redis:
+#        name: test_task_redis
 
 networks:
     test_task:

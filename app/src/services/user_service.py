@@ -12,7 +12,8 @@ class UserService(BaseService):
         else:
             user = User(id=id, name=name)
             self.db.add(user)
-        await self.db.refresh(user)
+            await self.db.flush()
+            await self.db.refresh(user)
         await self.db.commit()
         return user
 
