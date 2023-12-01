@@ -8,7 +8,7 @@ from core.menu import set_main_menu
 from core.config import settings
 from db import redis_storage
 from handlers import start, subscribe, catalog, subcategory, \
-    bucket
+    bucket, item, show_item_info
 
 async def main() -> None:
 
@@ -24,6 +24,8 @@ async def main() -> None:
     dp.include_router(subscribe.router)
     dp.include_router(catalog.router)
     dp.include_router(subcategory.router)
+    dp.include_router(item.router)
+    dp.include_router(show_item_info.router)
     dp.include_router(bucket.router)
 
     dp.message.middleware(DIMiddleware())

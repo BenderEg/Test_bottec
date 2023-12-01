@@ -1,7 +1,3 @@
-from typing import List
-
-from aiogram.utils.keyboard import InlineKeyboardBuilder
-
 from core.const import base_buttons
 from db.shemas import User
 from services.base_service import BaseService
@@ -54,13 +50,3 @@ class UserService(BaseService):
         user.group_subscription = True
         user.channel_subscription = True
         await self.db.commit()
-
-    def create_start_builder(self, objects: List[tuple] | tuple) \
-        -> InlineKeyboardBuilder:
-        builder = InlineKeyboardBuilder()
-        for ele in objects:
-            button_text, callback = ele
-            builder.button(text=button_text,
-                           callback_data=callback)
-        builder.adjust(1)
-        return builder

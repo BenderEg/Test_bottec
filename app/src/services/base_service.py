@@ -1,4 +1,7 @@
+from typing import List
+
 from aiogram.fsm.context import FSMContext
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from db.shemas import User
@@ -23,7 +26,18 @@ class BaseService():
             'item': '1',
             'category_uuid': None,
             'subcategory_uuid': None,
+            'current_item': None,
             'bucket': {}
         }
         await state.set_data(data)
         return data
+
+    def create_start_builder(self, objects: List[tuple] | tuple) \
+        -> InlineKeyboardBuilder:
+        builder = InlineKeyboardBuilder()
+        for ele in objects:
+            button_text, callback = ele
+            builder.button(text=button_text,
+                           callback_data=callback)
+        builder.adjust(1)
+        return builder

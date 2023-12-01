@@ -11,10 +11,7 @@ from models.filters import CatalogFilter, BackFilter, ForwardFilter
 
 router: Router = Router()
 
-@router.callback_query(StateFilter(default_state,
-                                   FSMmodel.catalog,
-                                   FSMmodel.subcategory),
-                       CatalogFilter())
+@router.callback_query(CatalogFilter())
 async def show_catalog(callback: CallbackQuery,
                        state: FSMContext,
                        service: product_service,

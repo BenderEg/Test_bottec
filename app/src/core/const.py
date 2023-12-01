@@ -6,3 +6,11 @@ start_callback = ('catalog', 'bucket', 'faq', 'group_subscription',
 
 subscriptions = ('group_subscription',
                  'channel_subscription', 'subscribe')
+
+show_image_buttons = (('Добавить в корзину', 'add_to_bucket'),
+                      ('Вернуться к выбору товаров', 'back_to_item'),
+                      ('Корзина', 'bucket'))
+
+confirm_buttons = (('Добавить товар в корзину', 'yes'),
+                      ('Вернуться к выбору товаров', 'back_to_item'),
+                      ('Просмотр корзины', 'bucket'))

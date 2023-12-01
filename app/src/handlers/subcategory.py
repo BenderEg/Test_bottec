@@ -7,13 +7,13 @@ from aiogram.types import CallbackQuery
 from core.dependencies import product_service, redis_client
 from core.logger import logging
 from models.state import FSMmodel
-from models.filters import CatalogFilter, BackFilter, ForwardFilter, UuidFilter
+from models.filters import BackFilter, ForwardFilter, \
+    UuidFilter, BackToCategoryFilter
 
 router: Router = Router()
 
 
-@router.callback_query(StateFilter(FSMmodel.catalog,
-                                   default_state),
+@router.callback_query(StateFilter(FSMmodel.catalog),
                        UuidFilter())
 async def choosen_category(callback: CallbackQuery,
                            value: str,
@@ -31,9 +31,9 @@ async def choosen_category(callback: CallbackQuery,
             keybord, page_number = service.prepare_reply(pages=subcategories,
                                                         page_number=page_number,
                                                         context='subcategory')
+            await state.update_data(category_uuid=value)
             await callback.message.edit_text(text='Выберите подкатегорию товара:',
                                             reply_markup=keybord.as_markup())
-            await state.update_data(category_uuid=value)
             await state.set_state(FSMmodel.subcategory)
         else:
             await callback.message.edit_text(text='Категория пуста.')
@@ -73,10 +73,10 @@ async def command_forward(callback: CallbackQuery,
 
 @router.callback_query(StateFilter(FSMmodel.subcategory),
                        BackFilter())
-async def command_forward(callback: CallbackQuery,
-                          state: FSMContext,
-                          service: product_service,
-                          red_client: redis_client):
+async def command_back(callback: CallbackQuery,
+                       state: FSMContext,
+                       service: product_service,
+                       red_client: redis_client):
     try:
         user_data = await service.get_user_data(state)
         value = user_data.get('category_uuid')
@@ -97,3 +97,15 @@ async def command_forward(callback: CallbackQuery,
     except Exception as err:
         logging.error(err)
         await callback.message.edit_text(text='Сервис временно не доступен :(...')
+
+
+@router.callback_query(StateFilter(FSMmodel.item),
+                       BackToCategoryFilter())
+async def back_to_subcategory(callback: CallbackQuery,
+                              state: FSMContext,
+                              service: product_service,
+                              red_client: redis_client):
+
+    user_data = await service.get_user_data(state)
+    category = user_data.get('category_uuid')
+    await choosen_category(callback, category, state, service, red_client)
