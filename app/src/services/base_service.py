@@ -27,7 +27,8 @@ class BaseService():
             'category_uuid': None,
             'subcategory_uuid': None,
             'current_item': None,
-            'bucket': {}
+            'bucket': {},
+            'adress': None
         }
         await state.set_data(data)
         return data

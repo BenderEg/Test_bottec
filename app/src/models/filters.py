@@ -36,6 +36,30 @@ class AddToBucketFilter(BaseFilter):
             return True
         return False
 
+class BucketDeleteFilter(BaseFilter):
+    async def __call__(self, callback: CallbackQuery) -> bool:
+        if callback.data in ('delete_item', 'clear_bucket'):
+            return {'value': callback.data}
+        return False
+
+class OrderFilter(BaseFilter):
+    async def __call__(self, callback: CallbackQuery) -> bool:
+        if callback.data == 'order':
+            return True
+        return False
+
+class CheckAdressFilter(BaseFilter):
+    async def __call__(self, callback: CallbackQuery) -> bool:
+        if callback.data == 'change_adress':
+            return True
+        return False
+
+class PaymentFilter(BaseFilter):
+    async def __call__(self, callback: CallbackQuery) -> bool:
+        if callback.data == 'payment':
+            return True
+        return False
+
 class ConfirmationFilter(BaseFilter):
     async def __call__(self, callback: CallbackQuery) -> bool:
         if callback.data == 'yes':
@@ -79,3 +103,9 @@ class UuidFilter(BaseFilter):
             return {'value': callback.data}
         except ValidationError:
             return False
+
+class TextFilter(BaseFilter):
+    async def __call__(self, message: Message) -> bool:
+        if message.text:
+            return {'value': message.text}
+        return False

@@ -143,8 +143,9 @@ class Order(UUIDMixin):
         CLOSED = 1, _('closed')
 
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    client_id = models.ForeignKey(Client, on_delete=models.PROTECT, editable=False)
+    client = models.ForeignKey(Client, on_delete=models.PROTECT, editable=False)
     items = models.ManyToManyField(Item, through='OrderItems', editable=False)
+    address = models.TextField(_('description'))
     status = models.BooleanField(_('status'), choices=Status.choices,
                                  blank=False, default=Status.OPEN)
 
@@ -160,8 +161,8 @@ class Order(UUIDMixin):
 
 class OrderItems(UUIDMixin, TimeStampedMixin):
 
-    order_id = models.ForeignKey(Order, on_delete=models.PROTECT)
-    item_id = models.ForeignKey(Item, on_delete=models.PROTECT)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.PROTECT)
     quantity = models.IntegerField(_('quantity'),
                                    validators=[MinValueValidator(1)],
                                    editable=False)

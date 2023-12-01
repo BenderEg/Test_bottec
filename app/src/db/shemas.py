@@ -43,7 +43,7 @@ class User(Base):
         self.name = name
 
     def __str__(self) -> str:
-        return f'<User {self.name}>'
+        return f'User {self.name}'
 
 
 class Category(Base):
@@ -59,7 +59,7 @@ class Category(Base):
         self.name = name
 
     def __str__(self) -> str:
-        return f'<Category {self.name}>'
+        return f'Category {self.name}'
 
 
 class SubCategory(Base):
@@ -77,7 +77,7 @@ class SubCategory(Base):
         self.name = name
 
     def __str__(self) -> str:
-        return f'Subcategory {self.name}>'
+        return f'Subcategory {self.name}'
 
 
 class Item(Base):
@@ -96,4 +96,43 @@ class Item(Base):
         self.name = name
 
     def __str__(self) -> str:
-        return f'Item {self.name}>'
+        return f'Item {self.name}'
+
+
+class Order(Base):
+    __tablename__ = 'order'
+
+    id: Mapped[uuid_pk]
+    client_id: Mapped[int]
+    address: Mapped[str]
+    status: Mapped[bool] = mapped_column(default=False)
+    created: Mapped[timestamp]
+
+    def __init__(self, client_id: int,
+                 address: str):
+        self.client_id = client_id
+        self.address = address
+
+    def __str__(self) -> str:
+        return f'Order {self.id} from {self.client_id}'
+
+
+class OrderItems(Base):
+    __tablename__ = 'order_item'
+
+    id: Mapped[uuid_pk]
+    order_id: Mapped[uuid.UUID]
+    item_id: Mapped[uuid.UUID]
+    quantity: Mapped[int]
+    created: Mapped[timestamp]
+    modified: Mapped[timestamp_upd]
+
+    def __init__(self, order_id: uuid.UUID,
+                 item_id: uuid.UUID,
+                 quantity: int):
+        self.order_id = order_id
+        self.item_id = item_id
+        self.quantity = quantity
+
+    def __str__(self) -> str:
+        return f'Order details {self.id}'

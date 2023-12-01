@@ -3,11 +3,13 @@ services:
     test_task_db:
       container_name: test_task_db
       image: postgres:latest
+      ports:
+          - 5433:5432
       env_file:
           - .env
       volumes:
           - ./db:/docker-entrypoint-initdb.d/
-          #- test_task_db:/var/lib/postgresql/data
+          - test_task_db:/var/lib/postgresql/data
       networks:
           - test_task
       healthcheck:
@@ -19,10 +21,12 @@ services:
     test_task_redis:
         container_name: test_task_redis
         image: redis:latest
+        ports:
+            - 6379:6379
         env_file:
             - .env
-        #volumes:
-        #    - test_task_redis:/data
+        volumes:
+            - test_task_redis:/data
         networks:
             - test_task
         healthcheck:
@@ -30,36 +34,6 @@ services:
             interval: 1s
             timeout: 3s
             retries: 5
-
-    test_task_django:
-        build: django/
-        container_name: test_task_django
-        image: test_task_django
-        env_file:
-            - .env
-        volumes:
-            - /media:app/media
-        networks:
-            - test_task
-        depends_on:
-            test_task_db: service_healthy
-            test_task_redis: service_healthy
-
-    test_task_app:
-        build: app/
-        container_name: test_task_app
-        image: test_task_app
-        env_file:
-            - .env
-        volumes:
-            - /logs:app/logs
-            - /media:app/media
-            - /orders:app/orders
-        networks:
-            - test_task
-        depends_on:
-            test_task_db: service_healthy
-            test_task_redis: service_healthy
 
 volumes:
     test_task_db:
