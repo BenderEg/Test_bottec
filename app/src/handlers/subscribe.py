@@ -22,7 +22,7 @@ async def subscribe(callback: CallbackQuery,
             await service.add_channel_subscription(id)
         else:
             await service.add_all_subscription(id)
-        keybord = service.create_start_builder(base_buttons)
+        keybord = service.create_keybord(base_buttons)
         await callback.message.edit_text(text='Подписка успешно оформлена!',
                                          reply_markup=keybord.as_markup())
     except Exception as err:

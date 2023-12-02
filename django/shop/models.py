@@ -114,8 +114,8 @@ class Messages(UUIDMixin, TimeStampedMixin):
 class Client(TimeStampedMixin):
 
     class Subscription(models.IntegerChoices):
-        SUBSCRIBED = 0, _('subscribed')
-        NOT_SUBSCRIBED = 1, _('not subscribed')
+        SUBSCRIBED = 1, _('subscribed')
+        NOT_SUBSCRIBED = 0, _('not subscribed')
 
     id = models.IntegerField(primary_key=True, editable=False)
     name = models.CharField(_('name'), max_length=255)

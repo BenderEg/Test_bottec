@@ -1,8 +1,6 @@
-base_buttons = (('Каталог', 'catalog'), ('Корзина', 'bucket'),
-                ('FAQ', 'faq'))
+base_buttons = (('Каталог', 'catalog'), ('Корзина', 'bucket'))
 
-empty_bucket = (('Каталог', 'catalog'),
-                ('FAQ', 'faq'))
+empty_bucket = (('Каталог', 'catalog'),)
 
 start_callback = ('catalog', 'bucket', 'faq', 'group_subscription',
                  'channel_subscription', 'subscribe')
