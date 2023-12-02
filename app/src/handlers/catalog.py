@@ -24,11 +24,16 @@ async def show_catalog(callback: CallbackQuery,
             await service.put_pages_to_cache(value, categories, red_client)
         user_data = await service.get_user_data(state)
         page_number = int(user_data.get('catalog'))
-        keybord, page_number = service.prepare_reply(pages=categories,
-                                                     page_number=page_number)
-        await callback.message.edit_text(text='Выберите категорию товаров:',
-                                         reply_markup=keybord.as_markup())
-        await state.set_state(FSMmodel.catalog)
+        if categories:
+            keybord, page_number = service.prepare_reply(pages=categories,
+                                                        page_number=page_number)
+            await callback.message.edit_text(text='Выберите категорию товаров:',
+                                            reply_markup=keybord.as_markup())
+            await state.set_state(FSMmodel.catalog)
+        else:
+            keybord = service.create_keybord(base_buttons)
+            await callback.message.edit_text(text='Нет доступных категорий.',
+                                             reply_markup=keybord.as_markup())
     except Exception as err:
         logging.error(err)
         keybord = service.create_keybord(base_buttons)

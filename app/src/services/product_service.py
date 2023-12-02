@@ -113,13 +113,13 @@ class ProductService(BaseService, Paginator):
             builder.row(*navigation_buttons)
         if context and context == 'subcategory':
             builder.row(*[InlineKeyboardButton(
-                text='Вернуться к выбору категории.',
+                text='Вернуться к выбору категории',
                 callback_data='catalog')])
         if context and context == 'item':
             builder.row(*[InlineKeyboardButton(
-                text='Вернуться к выбору подкатегории.',
+                text='Вернуться к выбору подкатегории',
                 callback_data='back_to_subcategory')])
         builder.row(*[InlineKeyboardButton(
-                text='Перейти в корзину.',
+                text='Перейти в корзину',
                 callback_data='bucket')])
         return builder, page_number

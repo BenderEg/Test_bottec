@@ -14,6 +14,12 @@ show_image_buttons = (('Добавить в корзину', 'add_to_bucket'),
                       ('Вернуться к выбору товаров', 'back_to_item'),
                       ('Корзина', 'bucket'))
 
+empty_items = (('Вернуться к выбору подкатегории', 'back_to_subcategory'),
+                ('Корзина', 'bucket'))
+
+empty_subcategoty = (('Вернуться к выбору категории', 'catalog'),
+                    ('Корзина', 'bucket'))
+
 add_quantity_buttons = (('Вернуться к выбору товаров', 'back_to_item'),
                         ('Корзина', 'bucket'))
 

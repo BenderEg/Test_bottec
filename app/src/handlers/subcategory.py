@@ -3,7 +3,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from core.const import base_buttons
+from core.const import base_buttons, empty_subcategoty
 from core.dependencies import product_service, redis_client
 from core.logger import logging
 from models.state import FSMmodel
@@ -36,7 +36,9 @@ async def choosen_category(callback: CallbackQuery,
                                             reply_markup=keybord.as_markup())
             await state.set_state(FSMmodel.subcategory)
         else:
-            await callback.message.edit_text(text='Категория пуста.')
+            keybord = service.create_keybord(empty_subcategoty)
+            await callback.message.edit_text(text='Подкатегория пуста.',
+                                             reply_markup=keybord.as_markup())
 
     except Exception as err:
         logging.error(err)
@@ -108,7 +110,8 @@ async def command_back(callback: CallbackQuery,
                                          reply_markup=keybord.as_markup())
 
 
-@router.callback_query(StateFilter(FSMmodel.item),
+@router.callback_query(StateFilter(FSMmodel.item,
+                                   FSMmodel.subcategory),
                        BackToCategoryFilter())
 async def back_to_subcategory(callback: CallbackQuery,
                               state: FSMContext,
