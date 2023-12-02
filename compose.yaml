@@ -44,6 +44,7 @@ services:
             - .env
         volumes:
             - ./media:/django/media
+            - ./log/:/django/log
         networks:
             - test_task
         depends_on:

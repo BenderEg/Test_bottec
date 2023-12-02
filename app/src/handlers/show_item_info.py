@@ -36,8 +36,8 @@ async def choosen_item(callback: CallbackQuery,
             #await callback.message.answer_photo(photo=image, caption=msg)
             await callback.message.edit_text(text=msg,
                                              reply_markup=keybord.as_markup(),
-                                             #parse_mode='html',
-                                             #disable_web_page_preview=False
+                                             parse_mode='html',
+                                             disable_web_page_preview=False
                                              )
     except Exception as err:
         logging.error(err)
