@@ -1,0 +1,37 @@
+# Postgres config
+
+POSTGRES_PASSWORD=пароль от базы данны
+POSTGRES_USER=имя пользователя
+POSTGRES_DB=наименование базы данных
+HOST=имя контейнера с базой
+PORT=порт базы данных
+
+# Redis config
+
+RED_HOST=имя контейнера с базой Redis
+RED_PORT=порт Redis
+RED_DB=номер базы Redis
+
+# Django security key
+
+SECURITYKEY=ключ Django приложения
+DEBUG=параметр Django
+ALLOWED_HOSTS=перень разрешенных хостов
+DJANGO_SUPERUSER_PASSWORD=пароль superuser
+DJANGO_SUPERUSER_EMAIL=адрес почты superuser
+DJANGO_SUPERUSER_USERNAME=имя superuser
+
+# Telegram
+
+TOKEN=токен телеграм бота
+SERVER_LINK=домен для запуска в продакшене
+ECHO=параметр SQLalchemy
+
+# Pagination config
+
+CATEGORIES=размер страницы для пагинации
+CACHE_EXP=время жизни для кэширования
+
+# logging
+
+LOG_LEVEL=уровень логгирования
