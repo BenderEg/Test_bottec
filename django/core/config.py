@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     securitykey: str
     debug: bool
     allowed_hosts: str
+    log_level: str = 'DEBUG'
 
     @property
     def allowed_hosts_list(self):

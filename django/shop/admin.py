@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Item, Category, SubCategory, Messages, Client, \
-    OrderItems, Order, Qustions
+    OrderItems, Order, Questions
 
 
 @admin.register(Item)
@@ -69,7 +69,7 @@ class OrderItemsAdmin(admin.ModelAdmin):
     list_per_page = 20
 
 
-@admin.register(Qustions)
+@admin.register(Questions)
 class QustionsAdmin(admin.ModelAdmin):
     search_fields = ('question', 'answer')
     list_display = ('question', 'answer', 'status')

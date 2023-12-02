@@ -1,3 +1,5 @@
+import logging
+
 from os import path
 from pathlib import Path
 
@@ -12,6 +14,11 @@ include(
     'components/middleware.py',
     'components/pass_validators.py'
 )
+
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
+                    level=settings.log_level,
+                    filename='log/django.log'
+                    )
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
