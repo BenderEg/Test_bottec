@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     debug: bool
     allowed_hosts: str
     log_level: str = 'DEBUG'
+    server_link: str
 
     @property
     def allowed_hosts_list(self):

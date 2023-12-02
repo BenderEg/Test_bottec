@@ -28,6 +28,9 @@ DEBUG = settings.debug
 
 ALLOWED_HOSTS = settings.allowed_hosts_list
 
+if settings.server_link:
+    ALLOWED_HOSTS.append(settings.server_link)
+
 ROOT_URLCONF = 'config.urls'
 
 WSGI_APPLICATION = 'config.wsgi.application'
