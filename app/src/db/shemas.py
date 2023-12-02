@@ -1,12 +1,10 @@
 import uuid
 
-from datetime import datetime, date
+from datetime import datetime
 from typing import Annotated
 
-from sqlalchemy import String, ForeignKey, TIMESTAMP, UniqueConstraint
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy.sql import func
-from sqlalchemy.sql import expression
+from sqlalchemy import ForeignKey, TIMESTAMP
+from sqlalchemy.orm import Mapped, mapped_column
 
 from db.postgres import Base
 
@@ -133,3 +131,20 @@ class OrderItems(Base):
 
     def __str__(self) -> str:
         return f'Order details {self.id}'
+
+
+class Question(Base):
+    __tablename__ = 'questions'
+
+    id: Mapped[uuid_pk]
+    question: Mapped[str]
+    answer: Mapped[str]
+    status: Mapped[bool] = mapped_column(default=False)
+    created: Mapped[timestamp]
+    modified: Mapped[timestamp_upd]
+
+    def __init__(self, question: str):
+        self.question = question
+
+    def __str__(self) -> str:
+        return f'{self.question}'

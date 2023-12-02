@@ -175,3 +175,24 @@ class OrderItems(UUIDMixin, TimeStampedMixin):
 
     def __str__(self) -> str:
         return str(self.id)
+
+
+class Questions(UUIDMixin, TimeStampedMixin):
+
+    class Status(models.IntegerChoices):
+        DRAFT = 0, _('draft')
+        PUBLISHED = 1, _('published')
+
+    question = models.CharField(_('question'), max_length=255)
+    answer = models.TextField(_('answer'), blank=True)
+    status = models.BooleanField(_('status'), choices=Status.choices,
+                                 blank=False, default=Status.DRAFT)
+
+    class Meta:
+
+        db_table = "content\".\"questions"
+        verbose_name = _('questions')
+        verbose_name_plural = _('questions')
+
+    def __str__(self) -> str:
+        return self.question

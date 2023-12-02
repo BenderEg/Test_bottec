@@ -8,7 +8,7 @@ from core.menu import set_main_menu
 from core.config import settings
 from db import redis_storage
 from handlers import start, subscribe, catalog, subcategory, \
-    bucket, item, show_item_info
+    bucket, item, show_item_info, faq
 
 async def main() -> None:
 
@@ -20,6 +20,7 @@ async def main() -> None:
 
     bot, dp = await get_bot_instance()
 
+    dp.include_router(faq.router)
     dp.include_router(start.router)
     dp.include_router(subscribe.router)
     dp.include_router(catalog.router)
@@ -30,6 +31,7 @@ async def main() -> None:
 
     dp.message.middleware(DIMiddleware())
     dp.callback_query.middleware(DIMiddleware())
+    dp.inline_query.middleware(DIMiddleware())
 
     await set_main_menu(bot)
     await bot.delete_webhook(drop_pending_updates=True)

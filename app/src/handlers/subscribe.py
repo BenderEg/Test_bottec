@@ -1,7 +1,5 @@
 from aiogram import Router
-from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import default_state
 from aiogram.types import CallbackQuery
 
 from core.const import base_buttons
@@ -11,8 +9,7 @@ from models.filters import SubscriptionFilter
 
 router: Router = Router()
 
-@router.callback_query(StateFilter(default_state),
-                       SubscriptionFilter())
+@router.callback_query(SubscriptionFilter())
 async def subscribe(callback: CallbackQuery,
                     service: user_service,
                     state: FSMContext,

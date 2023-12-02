@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Item, Category, SubCategory, Messages, Client, \
-    OrderItems, Order
+    OrderItems, Order, Qustions
 
 
 @admin.register(Item)
@@ -66,4 +66,13 @@ class OrderAdmin(admin.ModelAdmin):
 class OrderItemsAdmin(admin.ModelAdmin):
     list_display = ('id', 'item_id', 'created')
     ordering = ['created']
+    list_per_page = 20
+
+
+@admin.register(Qustions)
+class QustionsAdmin(admin.ModelAdmin):
+    search_fields = ('question', 'answer')
+    list_display = ('question', 'answer', 'status')
+    list_display_links = ('question', 'answer')
+    ordering = ['status', 'question']
     list_per_page = 20

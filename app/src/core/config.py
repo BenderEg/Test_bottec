@@ -20,8 +20,6 @@ class Settings(BaseSettings):
     port: int
     echo: bool = True
     log_level: str = 'DEBUG'
-    owners_id: str = ''
-    #schema_db: str
     categories: int = 10
     cache_exp: int = 3600
     server_link: str

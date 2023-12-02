@@ -6,7 +6,6 @@ from aiogram.types import InlineKeyboardButton
 from redis.asyncio import Redis
 from sqlalchemy import select
 
-from core.const import base_buttons
 from core.config import settings
 from db.shemas import Category, SubCategory, Item
 from models.pagintor import Paginator

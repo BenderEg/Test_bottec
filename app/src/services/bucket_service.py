@@ -3,7 +3,6 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from openpyxl import Workbook, load_workbook
 from sqlalchemy import insert
 
-from core.const import base_buttons
 from db.shemas import Order, OrderItems
 from services.base_service import BaseService
 
