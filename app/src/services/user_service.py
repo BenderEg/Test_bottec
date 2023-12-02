@@ -33,7 +33,7 @@ class UserService(BaseService):
                                'subscribe'))
         for ele in base_buttons:
             for_keybord.append(ele)
-        keybord = self.create_start_builder(for_keybord)
+        keybord = self.create_keybord(for_keybord)
         return msg, keybord
 
     async def add_channel_subscription(self, id: int) -> None:

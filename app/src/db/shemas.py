@@ -35,9 +35,6 @@ class User(Base):
     created: Mapped[timestamp]
     modified: Mapped[timestamp_upd]
 
-    #objects: Mapped[list['Object']] = relationship(lazy='selectin')
-    #categories: Mapped[list['Category']] = relationship(lazy='selectin')
-
     def __init__(self, id: int, name: str):
         self.id = id
         self.name = name

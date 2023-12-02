@@ -1,5 +1,6 @@
 from aiogram import Router
 from aiogram.filters import StateFilter
+from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import default_state
 from aiogram.types import CallbackQuery
 
@@ -14,6 +15,7 @@ router: Router = Router()
                        SubscriptionFilter())
 async def subscribe(callback: CallbackQuery,
                     service: user_service,
+                    state: FSMContext,
                     value: str):
     id = callback.from_user.id
     try:
@@ -28,4 +30,7 @@ async def subscribe(callback: CallbackQuery,
                                          reply_markup=keybord.as_markup())
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())

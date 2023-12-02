@@ -1,13 +1,11 @@
 from aiogram import Router
-from aiogram.filters import Command, CommandStart, StateFilter
+from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import default_state
 from aiogram.types import Message
 
+from core.const import base_buttons
 from core.dependencies import user_service
 from core.logger import logging
-#from core.lexicon import LEXICON_RU
-#from models.exeptions import ServerErrorExeption
 
 router: Router = Router()
 
@@ -23,4 +21,7 @@ async def process_start_command(message: Message,
                              reply_markup=keybord.as_markup())
     except Exception as err:
         logging.error(err)
-        await message.answer(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await message.answer(text='Повторите ввод команды.',
+                             reply_markup=keybord.as_markup())

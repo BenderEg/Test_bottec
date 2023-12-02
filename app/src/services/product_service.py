@@ -1,6 +1,4 @@
 from json import dumps, loads
-from typing import List
-from uuid import UUID
 
 from aiogram.fsm.context import FSMContext
 from aiogram.utils.keyboard import InlineKeyboardBuilder
@@ -93,7 +91,7 @@ class ProductService(BaseService, Paginator):
 
     def prepare_reply(self, pages: dict,
                       context: str = None,
-                      page_number: int = 1) -> InlineKeyboardBuilder:
+                      page_number: int = 1) -> tuple[InlineKeyboardBuilder, str]:
         builder = InlineKeyboardBuilder()
         total_pages = pages.get('total_pages')
         if page_number > int(total_pages):

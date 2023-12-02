@@ -1,9 +1,9 @@
 from aiogram import Router
 from aiogram.filters import StateFilter, Command
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import default_state
-from aiogram.types import CallbackQuery, Message
+from aiogram.types import CallbackQuery
 
+from core.const import base_buttons
 from core.dependencies import product_service, redis_client
 from core.logger import logging
 from models.state import FSMmodel
@@ -40,7 +40,10 @@ async def choosen_subcategory(callback: CallbackQuery,
             await callback.message.edit_text(text='Перечень товаров пуст.')
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.item),
@@ -67,7 +70,10 @@ async def command_forward(callback: CallbackQuery,
                                          reply_markup=keybord.as_markup())
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.item),
@@ -97,7 +103,8 @@ async def command_back(callback: CallbackQuery,
         await callback.message.edit_text(text='Сервис временно не доступен :(...')
 
 
-@router.callback_query(StateFilter(FSMmodel.show_item),
+@router.callback_query(StateFilter(FSMmodel.show_item,
+                                   FSMmodel.bucket),
                        BackToItemFilter())
 async def back_to_item(callback: CallbackQuery,
                        state: FSMContext,
@@ -108,6 +115,8 @@ async def back_to_item(callback: CallbackQuery,
     await choosen_subcategory(callback, subcategory, state, service, red_client)
 
 
+# убрать лучше
+'''
 @router.message(StateFilter(FSMmodel.show_item),
                        Command(commands='cancel'))
 async def process_cancel_command(message: CallbackQuery,
@@ -137,3 +146,4 @@ async def process_cancel_command(message: CallbackQuery,
     except Exception as err:
         logging.error(err)
         await message.answer(text='Сервис временно не доступен :(...')
+'''

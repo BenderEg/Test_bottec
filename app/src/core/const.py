@@ -14,6 +14,12 @@ show_image_buttons = (('Добавить в корзину', 'add_to_bucket'),
                       ('Вернуться к выбору товаров', 'back_to_item'),
                       ('Корзина', 'bucket'))
 
+add_quantity_buttons = (('Вернуться к выбору товаров', 'back_to_item'),
+                        ('Корзина', 'bucket'))
+
+all_items_deleted_from_bucket = (('Вернуться к выбору товаров', 'back_to_item'),
+                                 ('Каталог', 'catalog'))
+
 confirm_buttons = (('Добавить товар в корзину', 'yes'),
                    ('Вернуться к выбору товаров', 'back_to_item'),
                    ('Просмотр корзины', 'bucket'))

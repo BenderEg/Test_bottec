@@ -1,9 +1,9 @@
 from aiogram import Router
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import default_state
 from aiogram.types import CallbackQuery
 
+from core.const import base_buttons
 from core.dependencies import product_service, redis_client
 from core.logger import logging
 from models.state import FSMmodel
@@ -24,13 +24,17 @@ async def show_catalog(callback: CallbackQuery,
             await service.put_pages_to_cache(value, categories, red_client)
         user_data = await service.get_user_data(state)
         page_number = int(user_data.get('catalog'))
-        keybord, page_number = service.prepare_reply(pages=categories, page_number=page_number)
+        keybord, page_number = service.prepare_reply(pages=categories,
+                                                     page_number=page_number)
         await callback.message.edit_text(text='Выберите категорию товаров:',
                                          reply_markup=keybord.as_markup())
         await state.set_state(FSMmodel.catalog)
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.catalog),
@@ -47,14 +51,18 @@ async def command_forward(callback: CallbackQuery,
         user_data = await service.get_user_data(state)
         page_number = int(user_data.get('catalog'))
         page_number += 1
-        keybord, page_number = service.prepare_reply(pages=categories, page_number=page_number)
+        keybord, page_number = service.prepare_reply(pages=categories,
+                                                     page_number=page_number)
         await state.update_data(catalog = page_number)
         await callback.message.edit_text(text='Выберите категорию товаров:',
                                          reply_markup=keybord.as_markup())
         await state.set_state(FSMmodel.catalog)
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.catalog),
@@ -71,11 +79,15 @@ async def command_back(callback: CallbackQuery,
         user_data = await service.get_user_data(state)
         page_number = int(user_data.get('catalog'))
         page_number -= 1
-        keybord, page_number = service.prepare_reply(pages=categories, page_number=page_number)
+        keybord, page_number = service.prepare_reply(pages=categories,
+                                                     page_number=page_number)
         await state.update_data(catalog = page_number)
         await callback.message.edit_text(text='Выберите категорию товаров:',
                                          reply_markup=keybord.as_markup())
         await state.set_state(FSMmodel.catalog)
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())

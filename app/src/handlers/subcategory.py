@@ -1,9 +1,9 @@
 from aiogram import Router
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import default_state
 from aiogram.types import CallbackQuery
 
+from core.const import base_buttons
 from core.dependencies import product_service, redis_client
 from core.logger import logging
 from models.state import FSMmodel
@@ -40,7 +40,10 @@ async def choosen_category(callback: CallbackQuery,
 
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.subcategory),
@@ -68,7 +71,10 @@ async def command_forward(callback: CallbackQuery,
                                          reply_markup=keybord.as_markup())
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.subcategory),
@@ -96,7 +102,10 @@ async def command_back(callback: CallbackQuery,
                                          reply_markup=keybord.as_markup())
     except Exception as err:
         logging.error(err)
-        await callback.message.edit_text(text='Сервис временно не доступен :(...')
+        keybord = service.create_keybord(base_buttons)
+        await state.set_state(state=None)
+        await callback.message.edit_text(text='Повторите ввод команды.',
+                                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.item),
@@ -105,7 +114,6 @@ async def back_to_subcategory(callback: CallbackQuery,
                               state: FSMContext,
                               service: product_service,
                               red_client: redis_client):
-
     user_data = await service.get_user_data(state)
     category = user_data.get('category_uuid')
     await choosen_category(callback, category, state, service, red_client)

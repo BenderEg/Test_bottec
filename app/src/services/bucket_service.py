@@ -24,7 +24,7 @@ class BucketService(BaseService):
 
         sorted_bucket_list = sorted(bucket.items(), key=lambda x: x[0])
         lst = [(f"❌ {ele[1].get('name')}", ele[0]) for ele in sorted_bucket_list]
-        keybord = self.create_start_builder(lst)
+        keybord = self.create_keybord(lst)
         keybord.row(*[InlineKeyboardButton(text='Вернуться в корзину',
                                            callback_data='bucket')])
         return keybord

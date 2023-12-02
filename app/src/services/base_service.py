@@ -33,7 +33,7 @@ class BaseService():
         await state.set_data(data)
         return data
 
-    def create_start_builder(self, objects: List[tuple] | tuple) \
+    def create_keybord(self, objects: List[tuple] | tuple) \
         -> InlineKeyboardBuilder:
         builder = InlineKeyboardBuilder()
         for ele in objects:
