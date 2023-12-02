@@ -3,3 +3,4 @@ pydantic-settings==2.1.0
 django-split-settings==1.2.0
 psycopg2==2.9.9
 pillow==10.1.0
+uwsgi==2.0.23

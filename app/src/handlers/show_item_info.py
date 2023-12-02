@@ -5,6 +5,7 @@ from aiogram.fsm.state import default_state
 from aiogram.types import CallbackQuery, FSInputFile, Message
 
 from core.const import show_image_buttons, base_buttons, confirm_buttons
+from core.config import settings
 from core.dependencies import product_service, redis_client
 from core.logger import logging
 from models.state import FSMmodel
@@ -12,7 +13,6 @@ from models.filters import UuidFilter, AddToBucketFilter, DigitFilter, \
     ConfirmationFilter
 
 router: Router = Router()
-
 
 @router.callback_query(StateFilter(FSMmodel.item),
                        UuidFilter())
@@ -25,13 +25,20 @@ async def choosen_item(callback: CallbackQuery,
         item = await service.get_choosen_item(value, state, red_client)
         if item:
             msg = service.prepare_item_show_msg(item)
-            image = FSInputFile(path=f'media/{item.image_path}')
             keybord = service.create_start_builder(show_image_buttons)
             await state.set_state(FSMmodel.show_item)
             await state.update_data(current_item=item.model_dump())
-            await callback.message.answer_photo(image)
-            await callback.message.answer(text=msg,
-                                          reply_markup=keybord.as_markup())
+            url = f'{settings.server_link}/media/{item.image_path}'
+            msg += f'<a href="{url}">&#8205;</a>'
+            # альтернатива с отправкой photo+caption
+            # msg = service.prepare_item_show_msg(item)
+            # image = FSInputFile(path=f'media/{item.image_path}')
+            #await callback.message.answer_photo(photo=image, caption=msg)
+            await callback.message.edit_text(text=msg,
+                                             reply_markup=keybord.as_markup(),
+                                             parse_mode='html',
+                                             disable_web_page_preview=False
+                                             )
     except Exception as err:
         logging.error(err)
         await callback.message.edit_text(text='Сервис временно не доступен :(...')

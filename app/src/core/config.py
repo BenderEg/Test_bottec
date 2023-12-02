@@ -24,5 +24,6 @@ class Settings(BaseSettings):
     #schema_db: str
     categories: int = 10
     cache_exp: int = 3600
+    server_link: str
 
 settings = Settings()
