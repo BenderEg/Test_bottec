@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 18:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: shop/apps.py:7
+msgid "shop"
+msgstr ""
+
+#: shop/models.py:28 shop/models.py:46 shop/models.py:65 shop/models.py:121
+msgid "name"
+msgstr "онлайн-магазин"
+
+#: shop/models.py:29 shop/models.py:47 shop/models.py:66 shop/models.py:97
+#: shop/models.py:148
+msgid "description"
+msgstr "описание"
+
+#: shop/models.py:34 shop/models.py:35
+msgid "сategory"
+msgstr "категория"
+
+#: shop/models.py:53 shop/models.py:54
+msgid "subcategory"
+msgstr "подкатегория"
+
+#: shop/models.py:67
+msgid "image"
+msgstr "фото"
+
+#: shop/models.py:75 shop/models.py:76
+msgid "item"
+msgstr "товар"
+
+#: shop/models.py:88 shop/models.py:183
+msgid "draft"
+msgstr "не готово"
+
+#: shop/models.py:89 shop/models.py:184
+msgid "published"
+msgstr "готово к публикации"
+
+#: shop/models.py:93
+msgid "group"
+msgstr "группа"
+
+#: shop/models.py:94
+msgid "channel"
+msgstr "канал"
+
+#: shop/models.py:96
+msgid "header"
+msgstr "заголовок"
+
+#: shop/models.py:98
+msgid "target"
+msgstr "цель"
+
+#: shop/models.py:101 shop/models.py:149 shop/models.py:188
+msgid "status"
+msgstr "статус"
+
+#: shop/models.py:107 shop/models.py:108
+msgid "messages"
+msgstr "рассылки"
+
+#: shop/models.py:117
+msgid "subscribed"
+msgstr "подписка оформлена"
+
+#: shop/models.py:118
+msgid "not subscribed"
+msgstr "нет подписки"
+
+#: shop/models.py:122
+msgid "group_subscription"
+msgstr "подписка на группу"
+
+#: shop/models.py:125
+msgid "channel_subscription"
+msgstr "подписка на канал"
+
+#: shop/models.py:132 shop/models.py:133
+msgid "client"
+msgstr "клиент"
+
+#: shop/models.py:142
+msgid "open"
+msgstr "новый заказ"
+
+#: shop/models.py:143
+msgid "closed"
+msgstr "обработанный заказ"
+
+#: shop/models.py:155 shop/models.py:156
+msgid "order"
+msgstr "заказ"
+
+#: shop/models.py:166
+msgid "quantity"
+msgstr "количество"
+
+#: shop/models.py:173 shop/models.py:174
+msgid "order_item"
+msgstr "детали заказа"
+
+#: shop/models.py:186
+msgid "question"
+msgstr "вопрос"
+
+#: shop/models.py:187
+msgid "answer"
+msgstr "ответ"
+
+#: shop/models.py:194 shop/models.py:195
+msgid "questions"
+msgstr "часто задаваемые вопросы"

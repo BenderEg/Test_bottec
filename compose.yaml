@@ -3,8 +3,6 @@ services:
     test_task_db:
       container_name: test_task_db
       image: postgres:latest
-      ports:
-          - 5433:5432
       env_file:
           - .env
       volumes:
