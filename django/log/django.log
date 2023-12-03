@@ -1,0 +1,21 @@
+2023-12-02 17:21:14,441 - INFO - Watching for file changes with StatReloader
+2023-12-02 17:58:19,355 - INFO - Watching for file changes with StatReloader
+2023-12-02 18:01:53,632 - INFO - Watching for file changes with StatReloader
+2023-12-02 18:02:16,136 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:02:18,502 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:02:23,069 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:02:50,965 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:02:56,570 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:02:58,788 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:03:14,136 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:03:17,131 - WARNING - Not Found: /favicon.ico
+2023-12-02 18:03:50,110 - WARNING - Not Found: /favicon.ico
+2023-12-03 05:54:53,249 - INFO - Watching for file changes with StatReloader
+2023-12-03 05:55:00,220 - WARNING - Not Found: /
+2023-12-03 05:55:00,262 - WARNING - Not Found: /favicon.ico
+2023-12-03 05:56:39,826 - INFO - Watching for file changes with StatReloader
+2023-12-03 06:02:14,950 - INFO - /home/egor/Documents/Python/Test_tasks/Test_bottec/django/shop/models.py changed, reloading.
+2023-12-03 06:02:15,282 - INFO - Watching for file changes with StatReloader
+2023-12-03 06:03:10,683 - INFO - /home/egor/Documents/Python/Test_tasks/Test_bottec/django/shop/models.py changed, reloading.
+2023-12-03 06:03:10,988 - INFO - Watching for file changes with StatReloader
+2023-12-03 06:06:25,099 - WARNING - Not Found: /favicon.ico

@@ -3,7 +3,4 @@ __pycache__
 .venv
 poe*
 pypro*
-log
-media
-orders
 compose-dev*
