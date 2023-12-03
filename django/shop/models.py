@@ -145,7 +145,7 @@ class Order(UUIDMixin):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     client = models.ForeignKey(Client, on_delete=models.PROTECT, editable=False)
     items = models.ManyToManyField(Item, through='OrderItems', editable=False)
-    address = models.TextField(_('description'))
+    address = models.TextField(_('address'))
     status = models.BooleanField(_('status'), choices=Status.choices,
                                  blank=False, default=Status.OPEN)
 

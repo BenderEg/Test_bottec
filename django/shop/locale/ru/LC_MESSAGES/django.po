@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-02 18:31+0000\n"
+"POT-Creation-Date: 2023-12-03 06:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,16 +19,16 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: shop/apps.py:7
 msgid "shop"
-msgstr ""
+msgstr "онлайн-магазин"
 
 #: shop/models.py:28 shop/models.py:46 shop/models.py:65 shop/models.py:121
 msgid "name"
-msgstr "онлайн-магазин"
+msgstr "наименование"
 
 #: shop/models.py:29 shop/models.py:47 shop/models.py:66 shop/models.py:97
-#: shop/models.py:148
 msgid "description"
 msgstr "описание"
 
@@ -107,6 +107,10 @@ msgstr "новый заказ"
 #: shop/models.py:143
 msgid "closed"
 msgstr "обработанный заказ"
+
+#: shop/models.py:148
+msgid "address"
+msgstr "адрес"
 
 #: shop/models.py:155 shop/models.py:156
 msgid "order"

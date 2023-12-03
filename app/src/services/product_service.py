@@ -85,7 +85,8 @@ class ProductService(BaseService, Paginator):
 
     def prepare_item_show_msg(self, item: ItemOut) -> str:
         res = f'Наименование: {item.name}.\n'
-        res += f'Описание: {item.description}.'
+        if item.description:
+            res += f'Описание: {item.description}.'
         return res
 
     def prepare_reply(self, pages: dict,

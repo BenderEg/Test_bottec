@@ -49,13 +49,13 @@ class ClientAdmin(admin.ModelAdmin):
 
 class OrderItemsInline(admin.TabularInline):
     model = OrderItems
-    fields = ['item_id', 'quantity']
-    readonly_fields = ['item_id', 'quantity']
+    fields = ['item', 'quantity']
+    readonly_fields = ['item', 'quantity']
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'client_id', 'status', 'created')
+    list_display = ('id', 'client', 'status', 'created')
     ordering = ['created']
     list_per_page = 20
 
@@ -64,7 +64,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(OrderItems)
 class OrderItemsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'item_id', 'created')
+    list_display = ('id', 'item', 'created')
     ordering = ['created']
     list_per_page = 20
 
