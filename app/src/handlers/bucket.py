@@ -75,9 +75,9 @@ async def delete_item(callback: CallbackQuery,
         user_data = await state.get_data()
         bucket: dict = user_data.get('bucket')
         bucket.pop(value)
+        await state.update_data(bucket=bucket)
         if bucket:
             keybord = service.show_for_delete_items(bucket)
-            await state.update_data(bucket=bucket)
             await callback.message.edit_text(text='Выберите товар для удаления из корзины.',
                                              reply_markup=keybord.as_markup())
         else:
