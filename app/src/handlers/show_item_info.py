@@ -10,7 +10,7 @@ from core.dependencies import product_service, redis_client
 from core.logger import logging
 from models.state import FSMmodel
 from models.filters import UuidFilter, AddToBucketFilter, DigitFilter, \
-    ConfirmationFilter
+    ConfirmationFilter, TextFilter
 
 router: Router = Router()
 
@@ -85,6 +85,15 @@ async def confirm_quantity(message: Message,
         await state.set_state(state=None)
         await message.answer(text='Повторите ввод команды.',
                              reply_markup=keybord.as_markup())
+
+
+@router.message(StateFilter(FSMmodel.show_item),
+                TextFilter())
+async def wrong_input(message: Message,
+                           service: product_service):
+    keybord = service.create_keybord(add_quantity_buttons)
+    await message.answer(text='Значение должно быть целым числом.',
+                         reply_markup=keybord.as_markup())
 
 
 @router.callback_query(StateFilter(FSMmodel.show_item),

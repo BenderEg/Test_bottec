@@ -5,6 +5,7 @@ from aiogram.types import CallbackQuery, Message
 from pydantic import BaseModel, ValidationError
 
 from core.const import subscriptions
+from models.item import Digit
 
 class CatalogFilter(BaseFilter):
     async def __call__(self, callback: CallbackQuery) -> bool:
@@ -68,9 +69,11 @@ class ConfirmationFilter(BaseFilter):
 
 class DigitFilter(BaseFilter):
     async def __call__(self, message: Message) -> bool:
-        if message.text.isdigit():
+        try:
+            _ = Digit(value=message.text)
             return {'value': message.text}
-        return False
+        except ValidationError:
+            return False
 
 class SubscriptionFilter(BaseFilter):
     async def __call__(self, callback: CallbackQuery) -> bool:

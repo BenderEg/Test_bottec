@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 class ItemOut(BaseModel):
 
@@ -9,3 +9,8 @@ class ItemOut(BaseModel):
     name: str
     description: str
     image_path: str
+
+
+class Digit(BaseModel):
+
+    value: int = Field(ge=1)
